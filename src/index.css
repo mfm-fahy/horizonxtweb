@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-deep-navy: #0A1D3B;
+  --color-royal-blue: #1F3FAE;
+  --color-teal-blue: #00A7B5;
+  --color-sunrise-gold: #F5A623;
+  --color-slate-gray: #6B7280;
+  --color-light-gray: #F2F4F7;
+  --color-white: #FFFFFF;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0A1D3B;
+  color: #FFFFFF;
+}
+
+/* Custom Liquid Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #061226;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1F3FAE 0%, #00A7B5 60%, #F5A623 100%);
+  border-radius: 9999px;
+  border: 2px solid #061226;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00A7B5;
+}
+
+/* Liquid Field Glassmorphism (Liquid Glass) */
+.glass-panel {
+  background: rgba(10, 29, 59, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 167, 181, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(10, 29, 59, 0.37), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-panel-elevated {
+  background: linear-gradient(135deg, rgba(14, 36, 71, 0.8) 0%, rgba(10, 29, 59, 0.85) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 167, 181, 0.35);
+  box-shadow: 
+    0 16px 40px -10px rgba(6, 18, 38, 0.8),
+    0 0 25px -5px rgba(0, 167, 181, 0.25),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-panel-gold {
+  background: linear-gradient(135deg, rgba(14, 36, 71, 0.88) 0%, rgba(10, 29, 59, 0.92) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(245, 166, 35, 0.5);
+  box-shadow: 
+    0 16px 50px -10px rgba(6, 18, 38, 0.9),
+    0 0 35px -5px rgba(245, 166, 35, 0.3),
+    inset 0 1px 2px 0 rgba(245, 166, 35, 0.25);
+}
+
+/* Liquid Field Curvature & Flowing Borders */
+.liquid-card {
+  position: relative;
+  border-radius: 1.5rem;
+  background: rgba(10, 29, 59, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 167, 181, 0.25);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-card:hover {
+  border-color: rgba(245, 166, 35, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(0, 167, 181, 0.25), 0 0 30px -5px rgba(245, 166, 35, 0.2);
+}
+
+/* Liquid Sheen Highlight across card tops */
+.liquid-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 167, 181, 0.8), rgba(245, 166, 35, 0.8), transparent);
+  pointer-events: none;
+}
+
+/* Fluid Holographic Text Gradients */
+.text-holo {
+  background: linear-gradient(135deg, #FFFFFF 15%, #00A7B5 60%, #F5A623 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFD27D 40%, #F5A623 80%, #C7810C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-teal-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #26D0DF 50%, #00A7B5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glowing text effects */
+.glow-text-teal {
+  text-shadow: 0 0 16px rgba(0, 167, 181, 0.65), 0 0 32px rgba(0, 167, 181, 0.3);
+}
+
+.glow-text-gold {
+  text-shadow: 0 0 16px rgba(245, 166, 35, 0.65), 0 0 32px rgba(245, 166, 35, 0.3);
+}
+
+/* Ambient Liquid Waves & Fluid Drift */
+@keyframes liquidWave {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-2%, 3%) scale(1.04); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes liquidFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes causticPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.animate-liquid-wave {
+  animation: liquidWave 12s ease-in-out infinite;
+}
+
+.animate-caustic {
+  animation: causticPulse 6s ease-in-out infinite;
+}
+
+/* Liquid Streamline Line */
+.liquid-streamline {
+  background: linear-gradient(180deg, 
+    rgba(0, 167, 181, 0.8) 0%, 
+    rgba(31, 63, 174, 0.6) 40%, 
+    rgba(0, 167, 181, 0.8) 70%, 
+    rgba(245, 166, 35, 0.9) 100%
+  );
+  box-shadow: 0 0 16px rgba(0, 167, 181, 0.5);
+}
+
+/* Liquid Pill Badge */
+.liquid-pill {
+  background: rgba(14, 36, 71, 0.7);
+  border: 1px solid rgba(0, 167, 181, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.15), 0 0 12px rgba(0, 167, 181, 0.2);
+}
