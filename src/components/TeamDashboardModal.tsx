@@ -10,10 +10,17 @@ import {
   ShieldCheck,
   Globe,
   Code2,
+  FileText,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import type { TeamData } from './RegistrationModal';
 import { sounds } from '../utils/sound';
+
+const LinkedinIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
+  <svg className={`${className} fill-current`} viewBox="0 0 24 24">
+    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+  </svg>
+);
 
 interface TeamDashboardProps {
   isOpen: boolean;
@@ -49,7 +56,7 @@ export const TeamDashboardModal: React.FC<TeamDashboardProps> = ({
 
   const handleCopyInvite = () => {
     sounds.playClick();
-    const textToCopy = `Join my HorizonX Hackathon Squad "${team.teamName}"! Team ID: ${team.teamId} | Invite Code: ${team.inviteCode} | Register at: https://horizonx.io`;
+    const textToCopy = `Join my HorizonXT Hackathon Squad "${team.teamName}"! Team ID: ${team.teamId} | Invite Code: ${team.inviteCode} | Register at: https://horizonxt.io`;
     navigator.clipboard.writeText(textToCopy);
     setCopiedCode(true);
     onShowToast(`Invite Code [${team.inviteCode}] copied to clipboard!`);
@@ -90,7 +97,7 @@ export const TeamDashboardModal: React.FC<TeamDashboardProps> = ({
       projectTitle: submission.title,
       submissionDetails: {
         repoUrl: submission.repoUrl,
-        demoUrl: submission.demoUrl || 'https://demo.horizonx.io',
+        demoUrl: submission.demoUrl || 'https://demo.horizonxt.io',
         description: submission.description,
         submittedAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       },
@@ -98,7 +105,7 @@ export const TeamDashboardModal: React.FC<TeamDashboardProps> = ({
 
     onUpdateTeam(updatedTeam);
     setIsSubmitModalOpen(false);
-    onShowToast('Project submitted successfully to HorizonX Evaluation Grid!');
+    onShowToast('Project submitted successfully to HorizonXT Evaluation Grid!');
   };
 
   const availableChallenges = [
@@ -213,7 +220,7 @@ export const TeamDashboardModal: React.FC<TeamDashboardProps> = ({
           <div className="lg:col-span-8">
             <div className="flex items-center justify-between mb-4">
               <span className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-teal">
-                SQUAD ROSTER ({team.members.length} / 4 CADETS)
+                SQUAD ROSTER ({team.members.length} / 5 CADETS)
               </span>
               <span className="font-mono text-xs text-slate-muted">ORBIT STATUS: SYNCHRONIZED</span>
             </div>
@@ -243,9 +250,24 @@ export const TeamDashboardModal: React.FC<TeamDashboardProps> = ({
                     <h4 className="font-heading font-bold text-base text-white truncate">
                       {member.name}
                     </h4>
-                    <p className="font-heading text-xs text-teal-light mb-3 truncate">
+                    <p className="font-heading text-xs text-teal-light mb-2 truncate">
                       {member.role}
                     </p>
+
+                    {/* Member LinkedIn Link */}
+                    {member.linkedinUrl && (
+                      <div className="mb-3">
+                        <a
+                          href={member.linkedinUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs font-mono text-gold hover:underline bg-gold/10 px-2.5 py-1 rounded-lg border border-gold/30"
+                        >
+                          <LinkedinIcon className="w-3.5 h-3.5 text-gold shrink-0" />
+                          <span className="truncate max-w-[140px]">LinkedIn Profile</span>
+                        </a>
+                      </div>
+                    )}
 
                     <div className="flex flex-wrap gap-1 mb-4">
                       {member.skills.map((skill) => (
@@ -285,17 +307,37 @@ export const TeamDashboardModal: React.FC<TeamDashboardProps> = ({
                   {team.selectedChallenge}
                 </h4>
                 <p className="text-xs text-slate-muted font-sans mt-1">
-                  Active trajectory. Mentors assigned on Oct 24, 01:00 PM.
+                  Active trajectory. Abstract review in progress. Shortlisted teams called for Oct 24–26 physical event.
                 </p>
               </div>
 
               <div className="pt-3 border-t border-teal/15">
                 <span className="text-xs font-mono text-slate-muted block mb-1">
-                  TENTATIVE CONCEPT:
+                  PROJECT TITLE:
                 </span>
                 <p className="text-xs font-heading font-semibold text-lightgray">
                   &ldquo;{team.projectTitle}&rdquo;
                 </p>
+              </div>
+
+              {/* Abstract Google Drive Link Badge */}
+              <div className="pt-3 border-t border-teal/15">
+                <span className="text-xs font-mono text-gold font-bold block mb-1.5 uppercase flex items-center gap-1">
+                  <FileText className="w-3.5 h-3.5 text-gold" />
+                  <span>ABSTRACT GDRIVE (.DOCX):</span>
+                </span>
+                {team.abstractUrl ? (
+                  <a
+                    href={team.abstractUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs font-mono text-teal hover:underline break-all block bg-navy-surface p-2 rounded-lg border border-teal/30"
+                  >
+                    {team.abstractUrl}
+                  </a>
+                ) : (
+                  <span className="text-xs text-slate-muted italic">No abstract GDrive URL submitted yet.</span>
+                )}
               </div>
             </div>
 
@@ -425,7 +467,7 @@ export const TeamDashboardModal: React.FC<TeamDashboardProps> = ({
                     value={submission.title}
                     onChange={(e) => setSubmission({ ...submission, title: e.target.value })}
                     className="w-full px-4 py-2.5 rounded-xl bg-navy-darker border border-teal/30 text-white text-sm focus:border-gold focus:outline-none"
-                    placeholder="e.g. HorizonX Quantum Ledger"
+                    placeholder="e.g. HorizonXT Quantum Ledger"
                   />
                 </div>
 
@@ -441,7 +483,7 @@ export const TeamDashboardModal: React.FC<TeamDashboardProps> = ({
                       value={submission.repoUrl}
                       onChange={(e) => setSubmission({ ...submission, repoUrl: e.target.value })}
                       className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-navy-darker border border-teal/30 text-white text-sm focus:border-gold focus:outline-none"
-                      placeholder="https://github.com/org/horizonx-project"
+                      placeholder="https://github.com/org/horizonxt-project"
                     />
                   </div>
                 </div>

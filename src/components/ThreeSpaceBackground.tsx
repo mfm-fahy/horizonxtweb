@@ -383,7 +383,7 @@ export const ThreeSpaceBackground: React.FC = () => {
         if (h > 0.45) albedo = mix(mineralHighland, mountainRock, smoothstep(0.45, 0.8, h));
         if (h > 0.8) albedo = mix(mountainRock, peakFrost, smoothstep(0.8, 1.3, h));
 
-        // Subterranean glowing energy fissures (HorizonX research signature)
+        // Subterranean glowing energy fissures (HorizonXT research signature)
         float energyNoise = abs(snoise(p * 2.8));
         float fissure = pow(clamp(1.0 - energyNoise, 0.0, 1.0), 12.0);
         vec3 glowingFissures = uColorTeal * fissure * 2.8;

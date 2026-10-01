@@ -1,4 +1,4 @@
-// Futuristic Web Audio Synthesizer for HorizonX UI Feedback
+// Futuristic Web Audio Synthesizer for HorizonXT UI Feedback
 class SoundManager {
   private ctx: AudioContext | null = null;
   private isMuted: boolean = false;

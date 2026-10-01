@@ -5,7 +5,6 @@ import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
 import { EventHighlights } from './components/EventHighlights';
-import { ChallengesSection } from './components/ChallengesSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { TimelineSection } from './components/TimelineSection';
 import { JudgingSection } from './components/JudgingSection';
@@ -30,47 +29,62 @@ export function App() {
 
   // Default demo team data (matching specification: Team Nova)
   const defaultTeam: TeamData = {
-    teamId: 'HZX-8492',
+    teamId: 'HZXT-8492',
     teamName: 'TEAM NOVA',
     inviteCode: 'ORBIT-7X9Q',
     selectedChallenge: 'AI & MACHINE LEARNING',
     projectTitle: 'Autonomous Neural Diagnostic Synthesis',
-    registrationStatus: 'VERIFIED • ORBIT READY',
+    abstractUrl: 'https://drive.google.com/file/d/1a2b3c4d5e_horizonxt_abstract.docx/view',
+    registrationStatus: 'ABSTRACT SUBMITTED • SHORTLISTING PENDING',
     submissionStatus: 'PENDING',
     members: [
       {
         id: 'mem-1',
         name: 'Vishnu N.',
-        email: 'vishnu@horizonx.io',
+        email: 'vishnu@horizonxt.io',
         role: 'Team Leader • Frontend & UI',
+        linkedinUrl: 'https://linkedin.com/in/vishnu-n-horizonxt',
         skills: ['React', 'Three.js', 'Tailwind', 'UI/UX'],
         isLeader: true,
         status: 'active',
       },
       {
         id: 'mem-2',
-        name: 'Member 02',
+        name: 'Aarav Sharma',
         email: 'backend.cadet@college.edu',
         role: 'Backend & Cloud Systems',
+        linkedinUrl: 'https://linkedin.com/in/aarav-sharma-dev',
         skills: ['Node.js', 'Go', 'PostgreSQL', 'Docker'],
         isLeader: false,
         status: 'active',
       },
       {
         id: 'mem-3',
-        name: 'Member 03',
+        name: 'Ananya Verma',
         email: 'aiml.cadet@college.edu',
         role: 'AI / ML Specialist',
+        linkedinUrl: 'https://linkedin.com/in/ananya-verma-ml',
         skills: ['Python', 'PyTorch', 'LangChain', 'FastAPI'],
         isLeader: false,
         status: 'active',
       },
       {
         id: 'mem-4',
-        name: 'Member 04',
+        name: 'Rohan Gupta',
         email: 'design.cadet@college.edu',
         role: 'Design & Product UX',
+        linkedinUrl: 'https://linkedin.com/in/rohan-gupta-ui',
         skills: ['Figma', 'Design Systems', 'User Research'],
+        isLeader: false,
+        status: 'active',
+      },
+      {
+        id: 'mem-5',
+        name: 'Priya Nair',
+        email: 'systems.cadet@college.edu',
+        role: 'DevOps & Cyber Security',
+        linkedinUrl: 'https://linkedin.com/in/priya-nair-sec',
+        skills: ['Kubernetes', 'Cybersecurity', 'CI/CD'],
         isLeader: false,
         status: 'active',
       },
@@ -78,7 +92,7 @@ export function App() {
   };
 
   const [activeTeam, setActiveTeam] = useState<TeamData>(() => {
-    const saved = localStorage.getItem('horizonx_team');
+    const saved = localStorage.getItem('horizonxt_team');
     if (saved) {
       try {
         return JSON.parse(saved);
@@ -98,7 +112,7 @@ export function App() {
 
   const handleRegistrationComplete = (newTeam: TeamData) => {
     setActiveTeam(newTeam);
-    localStorage.setItem('horizonx_team', JSON.stringify(newTeam));
+    localStorage.setItem('horizonxt_team', JSON.stringify(newTeam));
     setIsRegisterOpen(false);
     setIsDashboardOpen(true);
     showToast(`Team "${newTeam.teamName}" successfully initialized!`);
@@ -106,12 +120,7 @@ export function App() {
 
   const handleUpdateTeam = (updated: TeamData) => {
     setActiveTeam(updated);
-    localStorage.setItem('horizonx_team', JSON.stringify(updated));
-  };
-
-  const handleSelectTrackForRegistration = (trackId: string) => {
-    setSelectedTrackForReg(trackId);
-    setIsRegisterOpen(true);
+    localStorage.setItem('horizonxt_team', JSON.stringify(updated));
   };
 
   const handleExploreScroll = () => {
@@ -151,16 +160,11 @@ export function App() {
           onExploreClick={handleExploreScroll}
         />
 
-        {/* About HorizonX */}
+        {/* About HorizonXT */}
         <AboutSection />
 
         {/* Event Highlights Dashboard */}
         <EventHighlights />
-
-        {/* Challenges Section */}
-        <ChallengesSection
-          onSelectTrackForRegistration={handleSelectTrackForRegistration}
-        />
 
         {/* How It Works (Orbital Journey) */}
         <HowItWorksSection

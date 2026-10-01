@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Logo } from './Logo';
-import { Volume2, VolumeX, Menu, X, ArrowRight, Users } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { sounds } from '../utils/sound';
 
 interface NavbarProps {
@@ -12,13 +12,10 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({
   onRegisterClick,
-  onDashboardClick,
   onRulesClick,
-  hasActiveTeam,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isMuted, setIsMuted] = useState(sounds.getMuted());
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,11 +24,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleSoundToggle = () => {
-    const muted = sounds.toggleMute();
-    setIsMuted(muted);
-  };
 
   const navLinks = [
     { label: 'HOME', href: '#hero' },
@@ -67,7 +59,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          {/* Left: HorizonX Logo */}
+          {/* Left: HorizonXT Logo */}
           <div
             onClick={() => {
               sounds.playClick();
@@ -95,30 +87,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Right Action Buttons */}
           <div className="hidden sm:flex items-center gap-3">
-            {/* Audio Feedback Synthesizer Toggle */}
-            <button
-              onClick={handleSoundToggle}
-              title={isMuted ? 'Unmute Audio Synthesizer' : 'Mute Audio Synthesizer'}
-              aria-label={isMuted ? 'Unmute Audio Synthesizer' : 'Mute Audio Synthesizer'}
-              className="p-2 rounded-xl border border-teal/20 bg-navy-surface/60 text-slate-muted hover:text-teal hover:border-teal/50 transition-colors"
-            >
-              {isMuted ? <VolumeX className="w-4 h-4 text-slate-subtext" /> : <Volume2 className="w-4 h-4 text-teal" />}
-            </button>
-
-            {/* If user registered/has active team, show quick Team Dashboard shortcut */}
-            {hasActiveTeam && (
-              <button
-                onClick={() => {
-                  sounds.playClick();
-                  onDashboardClick();
-                }}
-                className="px-3.5 py-2 rounded-xl text-xs font-heading font-semibold tracking-wider bg-royal/40 border border-teal/40 text-teal-light hover:bg-royal/70 hover:border-teal transition-all flex items-center gap-1.5 shadow-glow-teal"
-              >
-                <Users className="w-3.5 h-3.5" />
-                MY TEAM
-              </button>
-            )}
-
             {/* Glowing Primary CTA: REGISTER NOW */}
             <button
               onClick={() => {
@@ -135,13 +103,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Mobile Hamburger Button */}
           <div className="flex items-center gap-2 lg:hidden">
-            <button
-              onClick={handleSoundToggle}
-              aria-label="Toggle Sound"
-              className="p-2 rounded-lg border border-teal/20 bg-navy-surface/60 text-slate-muted"
-            >
-              {isMuted ? <VolumeX className="w-4 h-4 text-slate-subtext" /> : <Volume2 className="w-4 h-4 text-teal" />}
-            </button>
             <button
               onClick={() => {
                 sounds.playClick();
@@ -182,20 +143,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <ArrowRight className="w-4 h-4 text-teal/50" />
                 </button>
               ))}
-
-              {hasActiveTeam && (
-                <button
-                  onClick={() => {
-                    sounds.playClick();
-                    setMobileMenuOpen(false);
-                    onDashboardClick();
-                  }}
-                  className="mt-2 text-left font-heading text-base font-bold tracking-wider text-teal-light py-2 flex items-center gap-2"
-                >
-                  <Users className="w-4 h-4" />
-                  <span>VIEW MY TEAM DASHBOARD</span>
-                </button>
-              )}
             </div>
           </div>
 
@@ -210,8 +157,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <span>REGISTER NOW →</span>
             </button>
-            <div className="text-center font-mono text-[10px] text-slate-muted uppercase tracking-widest mt-2">
-              HORIZONX • OCTOBER 24–25 • 36 HOURS
+            <div className="text-center font-mono text-[10px] text-gold uppercase tracking-widest mt-2">
+              HORIZONXT • REGISTRATION OPENS OCT 5 • EVENT OCT 24–26
             </div>
           </div>
         </div>

@@ -23,7 +23,6 @@ export interface ChallengeTrack {
   tags: string[];
   problemStatements: string[];
   recommendedTech: string[];
-  prize: string;
 }
 
 export const challengeTracks: ChallengeTrack[] = [
@@ -41,7 +40,6 @@ export const challengeTracks: ChallengeTrack[] = [
       'Cross-lingual neural translation for low-resource dialect communities.',
     ],
     recommendedTech: ['PyTorch', 'Transformers', 'LangChain', 'FastAPI', 'ONNX'],
-    prize: '₹35,000 Track Pool',
   },
   {
     id: 'fintech',
@@ -57,7 +55,6 @@ export const challengeTracks: ChallengeTrack[] = [
       'AI financial co-pilot for non-traditional wage earners and students.',
     ],
     recommendedTech: ['Solidity', 'Go', 'Kafka', 'Rust', 'GraphQL'],
-    prize: '₹35,000 Track Pool',
   },
   {
     id: 'healthcare',
@@ -73,7 +70,6 @@ export const challengeTracks: ChallengeTrack[] = [
       'Emergency response dispatcher optimization utilizing real-time urban traffic mesh.',
     ],
     recommendedTech: ['TensorFlow.js', 'WebRTC', 'HL7/FHIR APIs', 'React Native'],
-    prize: '₹35,000 Track Pool',
   },
   {
     id: 'smart-cities',
@@ -89,7 +85,6 @@ export const challengeTracks: ChallengeTrack[] = [
       'Predictive municipal water and sewage leak isolation with ultrasonic sensors.',
     ],
     recommendedTech: ['MQTT', 'Node-RED', 'Three.js Digital Twins', 'GIS / MapLibre'],
-    prize: '₹35,000 Track Pool',
   },
   {
     id: 'cybersecurity',
@@ -105,7 +100,6 @@ export const challengeTracks: ChallengeTrack[] = [
       'Hardware-backed cryptographic identity for remote IoT infrastructure.',
     ],
     recommendedTech: ['eBPF', 'Rust', 'Wasm Security', 'Wireshark APIs', 'K8s'],
-    prize: '₹35,000 Track Pool',
   },
   {
     id: 'open-innovation',
@@ -121,7 +115,6 @@ export const challengeTracks: ChallengeTrack[] = [
       'Direct brain-computer interface (BCI) gesture controllers for accessibility.',
     ],
     recommendedTech: ['WebXR', 'Three.js', 'Rust', 'WebAssembly', 'OpenCV'],
-    prize: '₹35,000 Track Pool',
   },
 ];
 
@@ -159,8 +152,8 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
             CHOOSE YOUR <span className="text-holo">FRONTIER</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-muted leading-relaxed font-sans">
-            Select one of 6 planetary research domains or forge your own boundary-breaking deep tech solution. Tackle real challenges with world-class mentorship in the asteroid field.
+          <p className="text-base sm:text-lg text-white leading-relaxed font-sans">
+            Select a problem statement from one of our 6 research domains. Submit your project abstract in .docx format via Google Drive to be evaluated and shortlisted for the 36-hour physical event!
           </p>
         </div>
 
@@ -179,13 +172,13 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
                 <div className="absolute inset-0 bg-gradient-to-br from-royal/10 via-transparent to-teal/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
                 <div>
-                  {/* Top Bar with Icon & Track Pool */}
+                  {/* Top Bar with Icon & Featured Track Badge */}
                   <div className="flex items-center justify-between mb-6 relative z-10">
                     <div className="w-14 h-14 rounded-2xl bg-navy-surface border border-teal/30 group-hover:border-gold/60 flex items-center justify-center text-teal group-hover:text-gold transition-colors shadow-glow-teal group-hover:shadow-glow-gold">
                       <Icon className="w-7 h-7" />
                     </div>
-                    <span className="font-mono text-xs text-gold bg-gold/10 px-3 py-1 rounded-full border border-gold/30">
-                      {track.prize}
+                    <span className="font-mono text-[10px] text-teal-light bg-teal/10 px-3 py-1 rounded-full border border-teal/30 uppercase font-bold tracking-wider">
+                      FEATURED TRACK
                     </span>
                   </div>
 
@@ -250,7 +243,7 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
               </div>
               <div>
                 <span className="font-mono text-xs text-gold uppercase tracking-widest">
-                  TRACK SPECIFICATIONS • {selectedTrack.prize}
+                  PROBLEM STATEMENT SPECIFICATIONS
                 </span>
                 <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white uppercase tracking-tight">
                   {selectedTrack.title}

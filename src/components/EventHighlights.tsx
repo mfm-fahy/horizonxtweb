@@ -37,7 +37,7 @@ export const EventHighlights: React.FC = () => {
       color: 'gold',
     },
     {
-      value: '24–25',
+      value: '24–26',
       suffix: 'OCT',
       label: 'OCTOBER 2026',
       subtext: 'Global offline & hybrid arena',

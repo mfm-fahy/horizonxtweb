@@ -10,41 +10,45 @@ export const RulesModal: React.FC<RulesModalProps> = ({ isOpen, onClose }) => {
 
   const rules = [
     {
-      category: '1. SQUAD ARCHITECTURE & ELIGIBILITY',
+      category: '1. SQUAD ARCHITECTURE & LINKEDIN REQUIREMENT',
       points: [
-        'Teams must consist of 2 to 4 registered participants.',
+        'Teams must consist of 1 to a MAXIMUM of 5 registered participants.',
+        'Every single team member MUST provide a valid, active LinkedIn Profile URL during registration.',
         'All team members must be enrolled students in an accredited educational institution.',
         'Inter-college and multi-disciplinary teams are strongly encouraged.',
       ],
     },
     {
-      category: '2. CODE FRESHNESS & INTEGRITY',
+      category: '2. ABSTRACT SUBMISSION (.DOCX FORMAT ONLY)',
       points: [
-        'All production code, datasets, wireframes, and models must be written within the official 36-hour sprint window.',
-        'Open-source libraries, public packages, foundational AI models, and APIs are permitted provided they are disclosed in the submission repository.',
-        'Pre-built or previously submitted projects will face instantaneous disqualification.',
+        'Teams must select one problem statement from the official tracks and submit a detailed abstract.',
+        'The abstract MUST be provided as a Google Drive link containing a .docx format document ONLY.',
+        'Google Drive link permission must be set to "Anyone with the link can view".',
+        'Abstracts in PDF, TXT, images, or non-.docx formats will be automatically disqualified.',
       ],
     },
     {
-      category: '3. INTELLECTUAL PROPERTY & OWNERSHIP',
+      category: '3. REGISTRATION DATES, SHORTLISTING & EVENT',
       points: [
-        'Squads retain 100% full intellectual property ownership of all code, designs, and artifacts engineered during HorizonX.',
-        'Neither the organizers nor the sponsors claim any equity, licensing, or IP ownership over participant work.',
+        'Registration officially opens on October 5, 2026.',
+        'Abstract submission will close strictly on October 16, 2026.',
+        'The physical 3-day hackathon event takes place on October 24, 25, and 26.',
+        'The technical jury evaluates all submitted .docx abstracts against innovation, feasibility, and technical depth parameters to shortlist teams.',
       ],
     },
     {
-      category: '4. SUBMISSION TELEMETRY',
+      category: '4. 36-HOUR SPRINT & CODE INTEGRITY',
       points: [
-        'Every squad must submit a public GitHub repository link with timestamped commit history.',
-        'A working live deployment URL and an unlisted 2-minute video demonstration must be linked on the Team Dashboard before Oct 25, 11:00 AM.',
-        'Commit history will be analyzed to verify team distribution and development during the hackathon.',
+        'All production code, datasets, models, and prototypes must be engineered within the official 36-hour on-site sprint window.',
+        'Open-source libraries, public packages, and foundational AI models are permitted provided they are disclosed in the GitHub repository.',
+        'Squads retain 100% full intellectual property ownership of all code and artifacts engineered during HorizonXT.',
       ],
     },
     {
-      category: '5. ETHICS & RESEARCH CONDUCT',
+      category: '5. FINAL SUBMISSION & DEMO',
       points: [
-        'HorizonX enforces a zero-tolerance policy against harassment, discrimination, or malicious attacks.',
-        'Projects involving cybersecurity must adhere strictly to responsible disclosure principles and non-destructive testing.',
+        'Every squad must submit a public GitHub repository link and working live demonstration before the 36-hour timer expires.',
+        'Shortlisted squads will present a 5-minute live demonstration + 3-minute technical Q&A on the main stage on October 26.',
       ],
     },
   ];
@@ -66,7 +70,7 @@ export const RulesModal: React.FC<RulesModalProps> = ({ isOpen, onClose }) => {
           </div>
           <div>
             <span className="font-mono text-xs text-gold uppercase tracking-widest">
-              OFFICIAL EVENT PROTOCOL
+              OFFICIAL HACKATHON PROTOCOL
             </span>
             <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white uppercase tracking-tight">
               RULES & REGULATIONS

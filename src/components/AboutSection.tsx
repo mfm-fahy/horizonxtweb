@@ -62,8 +62,8 @@ export const AboutSection: React.FC = () => {
             THE NEXT HORIZON OF <span className="text-holo">INNOVATION</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-muted leading-relaxed font-sans">
-            HorizonX is a 36-hour innovation challenge where students, developers, designers and problem-solvers come together to transform ideas into meaningful solutions.
+          <p className="text-base sm:text-lg text-white leading-relaxed font-sans">
+            HorizonXT is a 36-hour innovation challenge. Registration officially opens on October 5. Submit your project abstract in .docx format via Google Drive for your chosen problem statement by October 16. Shortlisted teams (up to 5 members per squad) will be called to the physical event on October 24–26 (launching Oct 24 at 9:00 AM).
           </p>
         </div>
 

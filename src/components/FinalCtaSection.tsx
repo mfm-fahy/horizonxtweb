@@ -59,7 +59,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onRegisterClic
             onMouseEnter={() => sounds.playHover()}
             className="group relative px-10 py-5 rounded-2xl font-heading text-sm sm:text-base font-extrabold tracking-[0.25em] uppercase bg-gradient-to-r from-gold via-gold-light to-gold text-navy shadow-[0_0_40px_rgba(245,166,35,0.6)] hover:shadow-[0_0_60px_rgba(245,166,35,0.85)] border border-white/40 transition-all duration-300 hover:scale-105 active:scale-95 flex items-center gap-3 cursor-pointer"
           >
-            <span>REGISTER FOR HORIZONX</span>
+            <span>REGISTER FOR HORIZONXT</span>
             <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1.5" />
           </button>
         </div>
@@ -67,7 +67,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onRegisterClic
         {/* Final Cosmic Brand Climax Reveal */}
         <div className="border-t border-teal/20 pt-12 max-w-md mx-auto">
           <div className="font-heading font-extrabold text-2xl sm:text-3xl tracking-widest text-white uppercase mb-2">
-            HORIZON<span className="text-gold">X</span>
+            HORIZON<span className="text-gold">XT</span>
           </div>
           <div className="font-heading font-bold text-xs sm:text-sm tracking-[0.4em] text-teal-light uppercase">
             RESEARCH • INNOVATION • IMPACT

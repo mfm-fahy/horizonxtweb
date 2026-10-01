@@ -67,7 +67,7 @@ export const JudgingSection: React.FC = () => {
             JUDGING <span className="text-holo">CRITERIA</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-muted leading-relaxed font-sans">
+          <p className="text-base sm:text-lg text-white leading-relaxed font-sans">
             Every submission is objectively benchmarked across 5 calibrated scientific dimensions by our distinguished panel of engineers, researchers, and venture capitalists.
           </p>
         </div>

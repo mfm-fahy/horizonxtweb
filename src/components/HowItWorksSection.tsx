@@ -21,66 +21,66 @@ export const HowItWorksSection: React.FC<HowItWorksProps> = ({ onRegisterClick }
   const steps = [
     {
       step: 'STEP 01',
-      title: 'REGISTER',
-      subtitle: 'Individual Enlistment',
+      title: 'REGISTER & SQUAD ASSEMBLY',
+      subtitle: 'Opens Oct 5 • Up to 5 Members',
       description:
-        'Complete the single-entry candidate profile with college credentials, technical skills, and GitHub/portfolio handles.',
+        'Registration officially opens on October 5. Form your squad of up to 5 members. Provide college credentials and mandatory LinkedIn Profile links for every team member.',
       icon: UserCheck,
-      details: 'Instant verification code issued upon submission. No fee required.',
+      details: 'Registration opens Oct 5. Maximum 5 members per team with LinkedIn profiles.',
     },
     {
       step: 'STEP 02',
-      title: 'CREATE / JOIN TEAM',
-      subtitle: 'Squad Assembly',
+      title: 'CHOOSE PROBLEM STATEMENT',
+      subtitle: 'Mission Alignment',
       description:
-        'Form a squad of 2 to 4 innovators. Generate your custom Team ID and encrypted invite code, or enter an existing invite code.',
-      icon: Users,
-      details: 'Cross-college teams warmly supported and celebrated.',
+        'Select a problem statement aligned with AI/ML, FinTech, Healthcare, Smart Cities, Cybersecurity, or Open Innovation.',
+      icon: Compass,
+      details: 'Review detailed track guidelines and suggested problem statements.',
     },
     {
       step: 'STEP 03',
-      title: 'SELECT CHALLENGE',
-      subtitle: 'Mission Alignment',
+      title: 'SUBMIT ABSTRACT (.DOCX)',
+      subtitle: 'Oct 5 – Oct 16 Window',
       description:
-        'Commit to one of 6 frontiers: AI/ML, FinTech, Healthcare, Smart Cities, Cybersecurity, or Open Innovation.',
-      icon: Compass,
-      details: 'Track can be refined until the initial mentor check-in.',
+        'Prepare your project abstract in .docx format only, upload it to Google Drive with view access, and submit the link between Oct 5 and Oct 16.',
+      icon: UploadCloud,
+      details: 'Window: Oct 5 to Oct 16. Abstract must be in .docx format.',
     },
     {
       step: 'STEP 04',
-      title: 'BUILD',
-      subtitle: '36-Hour Deep Sprint',
+      title: 'SHORTLISTING & INVITATION',
+      subtitle: 'Jury Telemetry Review',
       description:
-        '36 continuous hours of hacking, prototyping, and engineering supported by round-the-clock technical mentors and cloud compute credits.',
-      icon: Code,
-      details: 'Meals, energy drinks, gaming lounges, and quiet nap pods provided.',
+        'Our technical evaluation panel reviews all submitted abstracts. Shortlisted teams receive an official invitation call to the physical 3-day event.',
+      icon: Users,
+      details: 'Shortlisted teams are called to participate in the on-site hackathon.',
     },
     {
       step: 'STEP 05',
-      title: 'SUBMIT',
-      subtitle: 'Artifact Deployment',
+      title: '36-HOUR HACKATHON EVENT',
+      subtitle: '3-Day On-Site Event (Oct 24, 25, 26)',
       description:
-        'Push your code repository, live deployed application link, and 2-minute demonstration video through the Team Dashboard before Oct 25, 11:00 AM.',
-      icon: UploadCloud,
-      details: 'Dashboard validation checks commit logs and deployment uptime.',
+        'Shortlisted squads assemble at the physical venue for 36 continuous hours of building across 3 days (Oct 24, 25, 26).',
+      icon: Code,
+      details: '3-day event: October 24, 25, 26. Food & rest pods provided.',
     },
     {
       step: 'STEP 06',
-      title: 'PITCH',
-      subtitle: 'Jury Telemetry',
+      title: 'PROTOTYPE DEMO & PITCH',
+      subtitle: 'Grand Jury Presentation',
       description:
-        'Showcase your functional prototype to a distinguished panel of venture capitalists, tech founders, and senior researchers.',
+        'Demonstrate your functional prototype live on stage before venture capitalists, tech leaders, and senior researchers.',
       icon: Mic,
       details: '5-minute live demonstration + 3-minute technical Q&A.',
     },
     {
       step: 'STEP 07',
-      title: 'WIN',
-      subtitle: 'Ascension & Impact',
+      title: 'WIN & PODIUM ASCENSION',
+      subtitle: 'Impact & Rewards',
       description:
-        'Celebrate victory with over ₹2,50,000 in grand cash bounties, incubator admission, cloud grants, and prestigious physical trophies.',
+        'Celebrate victory with the ₹1,00,000 Grand Prize Pool, physical trophies, and accredited certificates.',
       icon: Trophy,
-      details: 'Top 3 teams receive fast-track summer research/engineering internships.',
+      details: 'Top performing teams awarded from the 1 Lakh Prize Pool.',
     },
   ];
 
@@ -100,8 +100,8 @@ export const HowItWorksSection: React.FC<HowItWorksProps> = ({ onRegisterClick }
             HOW IT <span className="text-holo">WORKS</span>
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-muted leading-relaxed font-sans">
-            From initial squad assembly to the grand valedictory pitch—navigate the 7 orbital coordinates of your HorizonX space expedition.
+          <p className="text-base sm:text-lg text-white leading-relaxed font-sans">
+            From initial squad assembly to the grand valedictory pitch—navigate the 7 orbital coordinates of your HorizonXT space expedition.
           </p>
         </div>
 

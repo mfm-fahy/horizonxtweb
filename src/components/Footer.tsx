@@ -41,7 +41,7 @@ export const Footer: React.FC<FooterProps> = ({
             <Logo size="lg" showTagline={true} animated={false} />
 
             <p className="text-sm text-slate-muted font-sans leading-relaxed max-w-sm pt-2">
-              HorizonX is a premier 36-hour national college hackathon uniting developers, designers, and researchers to engineer solutions with real-world impact.
+              HorizonXT is a 36-hour national hackathon. Registration officially opens on October 5. Submit project abstracts (.docx format via Google Drive) by October 16. Shortlisted squads (up to 5 members) are invited to the physical 36-hour event on October 24–26.
             </p>
 
             <div className="font-heading font-semibold text-xs tracking-[0.2em] text-gold uppercase pt-1">
@@ -152,7 +152,7 @@ export const Footer: React.FC<FooterProps> = ({
 
               {/* Email */}
               <a
-                href="mailto:contact@horizonx.io"
+                href="mailto:contact@horizonxt.io"
                 aria-label="Email"
                 className="w-10 h-10 rounded-xl bg-navy-surface border border-teal/25 hover:border-gold/60 text-slate-muted hover:text-gold hover:shadow-glow-gold transition-all duration-200 flex items-center justify-center"
               >
@@ -165,7 +165,7 @@ export const Footer: React.FC<FooterProps> = ({
         {/* Bottom Copyright & Mission Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-muted">
           <div>
-            © 2026 HorizonX. All Rights Reserved.
+            © 2026 HorizonXT. All Rights Reserved.
           </div>
 
           <div className="text-center font-heading font-medium text-lightgray/80 tracking-wider">

@@ -46,7 +46,7 @@ export const Logo: React.FC<LogoProps> = ({
       >
         <img
           src="/logo-transparent.png"
-          alt="HorizonX Logo"
+          alt="HorizonXT Logo"
           className={`h-auto object-contain transition-transform duration-300 ${
             size === 'sm' ? 'max-h-8' : size === 'md' ? 'max-h-12' : size === 'lg' ? 'max-h-16' : 'max-h-24'
           } ${animated ? 'hover:scale-105' : ''}`}
@@ -60,7 +60,7 @@ export const Logo: React.FC<LogoProps> = ({
       onClick={onClick}
       className={`group inline-flex items-center gap-3 select-none ${onClick ? 'cursor-pointer' : ''} ${className}`}
     >
-      {/* Official HorizonX Favicon / Emblem */}
+      {/* Official HorizonXT Favicon / Emblem */}
       <div className={`relative ${iconSizes[size]} shrink-0 flex items-center justify-center p-0.5 border border-teal/40 group-hover:border-gold/60 shadow-[0_0_18px_rgba(0,167,181,0.25)] group-hover:shadow-[0_0_24px_rgba(245,166,35,0.4)] transition-all duration-300 overflow-hidden bg-navy-darker/90`}>
         {/* Ambient backglow */}
         <div
@@ -74,7 +74,7 @@ export const Logo: React.FC<LogoProps> = ({
 
         <img
           src="/favicon.png"
-          alt="HorizonX Emblem"
+          alt="HorizonXT Emblem"
           className={`w-full h-full object-cover relative z-10 rounded-[inherit] transition-transform duration-500 ${
             animated ? 'group-hover:scale-105' : ''
           }`}
@@ -85,7 +85,7 @@ export const Logo: React.FC<LogoProps> = ({
       <div className="flex flex-col text-left">
         <div className={`font-heading font-extrabold ${textSizes[size]} tracking-wider flex items-center leading-none text-white`}>
           <span>HORIZON</span>
-          <span className="text-gold font-black drop-shadow-[0_0_12px_rgba(245,166,35,0.7)] ml-0.5">X</span>
+          <span className="text-gold font-black drop-shadow-[0_0_12px_rgba(245,166,35,0.7)] ml-0.5">XT</span>
           {/* Official 4-point sparkle star */}
           <span className="text-gold text-[0.6em] ml-1 transform -translate-y-1.5 animate-pulse">✦</span>
         </div>

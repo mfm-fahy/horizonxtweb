@@ -9,43 +9,43 @@ export const FaqSection: React.FC = () => {
   const faqs = [
     {
       q: 'Who can participate?',
-      a: 'HorizonX is open to all enrolled undergraduate, postgraduate, and doctoral students from colleges and universities globally. Developers, UI/UX designers, researchers, product thinkers, and domain enthusiasts of all skill levels are encouraged to apply.',
+      a: 'HorizonXT is open to all enrolled undergraduate, postgraduate, and doctoral students from colleges and universities globally. Developers, UI/UX designers, researchers, product thinkers, and domain enthusiasts of all skill levels are encouraged to apply.',
     },
     {
-      q: 'What is the team size?',
-      a: 'Squads can consist of 2 to 4 members. Interdisciplinary squads (e.g., frontend developer, backend engineer, AI/ML specialist, and UI/UX designer) are strongly recommended. Cross-college teams are completely welcomed!',
+      q: 'What is the team size limit?',
+      a: 'Squads can consist of 1 up to a maximum of 5 members. Every team member MUST provide their valid LinkedIn profile URL during registration. Interdisciplinary squads across colleges are warmly welcomed!',
+    },
+    {
+      q: 'How do we submit our project abstract?',
+      a: 'During registration, select a problem statement from our tracks, upload your abstract in .docx format ONLY to Google Drive (set to "Anyone with the link can view"), and paste the Google Drive link into the registration form.',
+    },
+    {
+      q: 'When do registrations open and close?',
+      a: 'Registrations officially open on October 5, 2026. Abstract submissions in .docx format via Google Drive will close on October 16, 2026. Our technical jury evaluates all submitted abstracts to shortlist teams for the physical 36-hour hackathon event on October 24–26.',
     },
     {
       q: 'Is the hackathon free?',
-      a: 'Yes, 100% free! There is zero registration fee, zero participation fee, and zero submission fee. Food, beverages, midnight fuel, high-speed Wi-Fi, mentorship, and hacker kits are provided free of charge by our sponsors.',
+      a: 'Yes, 100% free! There is zero registration fee, zero abstract submission fee, and zero event participation fee. Food, beverages, midnight fuel, high-speed Wi-Fi, mentorship, and hacker kits are provided free of charge by our sponsors.',
     },
     {
-      q: 'Can I participate individually?',
-      a: 'While individual hackers can register, hackathons are collaborative orbital journeys! You can use our squad recruitment portal and Discord channel to find teammates with complementary skills before the event begins.',
-    },
-    {
-      q: 'What technologies can we use?',
+      q: 'What technologies can we use during the 36-hour hackathon?',
       a: 'Any open-source language, framework, API, or hardware platform you prefer! Whether you build in React, Python, Rust, Go, Flutter, PyTorch, Solidity, or hardware microcontrollers like Arduino/Raspberry Pi—you have full autonomy.',
     },
     {
-      q: 'What should we build?',
-      a: 'You can build web applications, mobile apps, decentralized protocols, machine learning agents, IoT hardware prototypes, or scientific analysis tools aligned with any of our 6 Frontier Tracks or Open Innovation.',
+      q: 'What format must the abstract be in?',
+      a: 'The abstract MUST be in Microsoft Word (.docx) format uploaded inside your Google Drive link. PDF, text, or image files will not be accepted.',
     },
     {
-      q: 'Is there a registration deadline?',
-      a: 'Registrations close on October 22, 2026 at 11:59 PM IST, or once our physical arena reaches capacity. Early applicants receive priority review and squad credential issuance.',
+      q: 'How does judging work on-site?',
+      a: 'Shortlisted teams building during the 36-hour sprint undergo evaluation based on Innovation (25%), Technical Implementation (25%), Real-World Impact (20%), User Experience (15%), and Scalability (15%). Finalists present on the Grand Stage on October 26.',
     },
     {
-      q: 'How does judging work?',
-      a: 'All projects undergo rigorous evaluation based on 5 parameters: Innovation (25%), Technical Implementation (25%), Real-World Impact (20%), User Experience (15%), and Scalability (15%). Preliminary reviews lead to the top 10 squads presenting on the Grand Finale stage.',
-    },
-    {
-      q: 'What should we bring?',
-      a: 'Bring your laptop, chargers, extension cords, personal hardware components, valid college student ID card, toiletries, and boundless creative energy! Overnight rest pods and secure storage are provided.',
+      q: 'What should shortlisted teams bring to the event?',
+      a: 'Bring your laptop, chargers, extension cords, personal hardware components, valid college student ID card, toiletries, and creative energy! Overnight rest pods and secure storage are provided on October 24–26.',
     },
     {
       q: 'Will certificates be provided?',
-      a: 'Yes! Every verified cadet who completes the 36-hour sprint and submits their project will receive an officially accredited, cryptographically verifiable HorizonX Certificate of Excellence and participation badges.',
+      a: 'Yes! Every verified cadet participating in the 36-hour sprint and submitting their final project will receive an officially accredited HorizonXT Certificate of Excellence and participation badges.',
     },
   ];
 
@@ -76,7 +76,7 @@ export const FaqSection: React.FC = () => {
             FREQUENTLY ASKED <span className="text-holo">QUESTIONS</span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-muted leading-relaxed font-sans mb-8">
+          <p className="text-sm sm:text-base text-white leading-relaxed font-sans mb-8">
             Got questions regarding the mission? Review our telemetry guides below.
           </p>
 

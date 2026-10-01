@@ -46,7 +46,7 @@ export const SponsorsSection: React.FC = () => {
             POWERED <span className="text-holo">BY</span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-muted leading-relaxed font-sans">
+          <p className="text-sm sm:text-base text-white leading-relaxed font-sans">
             Backed by elite global technology corporations, scientific research institutions, and venture capital incubators.
           </p>
         </div>

@@ -16,7 +16,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
       'CALIBRATING 3D ORBITAL TRAJECTORY...',
       'SYNTHESIZING DEEP-SPACE STELLAR FIELD...',
       'ALIGNING ASTEROID BELT SENSORS...',
-      'HORIZONX SPACE EXPLORATION READY.',
+      'HORIZONXT SPACE EXPLORATION READY.',
     ];
 
     const timer = setInterval(() => {
@@ -108,7 +108,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
         {/* Space Station Coordinates */}
         <div className="mt-8 font-mono text-[10px] tracking-widest text-slate-subtext/70 uppercase">
-          STATION: HZX-ORBIT-36 • OCT 24–25 • SYS 2026.0
+          STATION: HZX-ORBIT-36 • OCT 24–26 • SYS 2026.0
         </div>
       </div>
     </div>
