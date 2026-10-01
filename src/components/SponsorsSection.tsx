@@ -1,9 +1,15 @@
 import React from 'react';
-import { Sparkles, Terminal, Cloud, Shield, Database, Cpu, Atom, BookOpen, Users, Radio } from 'lucide-react';
+import { Sparkles, Terminal, Cloud, Shield, Database, Cpu, Atom, BookOpen, Users, Radio, Landmark } from 'lucide-react';
 import { sounds } from '../utils/sound';
 
 export const SponsorsSection: React.FC = () => {
   const tiers = [
+    {
+      category: 'GOVERNMENT & STATE INNOVATION PARTNERS',
+      sponsors: [
+        { name: 'STARTUPTN', subtitle: 'Government of Tamil Nadu', icon: Landmark },
+      ],
+    },
     {
       category: 'TECHNOLOGY PARTNERS',
       sponsors: [

@@ -10,6 +10,7 @@ import { TimelineSection } from './components/TimelineSection';
 import { JudgingSection } from './components/JudgingSection';
 import { PrizesSection } from './components/PrizesSection';
 import { SponsorsSection } from './components/SponsorsSection';
+import { InstitutionalSupport } from './components/InstitutionalSupport';
 import { FaqSection } from './components/FaqSection';
 import { FinalCtaSection } from './components/FinalCtaSection';
 import { Footer } from './components/Footer';
@@ -185,6 +186,9 @@ export function App() {
 
         {/* Sponsors & Partners */}
         <SponsorsSection />
+
+        {/* Institutional Support */}
+        <InstitutionalSupport />
 
         {/* Frequently Asked Questions */}
         <FaqSection />
