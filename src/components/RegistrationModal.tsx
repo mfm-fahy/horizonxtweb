@@ -93,9 +93,8 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
     { name: '', email: '', role: 'Full Stack Engineer', linkedinUrl: '' },
   ]);
 
-  // Step 3: Challenge & Abstract Submission
   const [selectedChallenge, setSelectedChallenge] = useState(
-    initialTrackId || problemStatements[0].code
+    initialTrackId || ''
   );
   const [projectTitle, setProjectTitle] = useState('');
   const [abstractUrl, setAbstractUrl] = useState('');
@@ -161,7 +160,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
   const validateStep3 = () => {
     const errs: { [key: string]: string } = {};
-    if (!selectedChallenge) errs.selectedChallenge = 'Please choose a frontier track.';
+    if (!selectedChallenge) errs.selectedChallenge = 'Please select an official problem statement.';
     if (!abstractUrl.trim()) {
       errs.abstractUrl = 'Google Drive link for Abstract (.docx format) is required.';
     } else if (!abstractUrl.includes('drive.google.com') && !abstractUrl.includes('docs.google.com')) {
@@ -583,19 +582,39 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
               </label>
               <select
                 value={selectedChallenge}
-                onChange={(e) => setSelectedChallenge(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-navy-darker border border-gold/50 focus:border-gold focus:outline-none text-white text-sm font-sans font-semibold cursor-pointer mb-3"
+                onChange={(e) => {
+                  setSelectedChallenge(e.target.value);
+                  if (errors.selectedChallenge) {
+                    setErrors({ ...errors, selectedChallenge: '' });
+                  }
+                }}
+                className={`w-full px-4 py-3 rounded-xl bg-navy-darker border focus:outline-none text-white text-sm font-sans font-semibold cursor-pointer mb-1 ${
+                  errors.selectedChallenge ? 'border-red-500/50 focus:border-red-500' : 'border-gold/50 focus:border-gold'
+                }`}
               >
+                <option value="" disabled className="text-slate-muted font-normal">
+                  -- Choose your challenge --
+                </option>
                 {problemStatements.map((ps) => (
                   <option key={ps.id} value={ps.code} className="bg-navy-darker text-white">
                     {ps.code}: {ps.title} ({ps.category})
                   </option>
                 ))}
               </select>
+              
+              {errors.selectedChallenge && (
+                <p className="text-red-400 text-xs mt-1 mb-3 ml-1 flex items-center gap-1">
+                  <span className="w-1 h-1 rounded-full bg-red-400" />
+                  {errors.selectedChallenge}
+                </p>
+              )}
+              
+              <div className="mb-3" />
 
               {/* Show selected PS details summary box */}
-              {(() => {
-                const activePs = problemStatements.find((ps) => ps.code === selectedChallenge) || problemStatements[0];
+              {selectedChallenge && (() => {
+                const activePs = problemStatements.find((ps) => ps.code === selectedChallenge);
+                if (!activePs) return null;
                 return (
                   <div className="p-3.5 rounded-xl bg-navy-surface border border-teal/30 text-xs font-sans space-y-1">
                     <div className="flex items-center justify-between">
