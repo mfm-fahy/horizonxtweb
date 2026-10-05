@@ -98,6 +98,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
   );
   const [projectTitle, setProjectTitle] = useState('');
   const [abstractUrl, setAbstractUrl] = useState('');
+  const [isPsExpanded, setIsPsExpanded] = useState(false);
 
   // Validation errors
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -346,6 +347,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                 value={selectedChallenge}
                 onChange={(e) => {
                   setSelectedChallenge(e.target.value);
+                  setIsPsExpanded(false);
                   if (errors.selectedChallenge) {
                     setErrors({ ...errors, selectedChallenge: '' });
                   }
@@ -378,15 +380,50 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                 const activePs = problemStatements.find((ps) => ps.code === selectedChallenge);
                 if (!activePs) return null;
                 return (
-                  <div className="p-3.5 rounded-xl bg-navy-surface border border-teal/30 text-xs font-sans space-y-1">
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono font-bold text-gold">{activePs.code}</span>
-                      <span className="font-mono text-[10px] text-teal-light uppercase px-2 py-0.5 rounded bg-teal/10 border border-teal/20">
-                        {activePs.category}
-                      </span>
+                  <div className="space-y-2">
+                    <div className="p-4 rounded-xl bg-navy-surface border border-teal/30 text-xs font-sans space-y-2">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-teal/15 pb-2">
+                        <div className="flex items-center gap-2">
+                          <span className="font-mono font-bold text-gold text-sm">{activePs.code}</span>
+                          <span className="font-mono text-[10px] text-teal-light uppercase px-2 py-0.5 rounded bg-teal/10 border border-teal/20">
+                            {activePs.category}
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => setIsPsExpanded(!isPsExpanded)}
+                          className="font-mono text-[10px] uppercase text-gold hover:text-gold-light tracking-wider hover:underline flex items-center gap-1 self-start sm:self-auto"
+                        >
+                          {isPsExpanded ? 'HIDE DETAILS' : 'INSPECT DETAILS'}
+                        </button>
+                      </div>
+                      <p className="font-bold text-white text-sm">{activePs.title}</p>
+                      <p className="text-slate-muted text-xs">{activePs.tagline}</p>
                     </div>
-                    <p className="font-bold text-white text-sm">{activePs.title}</p>
-                    <p className="text-slate-muted text-xs line-clamp-2">{activePs.tagline}</p>
+
+                    {isPsExpanded && (
+                      <div className="p-4 rounded-xl bg-navy-darker/50 border border-gold/30 text-xs font-sans space-y-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                        <div>
+                          <h4 className="font-mono text-gold uppercase tracking-widest text-[10px] mb-1">THE PROBLEM</h4>
+                          <p className="text-lightgray leading-relaxed">{activePs.problem}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-mono text-gold uppercase tracking-widest text-[10px] mb-1">THE CHALLENGE</h4>
+                          <p className="text-lightgray leading-relaxed">{activePs.challenge}</p>
+                        </div>
+                        <div>
+                          <h4 className="font-mono text-teal-light uppercase tracking-widest text-[10px] mb-1.5">36-HOUR HACKATHON DIRECTIVES</h4>
+                          <ul className="space-y-1">
+                            {activePs.challenge36h.map((directive, idx) => (
+                              <li key={idx} className="flex items-start gap-1.5 text-slate-muted">
+                                <span className="text-teal font-bold mt-0.5">›</span>
+                                <span>{directive}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               })()}
