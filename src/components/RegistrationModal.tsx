@@ -109,6 +109,12 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
     }
   }, [initialTrackId]);
 
+  useEffect(() => {
+    if (isOpen) {
+      setStep(1);
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const updateTeammate = (
@@ -125,6 +131,13 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
   const validateStep1 = () => {
     const errs: { [key: string]: string } = {};
+    if (!selectedChallenge) errs.selectedChallenge = 'Please select an official problem statement.';
+    setErrors(errs);
+    return Object.keys(errs).length === 0;
+  };
+
+  const validateStep2 = () => {
+    const errs: { [key: string]: string } = {};
     if (!personal.fullName.trim()) errs.fullName = 'Full Name is required.';
     if (!personal.email.trim() || !personal.email.includes('@'))
       errs.email = 'Valid academic or personal email required.';
@@ -138,7 +151,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
     return Object.keys(errs).length === 0;
   };
 
-  const validateStep2 = () => {
+  const validateStep3 = () => {
     const errs: { [key: string]: string } = {};
     if (!createTeamData.teamName.trim()) errs.teamName = 'Team name is required.';
     const targetSize = parseInt(createTeamData.teamSize, 10);
@@ -154,13 +167,6 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
         errs[`tm_${i}_linkedin`] = `LinkedIn Profile URL required for Teammate ${i + 2}.`;
       }
     }
-    setErrors(errs);
-    return Object.keys(errs).length === 0;
-  };
-
-  const validateStep3 = () => {
-    const errs: { [key: string]: string } = {};
-    if (!selectedChallenge) errs.selectedChallenge = 'Please select an official problem statement.';
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
@@ -324,8 +330,72 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
           })}
         </div>
 
-        {/* STEP 1: PERSONAL DETAILS (LEADER) */}
+        {/* STEP 1: CHALLENGE & ABSTRACT GDRIVE LINK (.DOCX ONLY) */}
         {step === 1 && (
+          <div className="space-y-6 animate-in fade-in duration-200">
+            <div className="flex items-center gap-2 text-teal font-heading font-bold text-sm tracking-wider uppercase">
+              <Compass className="w-4 h-4" />
+              <span>OFFICIAL PROBLEM STATEMENT</span>
+            </div>
+
+            <div>
+              <label className="block text-xs font-mono text-gold mb-1.5 uppercase font-bold">
+                Select Official Problem Statement *
+              </label>
+              <select
+                value={selectedChallenge}
+                onChange={(e) => {
+                  setSelectedChallenge(e.target.value);
+                  if (errors.selectedChallenge) {
+                    setErrors({ ...errors, selectedChallenge: '' });
+                  }
+                }}
+                className={`w-full px-4 py-3 rounded-xl bg-navy-darker border focus:outline-none text-white text-sm font-sans font-semibold cursor-pointer mb-1 ${
+                  errors.selectedChallenge ? 'border-red-500/50 focus:border-red-500' : 'border-gold/50 focus:border-gold'
+                }`}
+              >
+                <option value="" disabled className="text-slate-muted font-normal">
+                  -- Choose your challenge --
+                </option>
+                {problemStatements.map((ps) => (
+                  <option key={ps.id} value={ps.code} className="bg-navy-darker text-white">
+                    {ps.code}: {ps.title} ({ps.category})
+                  </option>
+                ))}
+              </select>
+              
+              {errors.selectedChallenge && (
+                <p className="text-red-400 text-xs mt-1 mb-3 ml-1 flex items-center gap-1">
+                  <span className="w-1 h-1 rounded-full bg-red-400" />
+                  {errors.selectedChallenge}
+                </p>
+              )}
+              
+              <div className="mb-3" />
+
+              {/* Show selected PS details summary box */}
+              {selectedChallenge && (() => {
+                const activePs = problemStatements.find((ps) => ps.code === selectedChallenge);
+                if (!activePs) return null;
+                return (
+                  <div className="p-3.5 rounded-xl bg-navy-surface border border-teal/30 text-xs font-sans space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono font-bold text-gold">{activePs.code}</span>
+                      <span className="font-mono text-[10px] text-teal-light uppercase px-2 py-0.5 rounded bg-teal/10 border border-teal/20">
+                        {activePs.category}
+                      </span>
+                    </div>
+                    <p className="font-bold text-white text-sm">{activePs.title}</p>
+                    <p className="text-slate-muted text-xs line-clamp-2">{activePs.tagline}</p>
+                  </div>
+                );
+              })()}
+            </div>
+          </div>
+        )}
+
+        {/* STEP 2: PERSONAL DETAILS (LEADER) */}
+        {step === 2 && (
           <div className="space-y-5 animate-in fade-in duration-200">
             <div className="flex items-center gap-2 text-teal font-heading font-bold text-sm tracking-wider uppercase">
               <User className="w-4 h-4" />
@@ -439,8 +509,8 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
           </div>
         )}
 
-        {/* STEP 2: TEAM SETUP (UP TO 5 MEMBERS WITH LINKEDIN) */}
-        {step === 2 && (
+        {/* STEP 3: TEAM SETUP (UP TO 5 MEMBERS WITH LINKEDIN) */}
+        {step === 3 && (
           <div className="space-y-6 animate-in fade-in duration-200">
             <div className="flex items-center gap-2 text-teal font-heading font-bold text-sm tracking-wider uppercase">
               <Users className="w-4 h-4" />
@@ -573,70 +643,6 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                   </div>
                 )}
               </div>
-          </div>
-        )}
-
-        {/* STEP 3: CHALLENGE & ABSTRACT GDRIVE LINK (.DOCX ONLY) */}
-        {step === 3 && (
-          <div className="space-y-6 animate-in fade-in duration-200">
-            <div className="flex items-center gap-2 text-teal font-heading font-bold text-sm tracking-wider uppercase">
-              <Compass className="w-4 h-4" />
-              <span>OFFICIAL PROBLEM STATEMENT</span>
-            </div>
-
-            <div>
-              <label className="block text-xs font-mono text-gold mb-1.5 uppercase font-bold">
-                Select Official Problem Statement *
-              </label>
-              <select
-                value={selectedChallenge}
-                onChange={(e) => {
-                  setSelectedChallenge(e.target.value);
-                  if (errors.selectedChallenge) {
-                    setErrors({ ...errors, selectedChallenge: '' });
-                  }
-                }}
-                className={`w-full px-4 py-3 rounded-xl bg-navy-darker border focus:outline-none text-white text-sm font-sans font-semibold cursor-pointer mb-1 ${
-                  errors.selectedChallenge ? 'border-red-500/50 focus:border-red-500' : 'border-gold/50 focus:border-gold'
-                }`}
-              >
-                <option value="" disabled className="text-slate-muted font-normal">
-                  -- Choose your challenge --
-                </option>
-                {problemStatements.map((ps) => (
-                  <option key={ps.id} value={ps.code} className="bg-navy-darker text-white">
-                    {ps.code}: {ps.title} ({ps.category})
-                  </option>
-                ))}
-              </select>
-              
-              {errors.selectedChallenge && (
-                <p className="text-red-400 text-xs mt-1 mb-3 ml-1 flex items-center gap-1">
-                  <span className="w-1 h-1 rounded-full bg-red-400" />
-                  {errors.selectedChallenge}
-                </p>
-              )}
-              
-              <div className="mb-3" />
-
-              {/* Show selected PS details summary box */}
-              {selectedChallenge && (() => {
-                const activePs = problemStatements.find((ps) => ps.code === selectedChallenge);
-                if (!activePs) return null;
-                return (
-                  <div className="p-3.5 rounded-xl bg-navy-surface border border-teal/30 text-xs font-sans space-y-1">
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono font-bold text-gold">{activePs.code}</span>
-                      <span className="font-mono text-[10px] text-teal-light uppercase px-2 py-0.5 rounded bg-teal/10 border border-teal/20">
-                        {activePs.category}
-                      </span>
-                    </div>
-                    <p className="font-bold text-white text-sm">{activePs.title}</p>
-                    <p className="text-slate-muted text-xs line-clamp-2">{activePs.tagline}</p>
-                  </div>
-                );
-              })()}
-            </div>
           </div>
         )}
 
