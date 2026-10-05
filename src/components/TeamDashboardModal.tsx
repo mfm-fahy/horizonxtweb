@@ -118,7 +118,7 @@ export const TeamDashboardModal: React.FC<TeamDashboardProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-navy-darker/90 backdrop-blur-2xl animate-in fade-in duration-200 overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-navy-darker/50 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
       <div className="relative w-full max-w-5xl rounded-3xl glass-panel-elevated border border-teal/40 p-6 sm:p-10 my-auto shadow-2xl">
         {/* Close Button */}
         <button
@@ -390,7 +390,7 @@ export const TeamDashboardModal: React.FC<TeamDashboardProps> = ({
 
         {/* Change Challenge Modal */}
         {isChangeTrackOpen && (
-          <div className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-navy-darker/80 backdrop-blur-md">
+          <div className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-navy-darker/50 backdrop-blur-md">
             <div className="relative w-full max-w-md rounded-2xl glass-panel-elevated border border-teal/40 p-6">
               <h3 className="font-heading font-extrabold text-xl text-white uppercase mb-4">
                 SWITCH FRONTIER TRACK
@@ -428,7 +428,7 @@ export const TeamDashboardModal: React.FC<TeamDashboardProps> = ({
 
         {/* Project Submission Modal */}
         {isSubmitModalOpen && (
-          <div className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-navy-darker/85 backdrop-blur-md">
+          <div className="fixed inset-0 z-60 flex items-center justify-center p-4 bg-navy-darker/50 backdrop-blur-md">
             <div className="relative w-full max-w-xl rounded-2xl glass-panel-elevated border border-gold/40 p-6 sm:p-8">
               <div className="flex items-center justify-between border-b border-teal/20 pb-4 mb-6">
                 <div className="flex items-center gap-3">

@@ -281,7 +281,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
   const targetSizeCount = parseInt(createTeamData.teamSize, 10);
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-navy-darker/85 backdrop-blur-2xl animate-in fade-in duration-200 overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-navy-darker/50 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
       <div className="relative w-full max-w-3xl rounded-3xl glass-panel-elevated border border-teal/40 p-6 sm:p-10 my-auto shadow-2xl">
         {/* Close Button */}
         <button

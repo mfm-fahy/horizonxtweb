@@ -216,7 +216,7 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
 
       {/* Detail Modal for Selected Problem Statement */}
       {selectedPs && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-navy-darker/85 backdrop-blur-2xl animate-in fade-in duration-200 overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-navy-darker/50 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
           <div className="relative w-full max-w-3xl rounded-3xl glass-panel-elevated border border-gold/50 p-6 sm:p-10 my-auto shadow-2xl max-h-[90vh] overflow-y-auto">
             {/* Close Button */}
             <button
