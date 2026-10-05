@@ -268,17 +268,6 @@ export const TeamDashboardModal: React.FC<TeamDashboardProps> = ({
                         </a>
                       </div>
                     )}
-
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {member.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="text-[10px] font-mono px-2 py-0.5 rounded bg-navy-surface text-slate-muted border border-teal/10"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
                   </div>
 
                   {member.status === 'pending' && (

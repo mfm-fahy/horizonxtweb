@@ -206,7 +206,7 @@ export const TimelineSection: React.FC = () => {
           {/* DAY 1: OCTOBER 24 SECTION */}
           {(activeDay === 'all' || activeDay === 'oct24') && (
             <div className="mb-16">
-              <div className="flex items-center justify-center mb-10">
+              <div className="relative z-20 w-full flex items-center justify-center mb-10">
                 <div className="px-6 py-2.5 rounded-full bg-navy-surface border border-teal/40 text-teal-light font-heading font-extrabold text-sm tracking-[0.25em] uppercase shadow-glow-teal flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-teal animate-ping" />
                   <span>OCTOBER 24 • DAY 1 KICKOFF</span>
@@ -276,7 +276,7 @@ export const TimelineSection: React.FC = () => {
           {/* DAY 2: OCTOBER 25 SECTION */}
           {(activeDay === 'all' || activeDay === 'oct25') && (
             <div className="mb-16">
-              <div className="flex items-center justify-center mb-10">
+              <div className="relative z-20 w-full flex items-center justify-center mb-10">
                 <div className="px-6 py-2.5 rounded-full bg-navy-surface border border-gold/40 text-gold font-heading font-extrabold text-sm tracking-[0.25em] uppercase shadow-glow-gold flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-gold animate-ping" />
                   <span>OCTOBER 25 • DAY 2 HACKING & MENTORSHIP</span>
@@ -346,7 +346,7 @@ export const TimelineSection: React.FC = () => {
           {/* DAY 3: OCTOBER 26 SECTION */}
           {(activeDay === 'all' || activeDay === 'oct26') && (
             <div>
-              <div className="flex items-center justify-center mb-10">
+              <div className="relative z-20 w-full flex items-center justify-center mb-10">
                 <div className="px-6 py-2.5 rounded-full bg-navy-surface border border-teal/40 text-teal-light font-heading font-extrabold text-sm tracking-[0.25em] uppercase shadow-glow-teal flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-teal animate-ping" />
                   <span>OCTOBER 26 • DAY 3 GRAND FINALE & PODIUM</span>
@@ -412,6 +412,15 @@ export const TimelineSection: React.FC = () => {
               </div>
             </div>
           )}
+
+          {/* END CARD */}
+          <div className="relative z-20 w-full flex items-center justify-center mt-16 mb-4">
+            <div className="px-6 py-2.5 rounded-full bg-navy-surface border border-gold/60 text-gold font-heading font-extrabold text-sm tracking-[0.25em] uppercase shadow-glow-gold flex items-center gap-3">
+              <div className="w-2 h-2 rounded-full bg-gold" />
+              <span>EVENT CONCLUDES</span>
+              <div className="w-2 h-2 rounded-full bg-gold" />
+            </div>
+          </div>
         </div>
       </div>
     </section>

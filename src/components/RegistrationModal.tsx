@@ -27,7 +27,6 @@ export interface TeamMember {
   email: string;
   role: string;
   linkedinUrl: string;
-  skills: string[];
   isLeader: boolean;
   status: 'active' | 'pending';
 }
@@ -74,11 +73,9 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
     department: '',
     year: '3rd Year',
     linkedinUrl: '',
-    skills: ['Frontend', 'AI/ML'] as string[],
   });
 
   // Step 2: Team Flow
-  const [teamMode, setTeamMode] = useState<'create' | 'join'>('create');
   const [createTeamData, setCreateTeamData] = useState({
     teamName: '',
     teamSize: '4',
@@ -94,13 +91,6 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
     { name: '', email: '', role: 'UI/UX Designer', linkedinUrl: '' },
     { name: '', email: '', role: 'Full Stack Engineer', linkedinUrl: '' },
   ]);
-
-  const [joinTeamData, setJoinTeamData] = useState({
-    teamId: '',
-    inviteCode: '',
-    memberRole: 'Full Stack Engineer',
-    memberLinkedinUrl: '',
-  });
 
   // Step 3: Challenge & Abstract Submission
   const [selectedChallenge, setSelectedChallenge] = useState(
@@ -120,29 +110,6 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
   }, [initialTrackId]);
 
   if (!isOpen) return null;
-
-  const availableSkills = [
-    'Frontend',
-    'Backend',
-    'AI/ML',
-    'UI/UX Design',
-    'DevOps / Cloud',
-    'Cybersecurity',
-    'Mobile Apps',
-    'IoT / Hardware',
-  ];
-
-  const toggleSkill = (skill: string) => {
-    setPersonal((prev) => {
-      const exists = prev.skills.includes(skill);
-      return {
-        ...prev,
-        skills: exists
-          ? prev.skills.filter((s) => s !== skill)
-          : [...prev.skills, skill],
-      };
-    });
-  };
 
   const updateTeammate = (
     index: number,
@@ -166,7 +133,6 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
     if (!personal.college.trim()) errs.college = 'College or University name required.';
     if (!personal.department.trim()) errs.department = 'Department name required.';
     if (!personal.linkedinUrl.trim()) errs.linkedinUrl = 'LinkedIn profile URL is required.';
-    if (personal.skills.length === 0) errs.skills = 'Select at least one skill.';
 
     setErrors(errs);
     return Object.keys(errs).length === 0;
@@ -174,27 +140,19 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
   const validateStep2 = () => {
     const errs: { [key: string]: string } = {};
-    if (teamMode === 'create') {
-      if (!createTeamData.teamName.trim()) errs.teamName = 'Team name is required.';
-      const targetSize = parseInt(createTeamData.teamSize, 10);
-      for (let i = 0; i < targetSize - 1; i++) {
-        const tm = teammates[i];
-        if (!tm.name.trim()) {
-          errs[`tm_${i}_name`] = `Teammate ${i + 2} Name is required.`;
-        }
-        if (!tm.email.trim() || !tm.email.includes('@')) {
-          errs[`tm_${i}_email`] = `Valid email required for Teammate ${i + 2}.`;
-        }
-        if (!tm.linkedinUrl.trim()) {
-          errs[`tm_${i}_linkedin`] = `LinkedIn Profile URL required for Teammate ${i + 2}.`;
-        }
+    if (!createTeamData.teamName.trim()) errs.teamName = 'Team name is required.';
+    const targetSize = parseInt(createTeamData.teamSize, 10);
+    for (let i = 0; i < targetSize - 1; i++) {
+      const tm = teammates[i];
+      if (!tm.name.trim()) {
+        errs[`tm_${i}_name`] = `Teammate ${i + 2} Name is required.`;
       }
-    } else {
-      if (!joinTeamData.teamId.trim()) errs.teamId = 'Team ID is required (e.g. HZX-8492).';
-      if (!joinTeamData.inviteCode.trim())
-        errs.inviteCode = 'Invite Code is required (e.g. ORBIT-7X9Q).';
-      if (!joinTeamData.memberLinkedinUrl.trim())
-        errs.memberLinkedinUrl = 'LinkedIn profile URL is required.';
+      if (!tm.email.trim() || !tm.email.includes('@')) {
+        errs[`tm_${i}_email`] = `Valid email required for Teammate ${i + 2}.`;
+      }
+      if (!tm.linkedinUrl.trim()) {
+        errs[`tm_${i}_linkedin`] = `LinkedIn Profile URL required for Teammate ${i + 2}.`;
+      }
     }
     setErrors(errs);
     return Object.keys(errs).length === 0;
@@ -245,63 +203,33 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
     let compiledMembers: TeamMember[] = [];
 
-    if (teamMode === 'create') {
-      const leaderMember: TeamMember = {
-        id: 'mem-1',
-        name: personal.fullName,
-        email: personal.email,
-        role: createTeamData.leaderRole || 'Team Leader',
-        linkedinUrl: personal.linkedinUrl,
-        skills: personal.skills,
-        isLeader: true,
-        status: 'active',
-      };
+    const leaderMember: TeamMember = {
+      id: 'mem-1',
+      name: personal.fullName,
+      email: personal.email,
+      role: createTeamData.leaderRole || 'Team Leader',
+      linkedinUrl: personal.linkedinUrl,
+      isLeader: true,
+      status: 'active',
+    };
 
-      const targetCount = parseInt(createTeamData.teamSize, 10);
-      const otherMembers: TeamMember[] = teammates.slice(0, targetCount - 1).map((tm, idx) => ({
-        id: `mem-${idx + 2}`,
-        name: tm.name || `Teammate 0${idx + 2}`,
-        email: tm.email || `teammate${idx + 2}@college.edu`,
-        role: tm.role || `Teammate 0${idx + 2}`,
-        linkedinUrl: tm.linkedinUrl,
-        skills: ['Software Engineering'],
-        isLeader: false,
-        status: 'active',
-      }));
+    const targetCount = parseInt(createTeamData.teamSize, 10);
+    const otherMembers: TeamMember[] = teammates.slice(0, targetCount - 1).map((tm, idx) => ({
+      id: `mem-${idx + 2}`,
+      name: tm.name || `Teammate 0${idx + 2}`,
+      email: tm.email || `teammate${idx + 2}@college.edu`,
+      role: tm.role || `Teammate 0${idx + 2}`,
+      linkedinUrl: tm.linkedinUrl,
+      isLeader: false,
+      status: 'active',
+    }));
 
-      compiledMembers = [leaderMember, ...otherMembers];
-    } else {
-      compiledMembers = [
-        {
-          id: 'mem-leader',
-          name: 'Squad Commander',
-          email: 'leader@horizonxt.io',
-          role: 'Team Leader',
-          linkedinUrl: 'https://linkedin.com/in/horizonxt-leader',
-          skills: ['System Architecture'],
-          isLeader: true,
-          status: 'active',
-        },
-        {
-          id: 'mem-user',
-          name: personal.fullName,
-          email: personal.email,
-          role: joinTeamData.memberRole,
-          linkedinUrl: joinTeamData.memberLinkedinUrl || personal.linkedinUrl,
-          skills: personal.skills,
-          isLeader: false,
-          status: 'active',
-        },
-      ];
-    }
+    compiledMembers = [leaderMember, ...otherMembers];
 
     const newTeam: TeamData = {
-      teamId: teamMode === 'create' ? generatedTeamId : joinTeamData.teamId.toUpperCase(),
-      teamName:
-        teamMode === 'create'
-          ? createTeamData.teamName.toUpperCase()
-          : `TEAM ${joinTeamData.teamId.toUpperCase()}`,
-      inviteCode: teamMode === 'create' ? generatedInviteCode : joinTeamData.inviteCode.toUpperCase(),
+      teamId: generatedTeamId,
+      teamName: createTeamData.teamName.toUpperCase(),
+      inviteCode: generatedInviteCode,
       selectedChallenge: selectedChallenge,
       projectTitle: projectTitle.trim() || 'HorizonXT Abstract Solution',
       abstractUrl: abstractUrl.trim(),
@@ -336,12 +264,12 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
   ];
 
   const challengeOptions = [
-    { id: 'ai-ml', name: 'AI & Machine Learning', icon: '🤖' },
-    { id: 'fintech', name: 'FinTech & DeFi', icon: '💳' },
-    { id: 'healthcare', name: 'Healthcare & BioTech', icon: '🩺' },
-    { id: 'smart-cities', name: 'Smart Cities & CleanTech', icon: '🌆' },
-    { id: 'cybersecurity', name: 'Cybersecurity & Zero Trust', icon: '🛡️' },
-    { id: 'open-innovation', name: 'Open Innovation & Wildcard', icon: '✨' },
+    { id: 'ai-ml', name: 'AI & Machine Learning' },
+    { id: 'fintech', name: 'FinTech & DeFi' },
+    { id: 'healthcare', name: 'Healthcare & BioTech' },
+    { id: 'smart-cities', name: 'Smart Cities & CleanTech' },
+    { id: 'cybersecurity', name: 'Cybersecurity & Zero Trust' },
+    { id: 'open-innovation', name: 'Open Innovation & Wildcard' },
   ];
 
   const targetSizeCount = parseInt(createTeamData.teamSize, 10);
@@ -509,35 +437,6 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                 )}
               </div>
             </div>
-
-            {/* Core Skills */}
-            <div>
-              <label className="block text-xs font-mono text-lightgray/80 mb-2 uppercase">
-                Leader Primary Skills *
-              </label>
-              <div className="flex flex-wrap gap-2">
-                {availableSkills.map((skill) => {
-                  const isSelected = personal.skills.includes(skill);
-                  return (
-                    <button
-                      type="button"
-                      key={skill}
-                      onClick={() => toggleSkill(skill)}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
-                        isSelected
-                          ? 'bg-teal text-navy font-bold border border-teal shadow-glow-teal'
-                          : 'bg-navy-surface text-lightgray border border-teal/20 hover:border-teal/50'
-                      }`}
-                    >
-                      {skill}
-                    </button>
-                  );
-                })}
-              </div>
-              {errors.skills && (
-                <p className="text-xs text-rose-400 mt-1">{errors.skills}</p>
-              )}
-            </div>
           </div>
         )}
 
@@ -549,35 +448,8 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
               <span>SQUAD ROSTER (MAX 5 MEMBERS) & LINKEDIN PROFILES</span>
             </div>
 
-            {/* Mode Switcher */}
-            <div className="grid grid-cols-2 gap-3 p-1.5 rounded-2xl bg-navy-surface border border-teal/25">
-              <button
-                type="button"
-                onClick={() => setTeamMode('create')}
-                className={`py-3 rounded-xl font-heading text-xs font-bold tracking-wider uppercase transition-all ${
-                  teamMode === 'create'
-                    ? 'bg-gold text-navy shadow-glow-gold'
-                    : 'text-lightgray hover:text-white'
-                }`}
-              >
-                CREATE NEW TEAM (LEADER)
-              </button>
-              <button
-                type="button"
-                onClick={() => setTeamMode('join')}
-                className={`py-3 rounded-xl font-heading text-xs font-bold tracking-wider uppercase transition-all ${
-                  teamMode === 'join'
-                    ? 'bg-gold text-navy shadow-glow-gold'
-                    : 'text-lightgray hover:text-white'
-                }`}
-              >
-                JOIN EXISTING TEAM
-              </button>
-            </div>
-
-            {teamMode === 'create' ? (
-              <div className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs font-mono text-lightgray/80 mb-1.5 uppercase">
                       Team / Squad Name *
@@ -702,64 +574,6 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                   </div>
                 )}
               </div>
-            ) : (
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-xs font-mono text-lightgray/80 mb-1.5 uppercase">
-                    Team ID *
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. HZX-8492"
-                    value={joinTeamData.teamId}
-                    onChange={(e) =>
-                      setJoinTeamData({ ...joinTeamData, teamId: e.target.value })
-                    }
-                    className="w-full px-4 py-3 rounded-xl bg-navy-darker/90 border border-teal/30 focus:border-gold focus:outline-none text-white text-sm font-sans"
-                  />
-                  {errors.teamId && (
-                    <p className="text-xs text-rose-400 mt-1">{errors.teamId}</p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="block text-xs font-mono text-lightgray/80 mb-1.5 uppercase">
-                    Invite Code *
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. ORBIT-7X9Q"
-                    value={joinTeamData.inviteCode}
-                    onChange={(e) =>
-                      setJoinTeamData({ ...joinTeamData, inviteCode: e.target.value })
-                    }
-                    className="w-full px-4 py-3 rounded-xl bg-navy-darker/90 border border-teal/30 focus:border-gold focus:outline-none text-white text-sm font-sans"
-                  />
-                  {errors.inviteCode && (
-                    <p className="text-xs text-rose-400 mt-1">{errors.inviteCode}</p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="block text-xs font-mono text-gold mb-1.5 uppercase flex items-center gap-1.5">
-                    <LinkedinIcon className="w-3.5 h-3.5 text-gold" />
-                    <span>Your LinkedIn Profile URL *</span>
-                  </label>
-                  <input
-                    type="url"
-                    placeholder="https://linkedin.com/in/your-profile"
-                    value={joinTeamData.memberLinkedinUrl}
-                    onChange={(e) =>
-                      setJoinTeamData({ ...joinTeamData, memberLinkedinUrl: e.target.value })
-                    }
-                    className="w-full px-4 py-3 rounded-xl bg-navy-darker/90 border border-gold/40 focus:border-gold focus:outline-none text-white text-sm font-sans"
-                  />
-                  {errors.memberLinkedinUrl && (
-                    <p className="text-xs text-rose-400 mt-1">{errors.memberLinkedinUrl}</p>
-                  )}
-                </div>
-              </div>
-            )}
           </div>
         )}
 
@@ -786,7 +600,6 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-xl">{opt.icon}</span>
                       <span className="font-heading font-bold text-xs uppercase tracking-wider text-lightgray">
                         {opt.name}
                       </span>
@@ -868,7 +681,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
               <div className="flex justify-between border-b border-teal/15 pb-2">
                 <span className="text-slate-muted">SQUAD NAME & SIZE:</span>
                 <span className="text-white font-bold">
-                  {teamMode === 'create' ? createTeamData.teamName : joinTeamData.teamId} ({createTeamData.teamSize} Members)
+                  {createTeamData.teamName} ({createTeamData.teamSize} Members)
                 </span>
               </div>
               <div className="flex justify-between border-b border-teal/15 pb-2">
