@@ -270,9 +270,9 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
   };
 
   const stepTitles = [
-    { num: '01', title: 'LEADER' },
-    { num: '02', title: 'TEAM & LINKEDIN' },
-    { num: '03', title: 'PROBLEM STATEMENT' },
+    { num: '01', title: 'PROBLEM STATEMENT' },
+    { num: '02', title: 'LEADER' },
+    { num: '03', title: 'TEAM & LINKEDIN' },
     { num: '04', title: 'ABSTRACT (.DOCX)' },
     { num: '05', title: 'CONFIRM' },
   ];
