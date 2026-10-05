@@ -63,7 +63,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
   initialTrackId,
   onRegistrationComplete,
 }) => {
-  const [step, setStep] = useState<1 | 2 | 3 | 4>(1);
+  const [step, setStep] = useState<1 | 2 | 3 | 4 | 5>(1);
 
   // Step 1: Personal Details (Leader)
   const [personal, setPersonal] = useState({
@@ -161,6 +161,12 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
   const validateStep3 = () => {
     const errs: { [key: string]: string } = {};
     if (!selectedChallenge) errs.selectedChallenge = 'Please select an official problem statement.';
+    setErrors(errs);
+    return Object.keys(errs).length === 0;
+  };
+
+  const validateStep4 = () => {
+    const errs: { [key: string]: string } = {};
     if (!abstractUrl.trim()) {
       errs.abstractUrl = 'Google Drive link for Abstract (.docx format) is required.';
     } else if (!abstractUrl.includes('drive.google.com') && !abstractUrl.includes('docs.google.com')) {
@@ -175,11 +181,12 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
     if (step === 1 && validateStep1()) setStep(2);
     else if (step === 2 && validateStep2()) setStep(3);
     else if (step === 3 && validateStep3()) setStep(4);
+    else if (step === 4 && validateStep4()) setStep(5);
   };
 
   const handleBack = () => {
     sounds.playClick();
-    if (step > 1) setStep((step - 1) as 1 | 2 | 3 | 4);
+    if (step > 1) setStep((step - 1) as 1 | 2 | 3 | 4 | 5);
   };
 
   const handleFinalSubmit = async () => {
@@ -259,8 +266,9 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
   const stepTitles = [
     { num: '01', title: 'LEADER' },
     { num: '02', title: 'TEAM & LINKEDIN' },
-    { num: '03', title: 'ABSTRACT (.DOCX)' },
-    { num: '04', title: 'CONFIRM' },
+    { num: '03', title: 'PROBLEM STATEMENT' },
+    { num: '04', title: 'ABSTRACT (.DOCX)' },
+    { num: '05', title: 'CONFIRM' },
   ];
 
   const targetSizeCount = parseInt(createTeamData.teamSize, 10);
@@ -287,7 +295,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
         </div>
 
         {/* Step Indicator Progress Bar */}
-        <div className="grid grid-cols-4 gap-2 sm:gap-4 mb-8">
+        <div className="grid grid-cols-5 gap-2 sm:gap-4 mb-8">
           {stepTitles.map((s, idx) => {
             const currentIdx = idx + 1;
             const isCompleted = step > currentIdx;
@@ -573,7 +581,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
           <div className="space-y-6 animate-in fade-in duration-200">
             <div className="flex items-center gap-2 text-teal font-heading font-bold text-sm tracking-wider uppercase">
               <Compass className="w-4 h-4" />
-              <span>PROBLEM STATEMENT & ABSTRACT SUBMISSION (.DOCX)</span>
+              <span>OFFICIAL PROBLEM STATEMENT</span>
             </div>
 
             <div>
@@ -629,6 +637,16 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                 );
               })()}
             </div>
+          </div>
+        )}
+
+        {/* STEP 4: PROJECT TITLE & ABSTRACT (.DOCX) */}
+        {step === 4 && (
+          <div className="space-y-6 animate-in fade-in duration-200">
+            <div className="flex items-center gap-2 text-teal font-heading font-bold text-sm tracking-wider uppercase">
+              <FileText className="w-4 h-4" />
+              <span>PROJECT TITLE & ABSTRACT (.DOCX)</span>
+            </div>
 
             <div>
               <label className="block text-xs font-mono text-lightgray mb-1.5 uppercase">
@@ -679,8 +697,8 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
           </div>
         )}
 
-        {/* STEP 4: CONFIRMATION & REVIEW */}
-        {step === 4 && (
+        {/* STEP 5: CONFIRMATION & REVIEW */}
+        {step === 5 && (
           <div className="space-y-6 animate-in fade-in duration-200">
             <div className="flex items-center gap-2 text-gold font-heading font-bold text-sm tracking-wider uppercase">
               <ShieldCheck className="w-4 h-4" />
@@ -705,7 +723,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                 </span>
               </div>
               <div className="flex justify-between border-b border-teal/15 pb-2">
-                <span className="text-slate-muted">PROBLEM TRACK:</span>
+                <span className="text-slate-muted">PROBLEM STATEMENT:</span>
                 <span className="text-teal font-bold uppercase">{selectedChallenge}</span>
               </div>
               <div className="flex justify-between border-b border-teal/15 pb-2">
@@ -739,7 +757,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
             <div />
           )}
 
-          {step < 4 ? (
+          {step < 5 ? (
             <button
               onClick={handleNext}
               className="px-7 py-3 rounded-xl font-heading text-xs font-bold tracking-[0.2em] uppercase bg-royal hover:bg-royal-light text-white shadow-glow-royal flex items-center gap-2 cursor-pointer"
