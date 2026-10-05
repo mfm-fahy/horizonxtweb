@@ -4,6 +4,7 @@ import { LoadingScreen } from './components/LoadingScreen';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { AboutSection } from './components/AboutSection';
+import { ChallengesSection } from './components/ChallengesSection';
 import { EventHighlights } from './components/EventHighlights';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { TimelineSection } from './components/TimelineSection';
@@ -119,9 +120,9 @@ export function App() {
   };
 
   const handleExploreScroll = () => {
-    const aboutEl = document.getElementById('about');
-    if (aboutEl) {
-      aboutEl.scrollIntoView({ behavior: 'smooth' });
+    const challengesEl = document.getElementById('challenges');
+    if (challengesEl) {
+      challengesEl.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -157,6 +158,14 @@ export function App() {
 
         {/* About HorizonXT */}
         <AboutSection />
+
+        {/* Official Problem Statements Section (PS1 - PS22) */}
+        <ChallengesSection
+          onSelectTrackForRegistration={(psCode) => {
+            setSelectedTrackForReg(psCode);
+            setIsRegisterOpen(true);
+          }}
+        />
 
         {/* Event Highlights Dashboard */}
         <EventHighlights />

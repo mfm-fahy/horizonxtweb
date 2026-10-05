@@ -14,6 +14,7 @@ import {
 import confetti from 'canvas-confetti';
 import { Logo } from './Logo';
 import { sounds } from '../utils/sound';
+import { problemStatements } from '../data/problemStatements';
 
 const LinkedinIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' }) => (
   <svg className={`${className} fill-current`} viewBox="0 0 24 24">
@@ -94,7 +95,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
   // Step 3: Challenge & Abstract Submission
   const [selectedChallenge, setSelectedChallenge] = useState(
-    initialTrackId || 'ai-ml'
+    initialTrackId || problemStatements[0].code
   );
   const [projectTitle, setProjectTitle] = useState('');
   const [abstractUrl, setAbstractUrl] = useState('');
@@ -261,15 +262,6 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
     { num: '02', title: 'TEAM & LINKEDIN' },
     { num: '03', title: 'ABSTRACT (.DOCX)' },
     { num: '04', title: 'CONFIRM' },
-  ];
-
-  const challengeOptions = [
-    { id: 'ai-ml', name: 'AI & Machine Learning' },
-    { id: 'fintech', name: 'FinTech & DeFi' },
-    { id: 'healthcare', name: 'Healthcare & BioTech' },
-    { id: 'smart-cities', name: 'Smart Cities & CleanTech' },
-    { id: 'cybersecurity', name: 'Cybersecurity & Zero Trust' },
-    { id: 'open-innovation', name: 'Open Innovation & Wildcard' },
   ];
 
   const targetSizeCount = parseInt(createTeamData.teamSize, 10);
@@ -585,29 +577,38 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
               <span>PROBLEM STATEMENT & ABSTRACT SUBMISSION (.DOCX)</span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {challengeOptions.map((opt) => {
-                const isSelected = selectedChallenge === opt.id;
+            <div>
+              <label className="block text-xs font-mono text-gold mb-1.5 uppercase font-bold">
+                Select Official Problem Statement *
+              </label>
+              <select
+                value={selectedChallenge}
+                onChange={(e) => setSelectedChallenge(e.target.value)}
+                className="w-full px-4 py-3 rounded-xl bg-navy-darker border border-gold/50 focus:border-gold focus:outline-none text-white text-sm font-sans font-semibold cursor-pointer mb-3"
+              >
+                {problemStatements.map((ps) => (
+                  <option key={ps.id} value={ps.code} className="bg-navy-darker text-white">
+                    {ps.code}: {ps.title} ({ps.category})
+                  </option>
+                ))}
+              </select>
+
+              {/* Show selected PS details summary box */}
+              {(() => {
+                const activePs = problemStatements.find((ps) => ps.code === selectedChallenge) || problemStatements[0];
                 return (
-                  <button
-                    type="button"
-                    key={opt.id}
-                    onClick={() => setSelectedChallenge(opt.id)}
-                    className={`p-4 rounded-xl text-left border transition-all duration-200 flex items-center justify-between ${
-                      isSelected
-                        ? 'bg-navy-surface border-gold shadow-glow-gold'
-                        : 'bg-navy-darker/70 border-teal/20 hover:border-teal/50'
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="font-heading font-bold text-xs uppercase tracking-wider text-lightgray">
-                        {opt.name}
+                  <div className="p-3.5 rounded-xl bg-navy-surface border border-teal/30 text-xs font-sans space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono font-bold text-gold">{activePs.code}</span>
+                      <span className="font-mono text-[10px] text-teal-light uppercase px-2 py-0.5 rounded bg-teal/10 border border-teal/20">
+                        {activePs.category}
                       </span>
                     </div>
-                    {isSelected && <CheckCircle2 className="w-4 h-4 text-gold shrink-0" />}
-                  </button>
+                    <p className="font-bold text-white text-sm">{activePs.title}</p>
+                    <p className="text-slate-muted text-xs line-clamp-2">{activePs.tagline}</p>
+                  </div>
                 );
-              })}
+              })()}
             </div>
 
             <div>
