@@ -126,21 +126,25 @@ export const TimelineSection: React.FC = () => {
     <section id="timeline" className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-12 w-full">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel mb-4 border border-teal/40">
-            <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
-            <span className="font-heading font-semibold text-xs tracking-[0.25em] text-teal-light uppercase">
-              EVENT SCHEDULE & CHRONOLOGY
-            </span>
-          </div>
+        <div className="text-left sm:text-center max-w-4xl mx-auto mb-16 sm:mb-20 relative group">
+          {/* Massive soft glowing dark aura behind the text to separate it from the 3D planet without looking like a card */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[180%] bg-[radial-gradient(ellipse_at_center,_rgba(10,29,59,0.95)_0%,_rgba(10,29,59,0.7)_45%,_transparent_75%)] blur-xl pointer-events-none -z-10" />
+          
+          <div className="relative z-10 px-2 sm:px-0">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy-darker/80 mb-4 border border-teal/40 shadow-glow-teal">
+              <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
+              <span className="font-heading font-semibold text-xs tracking-[0.25em] text-teal-light uppercase">
+                EVENT SCHEDULE & CHRONOLOGY
+              </span>
+            </div>
 
-          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight uppercase leading-tight mb-6">
-            OCTOBER 24, 25, 26 • <span className="text-holo">3 DAYS EVENT</span>
-          </h2>
+            <h2 className="font-heading font-extrabold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight uppercase leading-tight mb-4 sm:mb-6 transition-all duration-300 hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.6)] cursor-default">
+              OCTOBER 24, 25, 26 • <span className="text-holo">3 DAYS EVENT</span>
+            </h2>
 
-          <p className="text-base sm:text-lg text-white leading-relaxed font-sans">
-            Registration officially opens on <span className="text-gold font-semibold">October 5</span>. Abstract submission window runs until <span className="text-teal font-semibold">October 16</span>, leading into the 3-day on-site hackathon on <span className="text-white font-semibold">October 24–26</span>.
-          </p>
+            <p className="text-sm sm:text-base lg:text-lg text-white/75 font-normal leading-relaxed font-sans max-w-3xl mx-auto text-left sm:text-center mb-10 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_12px_rgba(165,243,252,0.8)] cursor-default">
+              Registration officially opens on <span className="text-gold font-semibold">October 5</span>. Abstract submission window runs until <span className="text-teal font-semibold">October 16</span>, leading into the 3-day on-site hackathon on <span className="text-white font-semibold">October 24–26</span>.
+            </p>
 
           {/* Day Filter Switcher */}
           <div className="inline-flex p-1.5 rounded-2xl bg-navy-surface border border-teal/30 mt-8 gap-1.5 flex-wrap justify-center">
@@ -196,6 +200,7 @@ export const TimelineSection: React.FC = () => {
             >
               OCTOBER 26 (DAY 3 & GRAND FINALE)
             </button>
+          </div>
           </div>
         </div>
 

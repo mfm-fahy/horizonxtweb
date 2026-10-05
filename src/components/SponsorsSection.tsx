@@ -40,21 +40,26 @@ export const SponsorsSection: React.FC = () => {
     <section className="relative py-24 px-4 sm:px-6 lg:px-12 w-full">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-surface border border-teal/30 mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-gold" />
-            <span className="font-heading font-semibold text-xs tracking-[0.25em] text-teal uppercase">
-              ECOSYSTEM ALLIANCES
-            </span>
+        <div className="text-left sm:text-center max-w-4xl mx-auto mb-16 relative group">
+          {/* Massive soft glowing dark aura behind the text to separate it from the 3D planet without looking like a card */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[180%] bg-[radial-gradient(ellipse_at_center,_rgba(10,29,59,0.95)_0%,_rgba(10,29,59,0.7)_45%,_transparent_75%)] blur-xl pointer-events-none -z-10" />
+          
+          <div className="relative z-10 px-2 sm:px-0">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-navy-surface border border-teal/30 mb-4 shadow-glow-teal">
+              <Sparkles className="w-3.5 h-3.5 text-gold" />
+              <span className="font-heading font-semibold text-xs tracking-[0.25em] text-teal uppercase">
+                ECOSYSTEM ALLIANCES
+              </span>
+            </div>
+
+            <h2 className="font-heading font-extrabold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight uppercase leading-tight mb-4 transition-all duration-300 hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.6)] cursor-default">
+              POWERED <span className="text-holo">BY</span>
+            </h2>
+
+            <p className="text-sm sm:text-base lg:text-lg text-white/75 font-normal leading-relaxed font-sans max-w-3xl mx-auto text-left sm:text-center transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_12px_rgba(165,243,252,0.8)] cursor-default">
+              Backed by elite global technology corporations, scientific research institutions, and venture capital incubators.
+            </p>
           </div>
-
-          <h2 className="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight uppercase leading-tight mb-4">
-            POWERED <span className="text-holo">BY</span>
-          </h2>
-
-          <p className="text-sm sm:text-base text-white leading-relaxed font-sans">
-            Backed by elite global technology corporations, scientific research institutions, and venture capital incubators.
-          </p>
         </div>
 
         {/* Sponsor Tiers Grid */}
