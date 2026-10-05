@@ -115,7 +115,7 @@ export const JudgingSection: React.FC = () => {
                   </div>
 
                   {/* Rubric check items */}
-                  <div className="space-y-1.5 pt-2 border-t border-teal/15 font-mono text-[11px] text-lightgray/80">
+                  <div className="space-y-1.5 pt-2 border-t border-teal/15 font-mono text-[11px] text-lightgray">
                     {item.rubric.map((r) => (
                       <div key={r} className="flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-teal" />

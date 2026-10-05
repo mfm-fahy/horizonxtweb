@@ -80,7 +80,7 @@ export const SponsorsSection: React.FC = () => {
                         <Icon className="w-6 h-6 transform group-hover:scale-110 transition-transform duration-300" />
                       </div>
 
-                      <div className="font-heading font-extrabold text-xs sm:text-sm text-lightgray/70 group-hover:text-white transition-colors uppercase tracking-wider">
+                      <div className="font-heading font-extrabold text-xs sm:text-sm text-lightgray/90 group-hover:text-white transition-colors uppercase tracking-wider">
                         {sponsor.name}
                       </div>
 

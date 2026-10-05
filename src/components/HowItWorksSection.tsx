@@ -118,7 +118,7 @@ export const HowItWorksSection: React.FC<HowItWorksProps> = ({ onRegisterClick }
               className={`shrink-0 px-4 py-2 rounded-xl font-heading text-xs font-bold tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-2 border ${
                 activeStep === idx
                   ? 'bg-gold text-navy border-gold shadow-glow-gold scale-105'
-                  : 'bg-navy-surface/80 text-lightgray/80 border-teal/20 hover:border-teal hover:text-white'
+                  : 'bg-navy-surface/80 text-lightgray border-teal/20 hover:border-teal hover:text-white'
               }`}
             >
               <span>{item.step}</span>

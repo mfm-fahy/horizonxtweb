@@ -328,7 +328,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Full Name */}
               <div>
-                <label className="block text-xs font-mono text-lightgray/80 mb-1.5 uppercase">
+                <label className="block text-xs font-mono text-lightgray mb-1.5 uppercase">
                   Full Name (Leader) *
                 </label>
                 <input
@@ -345,7 +345,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
               {/* Email */}
               <div>
-                <label className="block text-xs font-mono text-lightgray/80 mb-1.5 uppercase">
+                <label className="block text-xs font-mono text-lightgray mb-1.5 uppercase">
                   College / Personal Email *
                 </label>
                 <input
@@ -362,7 +362,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
               {/* Phone */}
               <div>
-                <label className="block text-xs font-mono text-lightgray/80 mb-1.5 uppercase">
+                <label className="block text-xs font-mono text-lightgray mb-1.5 uppercase">
                   Phone Number (WhatsApp) *
                 </label>
                 <input
@@ -397,7 +397,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
               {/* College */}
               <div>
-                <label className="block text-xs font-mono text-lightgray/80 mb-1.5 uppercase">
+                <label className="block text-xs font-mono text-lightgray mb-1.5 uppercase">
                   College / Institute Name *
                 </label>
                 <input
@@ -414,7 +414,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
               {/* Department */}
               <div>
-                <label className="block text-xs font-mono text-lightgray/80 mb-1.5 uppercase">
+                <label className="block text-xs font-mono text-lightgray mb-1.5 uppercase">
                   Department / Degree *
                 </label>
                 <input
@@ -443,7 +443,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
             <div className="space-y-5">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-mono text-lightgray/80 mb-1.5 uppercase">
+                    <label className="block text-xs font-mono text-lightgray mb-1.5 uppercase">
                       Team / Squad Name *
                     </label>
                     <input
@@ -612,7 +612,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
             </div>
 
             <div>
-              <label className="block text-xs font-mono text-lightgray/80 mb-1.5 uppercase">
+              <label className="block text-xs font-mono text-lightgray mb-1.5 uppercase">
                 Proposed Project Title *
               </label>
               <input

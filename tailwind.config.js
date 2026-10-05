@@ -11,7 +11,7 @@ export default {
           DEFAULT: '#0A1D3B',
           darker: '#061226',
           deep: '#07162E',
-          card: 'rgba(10, 29, 59, 0.72)',
+          card: 'rgba(10, 29, 59, 0.90)',
           surface: '#0E2447',
           light: '#132E59',
         },
@@ -34,10 +34,10 @@ export default {
           glow: 'rgba(245, 166, 35, 0.45)',
         },
         slate: {
-          subtext: '#6B7280',
-          muted: '#8E98A8',
+          subtext: '#22D3EE', // Cyan 400
+          muted: '#67E8F9',   // Cyan 300
         },
-        lightgray: '#F2F4F7',
+        lightgray: '#A5F3FC', // Cyan 200
       },
       fontFamily: {
         heading: ['"Space Grotesk"', 'sans-serif'],

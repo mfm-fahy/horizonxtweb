@@ -168,7 +168,7 @@ export const Footer: React.FC<FooterProps> = ({
             © 2026 HorizonXT. All Rights Reserved.
           </div>
 
-          <div className="text-center font-heading font-medium text-lightgray/80 tracking-wider">
+          <div className="text-center font-heading font-medium text-lightgray tracking-wider">
             &ldquo;Built for the next generation of innovators.&rdquo;
           </div>
 
