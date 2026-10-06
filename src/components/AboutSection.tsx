@@ -67,7 +67,7 @@ export const AboutSection: React.FC = () => {
             </h2>
 
             <p className="text-sm sm:text-base lg:text-lg text-white/75 font-normal leading-relaxed font-sans max-w-3xl mx-auto text-left sm:text-center transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_12px_rgba(165,243,252,0.8)] cursor-default">
-              HorizonXT is a 36-hour innovation challenge. Registration officially opens on October 5. Submit your project abstract in .docx format via Google Drive for your chosen problem statement by October 16. Shortlisted teams (up to 5 members per squad) will be called to the physical event on October 24–26 (launching Oct 24 at 9:00 AM).
+              HorizonXT is a 36-hour hackathon. Registration is <span className="text-emerald-400 font-bold">NOW OPEN</span>! Abstract submission is 100% free. Participation is <span className="text-gold font-bold">FREE for SRM students</span>. For external college teams, each member pays <span className="text-gold font-bold">₹500 ONLY after abstract shortlisting</span> via official email. Teams will build on their selected problem statement during the 36-hour physical hackathon on Oct 24–26.
             </p>
           </div>
         </div>

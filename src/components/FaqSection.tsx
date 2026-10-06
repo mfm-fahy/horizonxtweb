@@ -8,24 +8,32 @@ export const FaqSection: React.FC = () => {
 
   const faqs = [
     {
-      q: 'Who can participate?',
-      a: 'HorizonXT is open to all enrolled undergraduate, postgraduate, and doctoral students from colleges and universities globally. Developers, UI/UX designers, researchers, product thinkers, and domain enthusiasts of all skill levels are encouraged to apply.',
+      q: 'Is registration free? What is the participation fee?',
+      a: 'Abstract submission is 100% FREE for all teams! For SRMIST / SRM students, participation in the physical event is 100% FREE. For teams from other colleges, each team member pays ₹500 ONLY AFTER their abstract is shortlisted by the technical jury. No upfront payment is required when registering.',
     },
     {
-      q: 'What is the team size limit?',
-      a: 'Squads can consist of 1 up to a maximum of 5 members. Every team member MUST provide their valid LinkedIn profile URL during registration. Interdisciplinary squads across colleges are warmly welcomed!',
+      q: 'How will shortlisted teams be notified?',
+      a: 'All shortlisted teams will receive an official confirmation email containing detailed event instructions, schedule, and payment link (for non-SRM teams).',
+    },
+    {
+      q: 'Do teams work on the same problem statement at the hackathon?',
+      a: 'YES! Shortlisted teams will build their prototype on the exact SAME problem statement (selected from PS1 to PS22) that they submitted their abstract for.',
+    },
+    {
+      q: 'Who can I contact for queries or support?',
+      a: 'You can reach out to our official HorizonXT Helpdesk coordinators directly via phone/WhatsApp: Faheem (+91 9943949439), Rajha (+91 8883877748), or Kennedy (+91 8870594450).',
+    },
+    {
+      q: 'Who can participate & what is the team size limit?',
+      a: 'HorizonXT is open to all undergraduate, postgraduate, and doctoral students worldwide. Squads can consist of 1 up to a maximum of 5 members. Every team member MUST provide their valid LinkedIn profile URL during registration.',
     },
     {
       q: 'How do we submit our project abstract?',
-      a: 'During registration, select a problem statement from our tracks, upload your abstract in .docx format ONLY to Google Drive (set to "Anyone with the link can view"), and paste the Google Drive link into the registration form.',
+      a: 'During registration, select an official problem statement (PS1 to PS22), upload your abstract in .docx format ONLY to Google Drive (set to "Anyone with the link can view"), and paste the Google Drive link into the registration form.',
     },
     {
-      q: 'When do registrations open and close?',
-      a: 'Registrations officially open on October 5, 2026. Abstract submissions in .docx format via Google Drive will close on October 16, 2026. Our technical jury evaluates all submitted abstracts to shortlist teams for the physical 36-hour hackathon event on October 24–26.',
-    },
-    {
-      q: 'Is the hackathon free?',
-      a: 'Yes, 100% free! There is zero registration fee, zero abstract submission fee, and zero event participation fee. Food, beverages, midnight fuel, high-speed Wi-Fi, mentorship, and hacker kits are provided free of charge by our sponsors.',
+      q: 'What should shortlisted teams bring to the event?',
+      a: 'Bring your laptop, chargers, extension cords, personal hardware components, valid college student ID card, and enthusiasm! Food, accommodation/rest pods, and high-speed Wi-Fi will be provided.',
     },
     {
       q: 'What technologies can we use during the 36-hour hackathon?',

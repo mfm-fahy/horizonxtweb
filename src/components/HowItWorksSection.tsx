@@ -22,38 +22,38 @@ export const HowItWorksSection: React.FC<HowItWorksProps> = ({ onRegisterClick }
     {
       step: 'STEP 01',
       title: 'REGISTER & SQUAD ASSEMBLY',
-      subtitle: 'Opens Oct 5 • Up to 5 Members',
+      subtitle: 'REGISTRATION IS NOW OPEN • Up to 5 Members',
       description:
-        'Registration officially opens on October 5. Form your squad of up to 5 members. Provide college credentials and mandatory LinkedIn Profile links for every team member.',
+        'Registration is now live! Form your squad of up to 5 members. Provide college credentials and LinkedIn profile links for every team member. Abstract submission is 100% FREE.',
       icon: UserCheck,
-      details: 'Registration opens Oct 5. Maximum 5 members per team with LinkedIn profiles.',
+      details: 'Registration IS NOW OPEN. Maximum 5 members per team. 100% Free abstract submission.',
     },
     {
       step: 'STEP 02',
       title: 'CHOOSE PROBLEM STATEMENT',
-      subtitle: 'Mission Alignment',
+      subtitle: 'Select PS1 to PS22',
       description:
-        'Select a problem statement aligned with AI/ML, FinTech, Healthcare, Smart Cities, Cybersecurity, or Open Innovation.',
+        'Select an official research problem statement from PS1 to PS22. Note: Shortlisted teams will build on this SAME selected problem statement during the 36-hour physical hackathon.',
       icon: Compass,
-      details: 'Review detailed track guidelines and suggested problem statements.',
+      details: 'Select your PS carefully. Shortlisted teams will build on the same PS at the event.',
     },
     {
       step: 'STEP 03',
       title: 'SUBMIT ABSTRACT (.DOCX)',
-      subtitle: 'Oct 5 – Oct 16 Window',
+      subtitle: 'Free Submission by Oct 16',
       description:
-        'Prepare your project abstract in .docx format only, upload it to Google Drive with view access, and submit the link between Oct 5 and Oct 16.',
+        'Prepare your project abstract in .docx format only, upload it to Google Drive with view access, and submit the link by October 16.',
       icon: UploadCloud,
-      details: 'Window: Oct 5 to Oct 16. Abstract must be in .docx format.',
+      details: 'Deadline: Oct 16. Abstract must be in .docx format via Google Drive link.',
     },
     {
       step: 'STEP 04',
-      title: 'SHORTLISTING & INVITATION',
-      subtitle: 'Jury Telemetry Review',
+      title: 'SHORTLISTING & CONFIRMATION EMAIL',
+      subtitle: 'Jury Telemetry & Invitation',
       description:
-        'Our technical evaluation panel reviews all submitted abstracts. Shortlisted teams receive an official invitation call to the physical 3-day event.',
+        'Our technical evaluation panel reviews all submitted abstracts. Shortlisted teams will receive an official confirmation email. SRM students participate FREE; external college teams pay ₹500/member after shortlisting.',
       icon: Users,
-      details: 'Shortlisted teams are called to participate in the on-site hackathon.',
+      details: 'Shortlisted teams receive official confirmation email. SRM: FREE; External: ₹500/member.',
     },
     {
       step: 'STEP 05',

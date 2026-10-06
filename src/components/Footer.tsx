@@ -86,14 +86,33 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
 
-          {/* Connect & Socials (3 cols) */}
+          {/* Connect & Helpdesk Contacts (3 cols) */}
           <div className="md:col-span-3 space-y-4">
-            <div className="font-heading font-bold text-xs uppercase tracking-[0.25em] text-teal mb-4">
+            <div className="font-heading font-bold text-xs uppercase tracking-[0.25em] text-gold mb-3">
+              HELPDESK & COORDINATORS
+            </div>
+
+            <div className="space-y-2 text-xs font-mono text-lightgray bg-navy-surface/60 p-3.5 rounded-xl border border-teal/20">
+              <div className="flex items-center justify-between border-b border-teal/15 pb-1.5">
+                <span className="text-slate-muted">Faheem:</span>
+                <a href="tel:9943949439" className="text-gold font-bold hover:underline">9943949439</a>
+              </div>
+              <div className="flex items-center justify-between border-b border-teal/15 pb-1.5">
+                <span className="text-slate-muted">Rajha:</span>
+                <a href="tel:8883877748" className="text-gold font-bold hover:underline">8883877748</a>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-muted">Kennedy:</span>
+                <a href="tel:8870594450" className="text-gold font-bold hover:underline">8870594450</a>
+              </div>
+            </div>
+
+            <div className="font-heading font-bold text-xs uppercase tracking-[0.25em] text-teal mb-2 pt-2">
               COMMUNICATION CHANNELS
             </div>
 
             <p className="text-xs text-slate-muted font-sans leading-relaxed">
-              Stay aligned with real-time announcements, mentor roundtables, and challenge briefings.
+              Stay aligned with real-time announcements and event updates.
             </p>
 
             {/* Social Icons Row with crisp SVGs */}

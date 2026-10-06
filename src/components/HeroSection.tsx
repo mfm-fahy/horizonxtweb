@@ -69,9 +69,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-start text-left z-20 max-w-xl">
             {/* Mission Badge */}
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-navy/80 border border-teal/40 backdrop-blur-md mb-4 shadow-[0_0_15px_rgba(0,167,181,0.2)]">
-              <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-              <span className="font-heading font-bold text-[11px] sm:text-xs tracking-[0.24em] text-gold uppercase">
-                REGISTRATION OPENS OCT 5 • EVENT OCT 24–26
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+              <span className="font-heading font-bold text-[11px] sm:text-xs tracking-[0.24em] text-emerald-400 uppercase">
+                REGISTRATION IS NOW OPEN • ABSTRACT DUE OCT 16
               </span>
             </div>
 
@@ -83,7 +83,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Statement Hierarchy */}
             <div className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold leading-[1.18] mb-4 tracking-tight">
               <div className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
-                REGISTRATION <span className="text-gold">OPENS OCT 5.</span>
+                REGISTRATION <span className="text-emerald-400">IS NOW OPEN.</span>
               </div>
               <div className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
                 SUBMIT ABSTRACT BY <span className="text-teal">OCT 16.</span>
@@ -91,9 +91,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
 
             {/* Concise Supporting Copy */}
-            <p className="text-base text-white leading-relaxed font-sans mb-6 max-w-[480px]">
-              Registration officially opens on October 5. Provide your project abstract in .docx format via Google Drive for the given problem statements by Oct 16. Shortlisted teams will be called to the 3-day physical event (Oct 24, 25, 26).
+            <p className="text-sm sm:text-base text-white leading-relaxed font-sans mb-4 max-w-[500px]">
+              Registration is now live! Abstract submission is <span className="text-gold font-bold">100% Free</span>. <span className="text-emerald-400 font-bold">SRM Students: FREE</span> participation. For other colleges, each member pays <span className="text-gold font-bold">₹500 ONLY after abstract shortlisting</span> via official confirmation email. Teams will work on their chosen problem statement during the 36-hour physical hackathon (Oct 24–26).
             </p>
+
+            {/* Quick Contact Line */}
+            <div className="p-3 rounded-xl bg-navy-surface/90 border border-teal/30 mb-6 w-full max-w-[500px] text-xs font-mono text-lightgray flex flex-wrap items-center gap-x-4 gap-y-1">
+              <span className="text-gold font-bold uppercase">Helpdesk:</span>
+              <span>Faheem: <a href="tel:9943949439" className="text-teal-light hover:text-gold transition-colors font-bold">9943949439</a></span>
+              <span>Rajha: <a href="tel:8883877748" className="text-teal-light hover:text-gold transition-colors font-bold">8883877748</a></span>
+              <span>Kennedy: <a href="tel:8870594450" className="text-teal-light hover:text-gold transition-colors font-bold">8870594450</a></span>
+            </div>
 
             {/* CTA Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 sm:gap-5">

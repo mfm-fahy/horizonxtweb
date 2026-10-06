@@ -293,12 +293,26 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
         </button>
 
         {/* Modal Top Header with Logo */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-teal/20 pb-6 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-teal/20 pb-4 mb-4">
           <Logo size="md" showTagline={true} />
-          <div className="font-mono text-xs text-gold uppercase tracking-widest flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-            <span>REGISTRATION OPENS OCT 5 • ABSTRACT DEADLINE OCT 16</span>
+          <div className="font-mono text-xs text-emerald-400 font-bold uppercase tracking-widest flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+            <span>REGISTRATION IS NOW OPEN • ABSTRACT DUE OCT 16</span>
           </div>
+        </div>
+
+        {/* Pricing & Policy Info Notice Banner */}
+        <div className="p-3.5 rounded-2xl bg-navy-darker/90 border border-teal/30 mb-6 text-xs font-sans text-lightgray space-y-1">
+          <div className="flex flex-wrap items-center justify-between gap-2 font-bold font-mono">
+            <span className="text-gold uppercase">Participation Policy:</span>
+            <span className="text-emerald-400">Abstract Submission is 100% FREE</span>
+          </div>
+          <p className="text-[11px] leading-relaxed text-slate-muted">
+            • <strong className="text-emerald-400">SRM Students:</strong> 100% FREE participation. <br />
+            • <strong className="text-gold">Other Colleges:</strong> ₹500 per member <span className="underline">ONLY AFTER abstract shortlisting</span> (official confirmation email will be sent). <br />
+            • <strong className="text-teal-light">Same Problem Statement:</strong> Teams will work on their chosen problem statement at the 36-hour physical hackathon. <br />
+            • <strong className="text-white">Helpdesk:</strong> Faheem (<a href="tel:9943949439" className="text-gold">9943949439</a>) | Rajha (<a href="tel:8883877748" className="text-gold">8883877748</a>) | Kennedy (<a href="tel:8870594450" className="text-gold">8870594450</a>)
+          </p>
         </div>
 
         {/* Step Indicator Progress Bar */}

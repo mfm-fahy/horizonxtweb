@@ -28,12 +28,21 @@ export const RulesModal: React.FC<RulesModalProps> = ({ isOpen, onClose }) => {
       ],
     },
     {
-      category: '3. REGISTRATION DATES, SHORTLISTING & EVENT',
+      category: '3. REGISTRATION, SHORTLISTING & PARTICIPATION FEES',
       points: [
-        'Registration officially opens on October 5, 2026.',
-        'Abstract submission will close strictly on October 16, 2026.',
-        'The physical 3-day hackathon event takes place on October 24, 25, and 26.',
-        'The technical jury evaluates all submitted .docx abstracts against innovation, feasibility, and technical depth parameters to shortlist teams.',
+        'Registration is NOW OPEN! Abstract submission is 100% FREE for all teams (Deadline: Oct 16).',
+        'Participation for SRMIST / SRM Students is 100% FREE.',
+        'For non-SRM / external college teams, each member pays ₹500 ONLY AFTER their abstract is shortlisted.',
+        'Shortlisted teams will receive an official confirmation email containing next steps, event itinerary, and payment link.',
+        'Shortlisted teams will work on the SAME problem statement during the 36-hour physical hackathon (Oct 24–26).',
+      ],
+    },
+    {
+      category: '4. HELPDESK & STUDENT COORDINATORS',
+      points: [
+        'Faheem: +91 9943949439',
+        'Rajha: +91 8883877748',
+        'Kennedy: +91 8870594450',
       ],
     },
     {
