@@ -538,18 +538,107 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                 )}
               </div>
 
-              {/* College */}
-              <div>
-                <label className="block text-xs font-mono text-lightgray mb-1.5 uppercase">
-                  College / Institute Name *
+              {/* College / Institution Select Dropdown */}
+              <div className="sm:col-span-2">
+                <label className="block text-xs font-mono text-lightgray mb-1.5 uppercase flex flex-wrap items-center justify-between gap-1">
+                  <span>College / Institution Name *</span>
+                  {personal.college && personal.college.includes('SRM') && (
+                    <span className="text-[10px] text-emerald-400 font-bold bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/40">
+                      ✓ SRM Student: 100% FREE Event Participation
+                    </span>
+                  )}
+                  {personal.college && !personal.college.includes('SRM') && (
+                    <span className="text-[10px] text-gold font-bold bg-gold/10 px-2 py-0.5 rounded border border-gold/40">
+                      ★ Abstract Submission FREE (₹500/member only after shortlisting)
+                    </span>
+                  )}
                 </label>
-                <input
-                  type="text"
-                  placeholder="e.g. National Institute of Tech"
-                  value={personal.college}
-                  onChange={(e) => setPersonal({ ...personal, college: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl bg-navy-darker/90 border border-teal/30 focus:border-gold focus:outline-none text-white text-sm font-sans"
-                />
+                <select
+                  value={
+                    INSTITUTION_OPTIONS.includes(personal.college as any)
+                      ? personal.college
+                      : personal.college
+                      ? 'Other External College / University'
+                      : ''
+                  }
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    if (val === 'Other External College / University') {
+                      setPersonal({ ...personal, college: '' });
+                    } else {
+                      setPersonal({ ...personal, college: val });
+                    }
+                  }}
+                  className="w-full px-4 py-3 rounded-xl bg-navy-darker/90 border border-teal/30 focus:border-gold focus:outline-none text-white text-sm font-sans cursor-pointer"
+                >
+                  <option value="" disabled className="bg-navy-darker text-slate-muted">
+                    -- Select Your College / Institution --
+                  </option>
+                  <optgroup label="Tiruchirappalli SRM Institutions">
+                    <option value="SRM Institute of Science & Technology, Tiruchirappalli - Engineering & Technology">
+                      SRM Institute of Science & Technology, Tiruchirappalli - Engineering & Technology
+                    </option>
+                    <option value="SRM Institute of Science & Technology, Tiruchirappalli - Science & Humanities">
+                      SRM Institute of Science & Technology, Tiruchirappalli - Science & Humanities
+                    </option>
+                    <option value="SRM Institute of Science & Technology, Tiruchirappalli - Physiotherapy">
+                      SRM Institute of Science & Technology, Tiruchirappalli - Physiotherapy
+                    </option>
+                    <option value="SRM Institute of Science & Technology, Tiruchirappalli - Occupational Therapy">
+                      SRM Institute of Science & Technology, Tiruchirappalli - Occupational Therapy
+                    </option>
+                    <option value="SRM Institute of Science & Technology, Tiruchirappalli - Allied Health Sciences">
+                      SRM Institute of Science & Technology, Tiruchirappalli - Allied Health Sciences
+                    </option>
+                    <option value="SRM Institute of Science & Technology, Tiruchirappalli - Hotel Management">
+                      SRM Institute of Science & Technology, Tiruchirappalli - Hotel Management
+                    </option>
+                    <option value="SRM TRP Engineering College">
+                      SRM TRP Engineering College
+                    </option>
+                    <option value="Trichy SRM Medical College Hospital & Research Centre">
+                      Trichy SRM Medical College Hospital & Research Centre
+                    </option>
+                    <option value="Trichy SRM Allied Health Sciences">
+                      Trichy SRM Allied Health Sciences
+                    </option>
+                    <option value="SRM Trichy College of Nursing">
+                      SRM Trichy College of Nursing
+                    </option>
+                    <option value="SRM Trichy Arts & Science College">
+                      SRM Trichy Arts & Science College
+                    </option>
+                  </optgroup>
+                  <optgroup label="Other SRM Campuses">
+                    <option value="Other SRM Campus (Kattankulathur / Ramapuram / Vadapalani / NCR)">
+                      Other SRM Campus (Kattankulathur / Ramapuram / Vadapalani / NCR)
+                    </option>
+                  </optgroup>
+                  <optgroup label="External Institutions">
+                    <option value="Other External College / University">
+                      Other External College / University (Specify below)
+                    </option>
+                  </optgroup>
+                </select>
+
+                {/* If "Other External College / University" or custom written college name */}
+                {(!INSTITUTION_OPTIONS.includes(personal.college as any) ||
+                  personal.college === 'Other External College / University') && (
+                  <div className="mt-3 animate-in fade-in duration-200">
+                    <input
+                      type="text"
+                      placeholder="Enter full name of your College / University (e.g. NIT Trichy, IIT Madras, VIT)"
+                      value={
+                        personal.college === 'Other External College / University'
+                          ? ''
+                          : personal.college
+                      }
+                      onChange={(e) => setPersonal({ ...personal, college: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl bg-navy-darker/90 border border-gold/40 focus:border-gold focus:outline-none text-white text-sm font-sans placeholder-slate-muted"
+                    />
+                  </div>
+                )}
+
                 {errors.college && (
                   <p className="text-xs text-rose-400 mt-1">{errors.college}</p>
                 )}
