@@ -12,7 +12,7 @@ export const RulesModal: React.FC<RulesModalProps> = ({ isOpen, onClose }) => {
     {
       category: '1. SQUAD ARCHITECTURE & LINKEDIN REQUIREMENT',
       points: [
-        'Teams must consist of 1 to a MAXIMUM of 5 registered participants.',
+        'Teams must consist of 1 to a MAXIMUM of 4 registered participants.',
         'Every single team member MUST provide a valid, active LinkedIn Profile URL during registration.',
         'All team members must be enrolled students in an accredited educational institution.',
         'Inter-college and multi-disciplinary teams are strongly encouraged.',

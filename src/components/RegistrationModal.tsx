@@ -83,14 +83,13 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
     leaderRole: 'Team Leader & System Architect',
   });
 
-  // Additional members for Create Team (up to 4 teammates, making total 5)
+  // Additional members for Create Team (up to 3 teammates, making total 4)
   const [teammates, setTeammates] = useState<
     Array<{ name: string; email: string; role: string; linkedinUrl: string }>
   >([
     { name: '', email: '', role: 'Backend Developer', linkedinUrl: '' },
     { name: '', email: '', role: 'AI / ML Specialist', linkedinUrl: '' },
     { name: '', email: '', role: 'UI/UX Designer', linkedinUrl: '' },
-    { name: '', email: '', role: 'Full Stack Engineer', linkedinUrl: '' },
   ]);
 
   const [selectedChallenge, setSelectedChallenge] = useState(
@@ -560,12 +559,12 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
           </div>
         )}
 
-        {/* STEP 3: TEAM SETUP (UP TO 5 MEMBERS WITH LINKEDIN) */}
+        {/* STEP 3: TEAM SETUP (UP TO 4 MEMBERS WITH LINKEDIN) */}
         {step === 3 && (
           <div className="space-y-6 animate-in fade-in duration-200">
             <div className="flex items-center gap-2 text-teal font-heading font-bold text-sm tracking-wider uppercase">
               <Users className="w-4 h-4" />
-              <span>SQUAD ROSTER (MAX 5 MEMBERS) & LINKEDIN PROFILES</span>
+              <span>SQUAD ROSTER (MAX 4 MEMBERS) & LINKEDIN PROFILES</span>
             </div>
 
             <div className="space-y-5">
@@ -590,7 +589,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
                   <div>
                     <label className="block text-xs font-mono text-gold mb-1.5 uppercase font-bold">
-                      Squad Size (Max 5 Members) *
+                      Squad Size (Max 4 Members) *
                     </label>
                     <select
                       value={createTeamData.teamSize}
@@ -602,8 +601,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                       <option value="1">1 Member (Solo)</option>
                       <option value="2">2 Members</option>
                       <option value="3">3 Members</option>
-                      <option value="4">4 Members</option>
-                      <option value="5">5 Members (Maximum)</option>
+                      <option value="4">4 Members (Maximum)</option>
                     </select>
                   </div>
                 </div>

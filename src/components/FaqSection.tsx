@@ -25,7 +25,7 @@ export const FaqSection: React.FC = () => {
     },
     {
       q: 'Who can participate & what is the team size limit?',
-      a: 'HorizonXT is open to all undergraduate, postgraduate, and doctoral students worldwide. Squads can consist of 1 up to a maximum of 5 members. Every team member MUST provide their valid LinkedIn profile URL during registration.',
+      a: 'HorizonXT is open to all undergraduate, postgraduate, and doctoral students worldwide. Squads can consist of 1 up to a maximum of 4 members. Every team member MUST provide their valid LinkedIn profile URL during registration.',
     },
     {
       q: 'How do we submit our project abstract?',

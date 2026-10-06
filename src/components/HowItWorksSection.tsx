@@ -22,11 +22,11 @@ export const HowItWorksSection: React.FC<HowItWorksProps> = ({ onRegisterClick }
     {
       step: 'STEP 01',
       title: 'REGISTER & SQUAD ASSEMBLY',
-      subtitle: 'REGISTRATION IS NOW OPEN • Up to 5 Members',
+      subtitle: 'REGISTRATION IS NOW OPEN • Up to 4 Members',
       description:
-        'Registration is now live! Form your squad of up to 5 members. Provide college credentials and LinkedIn profile links for every team member. Abstract submission is 100% FREE.',
+        'Registration is now live! Form your squad of up to 4 members. Provide college credentials and LinkedIn profile links for every team member. Abstract submission is 100% FREE.',
       icon: UserCheck,
-      details: 'Registration IS NOW OPEN. Maximum 5 members per team. 100% Free abstract submission.',
+      details: 'Registration IS NOW OPEN. Maximum 4 members per team. 100% Free abstract submission.',
     },
     {
       step: 'STEP 02',
@@ -108,28 +108,6 @@ export const HowItWorksSection: React.FC<HowItWorksProps> = ({ onRegisterClick }
               From initial squad assembly to the grand valedictory pitch—navigate the 7 orbital coordinates of your HorizonXT space expedition.
             </p>
           </div>
-        </div>
-
-        {/* Interactive Step Navigator Pills */}
-        <div className="flex items-center justify-start lg:justify-center overflow-x-auto pb-4 mb-12 gap-2 sm:gap-3 no-scrollbar">
-          {steps.map((item, idx) => (
-            <button
-              key={item.step}
-              onClick={() => {
-                sounds.playClick();
-                setActiveStep(idx);
-              }}
-              onMouseEnter={() => sounds.playHover()}
-              className={`shrink-0 px-4 py-2 rounded-xl font-heading text-xs font-bold tracking-wider transition-all duration-200 cursor-pointer flex items-center gap-2 border ${
-                activeStep === idx
-                  ? 'bg-gold text-navy border-gold shadow-glow-gold scale-105'
-                  : 'bg-navy-surface/80 text-lightgray border-teal/20 hover:border-teal hover:text-white'
-              }`}
-            >
-              <span>{item.step}</span>
-              <span className="hidden sm:inline opacity-75 font-mono text-[10px]">• {item.title}</span>
-            </button>
-          ))}
         </div>
 
         {/* Focused Orbital Display Card */}

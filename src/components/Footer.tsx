@@ -41,7 +41,7 @@ export const Footer: React.FC<FooterProps> = ({
             <Logo size="lg" showTagline={true} animated={false} />
 
             <p className="text-sm text-slate-muted font-sans leading-relaxed max-w-sm pt-2">
-              HorizonXT is a 36-hour national hackathon. Registration officially opens on October 5. Submit project abstracts (.docx format via Google Drive) by October 16. Shortlisted squads (up to 5 members) are invited to the physical 36-hour event on October 24–26.
+              HorizonXT is a 36-hour national hackathon. Registration is now open! Submit project abstracts (.docx format via Google Drive) by October 16. Shortlisted squads (up to 4 members) are invited to the physical 36-hour event on October 24–26.
             </p>
 
             <div className="font-heading font-semibold text-xs tracking-[0.2em] text-gold uppercase pt-1">

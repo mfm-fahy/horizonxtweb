@@ -15,6 +15,7 @@ import {
   Award,
   BookOpen,
   Target,
+  Compass,
 } from 'lucide-react';
 import { sounds } from '../utils/sound';
 import {
@@ -32,6 +33,7 @@ const categoryIcons: Record<string, React.ComponentType<{ className?: string }>>
   'AI & Healthcare': HeartPulse,
   'Robotics & Hardware': Radio,
   'CleanTech & Sustainability': Leaf,
+  'Architecture & Design': Compass,
 };
 
 export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
@@ -48,6 +50,7 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
     'AI & Healthcare',
     'Robotics & Hardware',
     'CleanTech & Sustainability',
+    'Architecture & Design',
   ];
 
   const filteredStatements = problemStatements.filter((ps) => {

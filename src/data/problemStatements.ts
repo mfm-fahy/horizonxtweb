@@ -7,7 +7,13 @@ export interface ProblemStatement {
   id: string;
   code: string;
   title: string;
-  category: 'Mobility & EV' | 'Industry 4.0' | 'AI & Healthcare' | 'Robotics & Hardware' | 'CleanTech & Sustainability';
+  category:
+    | 'Mobility & EV'
+    | 'Industry 4.0'
+    | 'AI & Healthcare'
+    | 'Robotics & Hardware'
+    | 'CleanTech & Sustainability'
+    | 'Architecture & Design';
   tagline: string;
   problem: string;
   challenge: string;
@@ -24,44 +30,10 @@ export const fontCategories = [
   'AI & Healthcare',
   'Robotics & Hardware',
   'CleanTech & Sustainability',
+  'Architecture & Design',
 ] as const;
 
 export const problemStatements: ProblemStatement[] = [
-  {
-    id: 'ps-1',
-    code: 'PS1',
-    title: 'Reimagining Thermal Comfort for Auto Rickshaws',
-    category: 'Mobility & EV',
-    tagline: 'Provide thermal comfort for auto rickshaw drivers & passengers without energy-hungry conventional AC.',
-    problem:
-      'Auto-rickshaw drivers spend several hours a day working in hot and humid conditions, while passengers are exposed to high cabin temperatures during urban travel. Conventional air-conditioning is impractical due to cost, high energy consumption, additional weight, maintenance requirements, and the open nature of the cabin.',
-    challenge:
-      'How might we design an affordable, energy-efficient and renewable-energy-assisted thermal-comfort system for an auto-rickshaw that keeps the driver and passengers comfortable while consuming minimal additional energy and requiring minimal modification to the vehicle?',
-    challenge36h: [
-      'Measurable cooling or thermal-comfort improvement',
-      'Low energy consumption (monitored Wh vs comfort achieved)',
-      'Meaningful utilization of renewable energy (Solar PV/thermal/battery)',
-      'Practical energy storage and management',
-      'Compact and lightweight retrofit for existing auto-rickshaws',
-      'Estimated BOM and production cost for mass market',
-    ],
-    evaluationCriteria: [
-      { name: 'Thermal Comfort Improvement', weight: '25%' },
-      { name: 'Energy Efficiency', weight: '20%' },
-      { name: 'Renewable Energy Integration', weight: '10%' },
-      { name: 'Prototype Functionality & Reliability', weight: '15%' },
-      { name: 'Affordability & Manufacturing Feasibility', weight: '10%' },
-      { name: 'Vehicle Integration & Practicality', weight: '10%' },
-      { name: 'Innovation & Scalability', weight: '10%' },
-    ],
-    horizonPhilosophy: "Don't cool the vehicle. Rethink how you cool the people.",
-    keyTesting: [
-      'Air temperature & relative humidity differential (Baseline vs Operating)',
-      'Surface temperature at driver & passenger zones',
-      'Electrical energy consumed (Wh) per degree of comfort improvement',
-      'Physical size, weight, installation complexity & compatibility',
-    ],
-  },
   {
     id: 'ps-2',
     code: 'PS2',
@@ -274,40 +246,6 @@ export const problemStatements: ProblemStatement[] = [
       'Reconstruction error vs ground truth on hidden test windows',
       'Auditability: Click any modified value to view method, confidence & inputs',
       'Throughput (records/sec) and edge processing efficiency',
-    ],
-  },
-  {
-    id: 'ps-7',
-    code: 'PS7',
-    title: 'Machine That Predicts Its Own Failure (Physical-AI)',
-    category: 'Industry 4.0',
-    tagline: 'Detect machine degradation early through Physical-AI before conventional threshold alarms trigger.',
-    problem:
-      'Industrial machines fail unexpectedly because threshold alarms (vibration > limit) trigger too late. Machine degradation starts long before thresholds are breached.',
-    challenge:
-      'Can you build a machine that knows it is getting sick before it knows it is going to fail? Develop a Physical-AI system continuously observing motor/pump condition to detect early degradation and diagnose root causes.',
-    challenge36h: [
-      'Physical or simulated test setup (motor/pump/fan with multi-sensors)',
-      'Normal baseline learning under varying load/speed conditions',
-      'Multi-sensor reasoning (vibration + current + temperature + RPM)',
-      'Dynamic Machine Health Index generation (0-100%)',
-      'Probable fault diagnosis (bearing degradation, imbalance, misalignment)',
-      'Early warning demonstration BEFORE conventional threshold alarm triggers',
-    ],
-    evaluationCriteria: [
-      { name: 'Early Degradation Detection (Pre-alarm)', weight: '25%' },
-      { name: 'Multi-Sensor Fault Diagnosis', weight: '20%' },
-      { name: 'Machine Health Index Quality', weight: '20%' },
-      { name: 'Explainability & Reasoning', weight: '15%' },
-      { name: 'Maintenance Recommendation Quality', weight: '10%' },
-      { name: 'Prototype Functionality & Reliability', weight: '10%' },
-    ],
-    horizonPhilosophy: 'Can you build a machine that predicts its own failure — before a conventional alarm knows there is a problem?',
-    keyTesting: [
-      'Demonstrate detection window: Physical-AI alarm vs conventional threshold alarm',
-      'Root cause accuracy (Bearing wear vs misalignment vs cavitation)',
-      'Real-time Machine Health Index trajectory tracking',
-      'Actionable maintenance advice generated for plant operators',
     ],
   },
   {
@@ -895,6 +833,74 @@ export const problemStatements: ProblemStatement[] = [
       'Classification accuracy % and false-sorting rate',
       'Uncertainty test: Low confidence item correctly diverted to manual review bin',
       'Throughput (items sorted per minute)',
+    ],
+  },
+  {
+    id: 'ps-23',
+    code: 'PS23',
+    title: 'Alternative Building Materials for Sustainable Construction',
+    category: 'CleanTech & Sustainability',
+    tagline: 'Develop alternative building materials from waste or renewable resources to replace conventional construction materials.',
+    problem:
+      'The construction industry consumes massive natural resources (sand, aggregates, clay, cement) while industrial, agricultural, and demolition waste accumulates. Conventional materials involve energy-intensive manufacturing with high carbon footprints.',
+    challenge:
+      'How might we develop an alternative building material or construction-material system using innovative, locally available, recycled, waste or renewable resources that can reduce dependence on conventional construction materials without compromising required performance?',
+    challenge36h: [
+      'Define clear construction application (bricks, pavers, wall panels, roofing, insulation)',
+      'Produce a physical material prototype/sample from alternative/recycled resources',
+      'Conduct at least 2 relevant performance tests (compressive/flexural strength, density, water absorption)',
+      'Baseline performance comparison against conventional material (e.g. Clay brick vs Alternative brick)',
+      'Sustainability & resource reduction analysis',
+      'Manufacturing cost per unit / m² and scale-up roadmap',
+    ],
+    evaluationCriteria: [
+      { name: 'Material Performance', weight: '20%' },
+      { name: 'Sustainability & Environmental Impact', weight: '20%' },
+      { name: 'Conventional Material Comparison', weight: '15%' },
+      { name: 'Manufacturing Feasibility & Repeatability', weight: '15%' },
+      { name: 'Cost & Affordability', weight: '10%' },
+      { name: 'Innovation & Material Science', weight: '10%' },
+      { name: 'Prototype Quality & Demonstration', weight: '5%' },
+      { name: 'Scalability & Commercial Potential', weight: '5%' },
+    ],
+    horizonPhilosophy: "Don't just replace conventional materials. Rethink what the building materials of tomorrow can be.",
+    keyTesting: [
+      'Physical prototype compression & water absorption test results',
+      'Resource utilization & carbon footprint reduction comparison',
+      'Unit cost per m² / kg comparison vs conventional bricks/blocks',
+      'Industrial manufacturing scale-up feasibility assessment',
+    ],
+  },
+  {
+    id: 'ps-24',
+    code: 'PS24',
+    title: 'Designing the Home of Bold Ideas (Exclusive for Architecture Students)',
+    category: 'Architecture & Design',
+    tagline: 'Architectural and spatial design for the R Shivakumar Foundation Incubation & Acceleration Centre at SRM University.',
+    problem:
+      'Great ideas need a physical space where innovators, researchers, entrepreneurs, mentors, and investors meet, experiment, collaborate, fail, and build again. The R Shivakumar Foundation is establishing a flagship Incubation & Acceleration Centre at SRM University.',
+    challenge:
+      'How might we design a physical space that makes people want to come in, stay longer, meet unexpected people, exchange ideas and build something bold? Reimagine the building as an inspiring, high-energy innovation destination.',
+    challenge36h: [
+      'Complete architectural & spatial concept design using provided building drawings',
+      'Ecosystem zoning: Open innovation, startup incubation, co-working, prototyping labs, pitch stage, and social hubs',
+      'Adherence to 5 Core Principles: OPEN, FLEXIBLE, COLLABORATIVE, EXPERIMENTAL, BOLD',
+      '3D spatial renders, floor plans, user flow navigation, and material/sustainability concepts',
+      'Spatial evolvability strategy: How the space adapts as startups scale from 2 desks to 20',
+    ],
+    evaluationCriteria: [
+      { name: 'Spatial Innovation & Concept', weight: '25%' },
+      { name: 'Ecosystem & Functional Zoning', weight: '20%' },
+      { name: 'Alignment with 5 Core Principles', weight: '20%' },
+      { name: 'Flexibility & Evolvability', weight: '15%' },
+      { name: 'Architectural Presentation & Renders', weight: '10%' },
+      { name: 'Sustainability & Building Economics', weight: '10%' },
+    ],
+    horizonPhilosophy: "Don't design an office. Design a physical ecosystem where bold ideas come to life.",
+    keyTesting: [
+      '3D spatial renders and detailed architectural floor plans',
+      'User journey flow from ideation -> prototyping -> incubation -> pitching stage',
+      'Environmental sustainability & spatial adaptability framework',
     ],
   },
 ];
