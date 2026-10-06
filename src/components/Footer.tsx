@@ -71,18 +71,6 @@ export const Footer: React.FC<FooterProps> = ({
                   {link.label}
                 </button>
               ))}
-
-              {hasActiveTeam && (
-                <button
-                  onClick={() => {
-                    sounds.playClick();
-                    onDashboardClick();
-                  }}
-                  className="text-left text-teal-light hover:text-white font-semibold py-1 cursor-pointer"
-                >
-                  Squad Dashboard
-                </button>
-              )}
             </div>
           </div>
 
