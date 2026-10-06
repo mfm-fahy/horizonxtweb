@@ -4,14 +4,15 @@ import { sounds } from '../utils/sound';
 export const InstitutionalSupport: React.FC = () => {
   const institutionalLogos = [
     {
-      name: 'SRM Trichy Arts & Science College',
-      logo: '/institutions/srm-arts-science.png',
-      alt: 'SRM Trichy Arts & Science College Logo',
+      name: 'SRM TRP Engineering College',
+      logo: '/institutions/srm-trp-engineering.png',
+      alt: 'SRM TRP Engineering College Logo',
     },
+   
     {
-      name: 'SRM Trichy College of Nursing',
-      logo: '/institutions/srm-nursing.png',
-      alt: 'SRM Trichy College of Nursing Logo',
+      name: 'SRM Institute of Science & Technology, Tiruchirappalli',
+      logo: '/institutions/srm-ist-tiruchirappalli.jpg',
+      alt: 'SRM Institute of Science & Technology Tiruchirappalli Logo',
     },
     {
       name: 'Trichy SRM Medical College Hospital & Research Centre',
@@ -19,15 +20,22 @@ export const InstitutionalSupport: React.FC = () => {
       alt: 'Trichy SRM Medical College Hospital & Research Centre Logo',
     },
     {
+      name: 'SRM Trichy College of Nursing',
+      logo: '/institutions/srm-nursing.png',
+      alt: 'SRM Trichy College of Nursing Logo',
+    },
+  
+     {
+      name: 'SRM Trichy Arts & Science College',
+      logo: '/institutions/srm-arts-science.png',
+      alt: 'SRM Trichy Arts & Science College Logo',
+    },
+    {
       name: 'Tiruchirappalli SRM Institutions',
       logo: '/institutions/srm-institutions.png',
       alt: 'Tiruchirappalli SRM Institutions Logo',
     },
-    {
-      name: 'SRM TRP Engineering College',
-      logo: '/institutions/srm-trp-engineering.png',
-      alt: 'SRM TRP Engineering College Logo',
-    },
+    
   ];
 
   return (
@@ -74,8 +82,8 @@ export const InstitutionalSupport: React.FC = () => {
             <span className="h-[1px] w-12 sm:w-20 bg-gradient-to-l from-transparent to-teal/60" />
           </div>
 
-          {/* 5 Institutional Logos Row */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 items-center justify-center">
+          {/* 6 Institutional Logos Row */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 items-center justify-center">
             {institutionalLogos.map((item) => (
               <div
                 key={item.name}

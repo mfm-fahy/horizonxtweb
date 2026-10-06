@@ -95,13 +95,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               Registration is now live! Abstract submission is <span className="text-gold font-bold">100% Free</span>. <span className="text-emerald-400 font-bold">SRM Students: FREE</span> participation. For other colleges, each member pays <span className="text-gold font-bold">₹500 ONLY after abstract shortlisting</span> via official confirmation email. Teams will work on their chosen problem statement during the 36-hour physical hackathon (Oct 24–26).
             </p>
 
-            {/* Quick Contact Line */}
-            <div className="p-3 rounded-xl bg-navy-surface/90 border border-teal/30 mb-6 w-full max-w-[500px] text-xs font-mono text-lightgray flex flex-wrap items-center gap-x-4 gap-y-1">
-              <span className="text-gold font-bold uppercase">Helpdesk:</span>
-              <span>Faheem: <a href="tel:9943949439" className="text-teal-light hover:text-gold transition-colors font-bold">9943949439</a></span>
-              <span>Rajha: <a href="tel:8883877748" className="text-teal-light hover:text-gold transition-colors font-bold">8883877748</a></span>
-              <span>Kennedy: <a href="tel:8870594450" className="text-teal-light hover:text-gold transition-colors font-bold">8870594450</a></span>
-            </div>
 
             {/* CTA Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 sm:gap-5">
