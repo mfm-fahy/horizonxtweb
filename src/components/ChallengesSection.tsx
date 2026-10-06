@@ -84,7 +84,7 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-navy-darker/80 mb-4 border border-teal/40 shadow-glow-teal">
               <span className="w-2 h-2 rounded-full bg-teal animate-pulse" />
               <span className="font-heading font-semibold text-xs tracking-[0.25em] text-teal-light uppercase">
-                OFFICIAL PROBLEM STATEMENTS (PS1 - PS22)
+                OFFICIAL PROBLEM STATEMENTS (PS1 - PS26)
               </span>
             </div>
 
@@ -93,7 +93,7 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
             </h2>
 
             <p className="text-sm sm:text-base lg:text-lg text-white/75 font-normal leading-relaxed font-sans max-w-3xl mx-auto text-left sm:text-center transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_12px_rgba(165,243,252,0.8)] cursor-default">
-              Explore our 22+ official research problem statements spanning Electric Vehicles, Industry 4.0, Autonomous Logistics, Healthcare AI, and Sustainability. Select a challenge to view detailed 36-hour specifications and register your team!
+              Explore our 26 official research problem statements spanning Electric Vehicles, Industry 4.0, Autonomous Logistics, Healthcare AI, CleanTech, and Architecture. Select a challenge to view detailed 36-hour specifications and register your team!
             </p>
           </div>
         </div>

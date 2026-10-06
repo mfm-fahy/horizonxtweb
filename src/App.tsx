@@ -159,7 +159,7 @@ export function App() {
         {/* About HorizonXT */}
         <AboutSection />
 
-        {/* Official Problem Statements Section (PS1 - PS22) */}
+        {/* Official Problem Statements Section (PS1 - PS26) */}
         <ChallengesSection
           onSelectTrackForRegistration={(psCode) => {
             setSelectedTrackForReg(psCode);

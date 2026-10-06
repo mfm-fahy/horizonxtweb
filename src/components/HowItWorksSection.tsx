@@ -31,9 +31,9 @@ export const HowItWorksSection: React.FC<HowItWorksProps> = ({ onRegisterClick }
     {
       step: 'STEP 02',
       title: 'CHOOSE PROBLEM STATEMENT',
-      subtitle: 'Select PS1 to PS22',
+      subtitle: 'Select PS1 to PS26',
       description:
-        'Select an official research problem statement from PS1 to PS22. Note: Shortlisted teams will build on this SAME selected problem statement during the 36-hour physical hackathon.',
+        'Select an official research problem statement from PS1 to PS26. Note: Shortlisted teams will build on this SAME selected problem statement during the 36-hour physical hackathon.',
       icon: Compass,
       details: 'Select your PS carefully. Shortlisted teams will build on the same PS at the event.',
     },

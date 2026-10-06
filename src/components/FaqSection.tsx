@@ -17,7 +17,7 @@ export const FaqSection: React.FC = () => {
     },
     {
       q: 'Do teams work on the same problem statement at the hackathon?',
-      a: 'YES! Shortlisted teams will build their prototype on the exact SAME problem statement (selected from PS1 to PS22) that they submitted their abstract for.',
+      a: 'YES! Shortlisted teams will build their prototype on the exact SAME problem statement (selected from PS1 to PS26) that they submitted their abstract for.',
     },
     {
       q: 'Who can I contact for queries or support?',
@@ -29,7 +29,7 @@ export const FaqSection: React.FC = () => {
     },
     {
       q: 'How do we submit our project abstract?',
-      a: 'During registration, select an official problem statement (PS1 to PS22), upload your abstract in .docx format ONLY to Google Drive (set to "Anyone with the link can view"), and paste the Google Drive link into the registration form.',
+      a: 'During registration, select an official problem statement (PS1 to PS26), upload your abstract in .docx format ONLY to Google Drive (set to "Anyone with the link can view"), and paste the Google Drive link into the registration form.',
     },
     {
       q: 'What should shortlisted teams bring to the event?',
