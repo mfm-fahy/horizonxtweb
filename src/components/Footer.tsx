@@ -23,7 +23,6 @@ export const Footer: React.FC<FooterProps> = ({
     { label: 'Home', href: '#hero' },
     { label: 'About', href: '#about' },
     { label: 'Challenges', href: '#challenges' },
-    { label: 'Timeline', href: '#timeline' },
     { label: 'Rules', onClick: onRulesClick },
     { label: 'FAQ', href: '#faq' },
     { label: 'Register', onClick: onRegisterClick },

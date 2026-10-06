@@ -7,7 +7,6 @@ import { AboutSection } from './components/AboutSection';
 import { ChallengesSection } from './components/ChallengesSection';
 import { EventHighlights } from './components/EventHighlights';
 import { HowItWorksSection } from './components/HowItWorksSection';
-import { TimelineSection } from './components/TimelineSection';
 import { JudgingSection } from './components/JudgingSection';
 import { PrizesSection } from './components/PrizesSection';
 import { InstitutionalSupport } from './components/InstitutionalSupport';
@@ -177,9 +176,6 @@ export function App() {
             setIsRegisterOpen(true);
           }}
         />
-
-        {/* Timeline Section */}
-        <TimelineSection />
 
         {/* Judging Criteria */}
         <JudgingSection />

@@ -22,6 +22,22 @@ const LinkedinIcon: React.FC<{ className?: string }> = ({ className = 'w-4 h-4' 
   </svg>
 );
 
+export const INSTITUTION_OPTIONS = [
+  'SRM Institute of Science & Technology, Tiruchirappalli - Engineering & Technology',
+  'SRM Institute of Science & Technology, Tiruchirappalli - Science & Humanities',
+  'SRM Institute of Science & Technology, Tiruchirappalli - Physiotherapy',
+  'SRM Institute of Science & Technology, Tiruchirappalli - Occupational Therapy',
+  'SRM Institute of Science & Technology, Tiruchirappalli - Allied Health Sciences',
+  'SRM Institute of Science & Technology, Tiruchirappalli - Hotel Management',
+  'SRM TRP Engineering College',
+  'Trichy SRM Medical College Hospital & Research Centre',
+  'Trichy SRM Allied Health Sciences',
+  'SRM Trichy College of Nursing',
+  'SRM Trichy Arts & Science College',
+  'Other SRM Campus (Kattankulathur / Ramapuram / Vadapalani / NCR)',
+  'Other External College / University',
+] as const;
+
 export interface TeamMember {
   id: string;
   name: string;

@@ -29,7 +29,6 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: 'HOME', href: '#hero' },
     { label: 'ABOUT', href: '#about' },
     { label: 'CHALLENGES', href: '#challenges' },
-    { label: 'TIMELINE', href: '#timeline' },
     { label: 'HOW IT WORKS', href: '#how-it-works' },
     { label: 'PRIZES', href: '#prizes' },
     { label: 'RULES', onClick: onRulesClick },
