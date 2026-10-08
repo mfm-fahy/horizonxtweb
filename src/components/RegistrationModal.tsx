@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   FileText,
   AlertTriangle,
+  ExternalLink,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { Logo } from './Logo';
@@ -445,7 +446,27 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                         </div>
                         <div>
                           <h4 className="font-mono text-gold uppercase tracking-widest text-[10px] mb-1">THE CHALLENGE</h4>
-                          <p className="text-lightgray leading-relaxed">{activePs.challenge}</p>
+                          <div className="space-y-3">
+                            <p className="text-lightgray leading-relaxed">{activePs.challenge}</p>
+                            {activePs.referenceLink && (
+                              <div className="flex flex-col gap-1">
+                                <a
+                                  href={activePs.referenceLink}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-flex items-center gap-1.5 text-xs font-bold text-gold hover:text-teal transition-colors w-fit"
+                                >
+                                  <ExternalLink className="w-3.5 h-3.5" />
+                                  <span>View Reference Material</span>
+                                </a>
+                                {activePs.referenceNote && (
+                                  <p className="text-[10px] text-slate-muted italic">
+                                    * {activePs.referenceNote}
+                                  </p>
+                                )}
+                              </div>
+                            )}
+                          </div>
                         </div>
                         <div>
                           <h4 className="font-mono text-teal-light uppercase tracking-widest text-[10px] mb-1.5">36-HOUR HACKATHON DIRECTIVES</h4>
