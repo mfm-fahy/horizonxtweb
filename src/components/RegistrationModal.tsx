@@ -42,6 +42,7 @@ export interface TeamMember {
   id: string;
   name: string;
   email: string;
+  phone?: string;
   role: string;
   linkedinUrl: string;
   isLeader: boolean;
@@ -101,11 +102,11 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
   // Additional members for Create Team (up to 3 teammates, making total 4)
   const [teammates, setTeammates] = useState<
-    Array<{ name: string; email: string; role: string; linkedinUrl: string }>
+    Array<{ name: string; email: string; phone: string; role: string; linkedinUrl: string }>
   >([
-    { name: '', email: '', role: 'Backend Developer', linkedinUrl: '' },
-    { name: '', email: '', role: 'AI / ML Specialist', linkedinUrl: '' },
-    { name: '', email: '', role: 'UI/UX Designer', linkedinUrl: '' },
+    { name: '', email: '', phone: '', role: 'Backend Developer', linkedinUrl: '' },
+    { name: '', email: '', phone: '', role: 'AI / ML Specialist', linkedinUrl: '' },
+    { name: '', email: '', phone: '', role: 'UI/UX Designer', linkedinUrl: '' },
   ]);
 
   const [selectedChallenge, setSelectedChallenge] = useState(
@@ -135,7 +136,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
   const updateTeammate = (
     index: number,
-    field: 'name' | 'email' | 'role' | 'linkedinUrl',
+    field: 'name' | 'email' | 'phone' | 'role' | 'linkedinUrl',
     value: string
   ) => {
     setTeammates((prev) => {
@@ -170,17 +171,20 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
   const validateStep3 = () => {
     const errs: { [key: string]: string } = {};
     if (!createTeamData.teamName.trim()) errs.teamName = 'Team name is required.';
-    const targetSize = parseInt(createTeamData.teamSize, 10);
+    const targetSize = Math.min(parseInt(createTeamData.teamSize, 10), 4);
     for (let i = 0; i < targetSize - 1; i++) {
       const tm = teammates[i];
       if (!tm.name.trim()) {
-        errs[`tm_${i}_name`] = `Teammate ${i + 2} Name is required.`;
+        errs[`tm_${i}_name`] = `Member 0${i + 2} Name is required.`;
       }
       if (!tm.email.trim() || !tm.email.includes('@')) {
-        errs[`tm_${i}_email`] = `Valid email required for Teammate ${i + 2}.`;
+        errs[`tm_${i}_email`] = `Valid email required for Member 0${i + 2}.`;
+      }
+      if (!tm.phone.trim() || tm.phone.length < 10) {
+        errs[`tm_${i}_phone`] = `10-digit phone number required for Member 0${i + 2}.`;
       }
       if (!tm.linkedinUrl.trim()) {
-        errs[`tm_${i}_linkedin`] = `LinkedIn Profile URL required for Teammate ${i + 2}.`;
+        errs[`tm_${i}_linkedin`] = `LinkedIn Profile URL required for Member 0${i + 2}.`;
       }
     }
     setErrors(errs);
@@ -236,18 +240,20 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
       id: 'mem-1',
       name: personal.fullName,
       email: personal.email,
+      phone: personal.phone,
       role: createTeamData.leaderRole || 'Team Leader',
       linkedinUrl: personal.linkedinUrl,
       isLeader: true,
       status: 'active',
     };
 
-    const targetCount = parseInt(createTeamData.teamSize, 10);
+    const targetCount = Math.min(parseInt(createTeamData.teamSize, 10), 4);
     const otherMembers: TeamMember[] = teammates.slice(0, targetCount - 1).map((tm, idx) => ({
       id: `mem-${idx + 2}`,
-      name: tm.name || `Teammate 0${idx + 2}`,
-      email: tm.email || `teammate${idx + 2}@college.edu`,
-      role: tm.role || `Teammate 0${idx + 2}`,
+      name: tm.name || `Member 0${idx + 2}`,
+      email: tm.email || `member${idx + 2}@college.edu`,
+      phone: tm.phone,
+      role: tm.role || `Member 0${idx + 2}`,
       linkedinUrl: tm.linkedinUrl,
       isLeader: false,
       status: 'active',
@@ -732,6 +738,9 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div>
+                              <label className="block text-[11px] font-mono text-lightgray mb-1 uppercase">
+                                Full Name *
+                              </label>
                               <input
                                 type="text"
                                 placeholder={`Member 0${idx + 2} Full Name *`}
@@ -747,6 +756,9 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                             </div>
 
                             <div>
+                              <label className="block text-[11px] font-mono text-lightgray mb-1 uppercase">
+                                Email Address *
+                              </label>
                               <input
                                 type="email"
                                 placeholder={`Member 0${idx + 2} Email *`}
@@ -764,21 +776,33 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
 
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div>
+                              <label className="block text-[11px] font-mono text-lightgray mb-1 uppercase">
+                                Phone Number (WhatsApp) *
+                              </label>
                               <input
-                                type="text"
-                                placeholder={`Member 0${idx + 2} Role (e.g. Backend)`}
-                                value={tm.role}
-                                onChange={(e) => updateTeammate(idx, 'role', e.target.value)}
+                                type="tel"
+                                placeholder={`Member 0${idx + 2} Phone Number *`}
+                                value={tm.phone}
+                                onChange={(e) => updateTeammate(idx, 'phone', e.target.value)}
                                 className="w-full px-3 py-2.5 rounded-xl bg-navy-surface border border-teal/20 text-white text-xs font-sans focus:border-gold focus:outline-none"
                               />
+                              {errors[`tm_${idx}_phone`] && (
+                                <p className="text-[10px] text-rose-400 mt-1">
+                                  {errors[`tm_${idx}_phone`]}
+                                </p>
+                              )}
                             </div>
 
                             <div>
+                              <label className="block text-[11px] font-mono text-gold mb-1 uppercase flex items-center gap-1">
+                                <LinkedinIcon className="w-3 h-3 text-gold" />
+                                <span>LinkedIn Profile URL *</span>
+                              </label>
                               <div className="relative">
                                 <LinkedinIcon className="w-3.5 h-3.5 text-gold absolute left-3 top-3" />
                                 <input
                                   type="url"
-                                  placeholder={`Member 0${idx + 2} LinkedIn Profile URL *`}
+                                  placeholder={`https://linkedin.com/in/member-0${idx + 2}`}
                                   value={tm.linkedinUrl}
                                   onChange={(e) => updateTeammate(idx, 'linkedinUrl', e.target.value)}
                                   className="w-full pl-9 pr-3 py-2.5 rounded-xl bg-navy-surface border border-gold/30 text-white text-xs font-sans focus:border-gold focus:outline-none"
@@ -790,6 +814,16 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                                 </p>
                               )}
                             </div>
+                          </div>
+
+                          <div>
+                            <input
+                              type="text"
+                              placeholder={`Member 0${idx + 2} Role (e.g. Backend Developer, AI Specialist)`}
+                              value={tm.role}
+                              onChange={(e) => updateTeammate(idx, 'role', e.target.value)}
+                              className="w-full px-3 py-2 rounded-xl bg-navy-surface border border-teal/15 text-white text-xs font-sans focus:border-gold focus:outline-none"
+                            />
                           </div>
                         </div>
                       );
