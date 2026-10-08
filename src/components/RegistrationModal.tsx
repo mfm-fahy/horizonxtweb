@@ -895,8 +895,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                   <span>IMPORTANT NOTE</span>
                 </div>
                 <p className="text-slate-muted leading-relaxed">
-                  If any AI contents are found during the plagiarism check on the abstract, the team will be <strong className="text-red-400 font-bold drop-shadow-[0_0_5px_rgba(248,113,113,0.5)]">disqualified automatically</strong>. <br />
-                  <span className="text-red-400/90 font-bold">Note:</span> Copying content from AI tools or the internet may lead to disqualification.
+                  If any AI-generated content or plagiarism is detected during the abstract review, the team will be <strong className="text-red-400 font-bold drop-shadow-[0_0_5px_rgba(248,113,113,0.5)]">automatically disqualified</strong>.
                 </p>
               </div>
             </div>
