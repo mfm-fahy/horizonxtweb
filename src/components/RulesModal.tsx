@@ -73,7 +73,7 @@ export const RulesModal: React.FC<RulesModalProps> = ({ isOpen, onClose }) => {
           <X className="w-5 h-5" />
         </button>
 
-        <div className="flex items-center gap-3 border-b border-teal/20 pb-5 mb-8">
+        <div className="flex items-center gap-3 border-b border-teal/20 pb-5 mb-8 pr-12 sm:pr-16">
           <div className="p-3 rounded-xl bg-navy-surface border border-gold/40 text-gold shadow-glow-gold">
             <Scale className="w-6 h-6" />
           </div>

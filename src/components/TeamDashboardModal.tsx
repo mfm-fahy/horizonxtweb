@@ -45,7 +45,7 @@ export const TeamDashboardModal: React.FC<TeamDashboardProps> = ({
         </button>
 
         {/* Dashboard Top Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-teal/20 pb-6 mb-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-teal/20 pb-6 mb-8 pr-12 sm:pr-16">
           <div>
             <div className="flex items-center gap-3 mb-2">
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />

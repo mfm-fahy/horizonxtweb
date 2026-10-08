@@ -315,7 +315,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
         </button>
 
         {/* Modal Top Header with Logo */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-teal/20 pb-4 mb-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-teal/20 pb-4 mb-4 pr-12 sm:pr-16">
           <Logo size="md" showTagline={true} />
           <div className="font-mono text-xs text-emerald-400 font-bold uppercase tracking-widest flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
