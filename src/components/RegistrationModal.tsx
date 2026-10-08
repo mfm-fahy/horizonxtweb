@@ -10,6 +10,7 @@ import {
   Sparkles,
   ShieldCheck,
   FileText,
+  AlertTriangle,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { Logo } from './Logo';
@@ -886,6 +887,17 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                   <li>Upload the .docx document to your Google Drive and set sharing access to <strong className="text-white">&ldquo;Anyone with the link can view&rdquo;</strong>.</li>
                   <li>Our technical jury will evaluate the abstract to shortlist teams for the physical 36-hour event (Oct 24–26).</li>
                 </ul>
+              </div>
+
+              <div className="p-3 rounded-xl bg-red-950/40 border border-red-500/50 shadow-[0_0_15px_rgba(239,68,68,0.4)] text-[11px] font-sans text-lightgray space-y-1">
+                <div className="font-bold text-red-400 uppercase flex items-center gap-1.5 drop-shadow-[0_0_8px_rgba(248,113,113,0.8)]">
+                  <AlertTriangle className="w-3.5 h-3.5 text-red-400 shrink-0 animate-pulse" />
+                  <span>IMPORTANT NOTE</span>
+                </div>
+                <p className="text-slate-muted leading-relaxed">
+                  If any AI contents are found during the plagiarism check on the abstract, the team will be <strong className="text-red-400 font-bold drop-shadow-[0_0_5px_rgba(248,113,113,0.5)]">disqualified automatically</strong>. <br />
+                  <span className="text-red-400/90 font-bold">Note:</span> Copying content from AI tools or the internet may lead to disqualification.
+                </p>
               </div>
             </div>
           </div>
