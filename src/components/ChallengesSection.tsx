@@ -277,16 +277,21 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
                     {selectedPs.challenge}
                   </p>
                   {selectedPs.referenceLink && (
-                    <div>
+                    <div className="flex flex-col gap-1.5 pt-2">
                       <a
                         href={selectedPs.referenceLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-bold text-gold hover:text-teal transition-colors"
+                        className="inline-flex items-center gap-2 text-sm font-bold text-gold hover:text-teal transition-colors w-fit"
                       >
                         <ExternalLink className="w-4 h-4" />
                         <span>View Reference Material</span>
                       </a>
+                      {selectedPs.referenceNote && (
+                        <p className="text-xs text-slate-muted italic">
+                          * {selectedPs.referenceNote}
+                        </p>
+                      )}
                     </div>
                   )}
                 </div>
