@@ -40,8 +40,8 @@ export const RulesModal: React.FC<RulesModalProps> = ({ isOpen, onClose }) => {
     {
       category: '4. HELPDESK & STUDENT COORDINATORS',
       points: [
-        'Faheem: +91 9943949439',
-        'Rajha: +91 8883877748',
+        'Mohammed Faheem: +91 9943949439',
+        'Vijaya rajha K: +91 8883877748',
         'Dr. Joseph Sagaya Kennedy: +91 8870594450',
       ],
     },

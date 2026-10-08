@@ -332,7 +332,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
             • <strong className="text-emerald-400">SRM Students:</strong> 100% FREE participation. <br />
             • <strong className="text-gold">Other Colleges:</strong> ₹500 per member <span className="underline">ONLY AFTER abstract shortlisting</span> (official confirmation email will be sent). <br />
             • <strong className="text-teal-light">Same Problem Statement:</strong> Teams will work on their chosen problem statement at the 36-hour physical hackathon. <br />
-            • <strong className="text-white">Helpdesk:</strong> Faheem (<a href="tel:9943949439" className="text-gold">9943949439</a>) | Rajha (<a href="tel:8883877748" className="text-gold">8883877748</a>) | Dr. Joseph Sagaya Kennedy (<a href="tel:8870594450" className="text-gold">8870594450</a>)
+            • <strong className="text-white">Helpdesk:</strong> Mohammed Faheem (<a href="tel:9943949439" className="text-gold">9943949439</a>) | Vijaya rajha K (<a href="tel:8883877748" className="text-gold">8883877748</a>) | Dr. Joseph Sagaya Kennedy (<a href="tel:8870594450" className="text-gold">8870594450</a>)
           </p>
         </div>
 

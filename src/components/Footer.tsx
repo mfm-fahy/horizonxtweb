@@ -79,11 +79,11 @@ export const Footer: React.FC<FooterProps> = ({
 
             <div className="space-y-2 text-xs font-mono text-lightgray bg-navy-surface/60 p-3.5 rounded-xl border border-teal/20">
               <div className="flex items-center justify-between border-b border-teal/15 pb-1.5">
-                <span className="text-slate-muted">Faheem:</span>
+                <span className="text-slate-muted">Mohammed Faheem:</span>
                 <a href="tel:9943949439" className="text-gold font-bold hover:underline">9943949439</a>
               </div>
               <div className="flex items-center justify-between border-b border-teal/15 pb-1.5">
-                <span className="text-slate-muted">Rajha:</span>
+                <span className="text-slate-muted">Vijaya rajha K:</span>
                 <a href="tel:8883877748" className="text-gold font-bold hover:underline">8883877748</a>
               </div>
               <div className="flex items-center justify-between">

@@ -21,7 +21,7 @@ export const FaqSection: React.FC = () => {
     },
     {
       q: 'Who can I contact for queries or support?',
-      a: 'You can reach out to our official HorizonXT Helpdesk coordinators directly via phone/WhatsApp: Faheem (+91 9943949439), Rajha (+91 8883877748), or Dr. Joseph Sagaya Kennedy (+91 8870594450).',
+      a: 'You can reach out to our official HorizonXT Helpdesk coordinators directly via phone/WhatsApp: Mohammed Faheem (+91 9943949439), Vijaya rajha K (+91 8883877748), or Dr. Joseph Sagaya Kennedy (+91 8870594450).',
     },
     {
       q: 'Who can participate & what is the team size limit?',
