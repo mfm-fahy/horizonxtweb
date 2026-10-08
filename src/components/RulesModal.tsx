@@ -42,7 +42,7 @@ export const RulesModal: React.FC<RulesModalProps> = ({ isOpen, onClose }) => {
       points: [
         'Faheem: +91 9943949439',
         'Rajha: +91 8883877748',
-        'Kennedy: +91 8870594450',
+        'Dr. Joseph Sagaya Kennedy: +91 8870594450',
       ],
     },
     {

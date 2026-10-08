@@ -46,8 +46,8 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
 
-          {/* Quick Links (4 cols) */}
-          <div className="md:col-span-4 space-y-3">
+          {/* Quick Links (3 cols) */}
+          <div className="md:col-span-3 space-y-3">
             <div className="font-heading font-bold text-xs uppercase tracking-[0.25em] text-teal mb-4">
               QUICK NAVIGATION
             </div>
@@ -71,8 +71,8 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
 
-          {/* Connect & Helpdesk Contacts (3 cols) */}
-          <div className="md:col-span-3 space-y-4">
+          {/* Connect & Helpdesk Contacts (4 cols) */}
+          <div className="md:col-span-4 space-y-4">
             <div className="font-heading font-bold text-xs uppercase tracking-[0.25em] text-gold mb-3">
               HELPDESK & COORDINATORS
             </div>
@@ -87,7 +87,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <a href="tel:8883877748" className="text-gold font-bold hover:underline">8883877748</a>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-slate-muted">Kennedy:</span>
+                <span className="text-slate-muted">Dr. Joseph Sagaya Kennedy:</span>
                 <a href="tel:8870594450" className="text-gold font-bold hover:underline">8870594450</a>
               </div>
             </div>
