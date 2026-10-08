@@ -951,5 +951,39 @@ export const problemStatements: ProblemStatement[] = [
       'Architectural render and floorplan concept review by expert panel',
       'Sustainability, lighting, and interior environmental quality integration'
     ]
+  }  ,
+  {
+    id: 'ps27',
+    code: 'PS27',
+    title: 'The Battery Is the Real Constraint',
+    category: 'Robotics & Hardware',
+    tagline: 'Develop an energy-aware autonomous mission planner that maximises mission value while guaranteeing a safe landing reserve.',
+    problem: 'Almost every autonomous mission is ultimately limited by stored energy. Yet many autonomous systems still treat battery state as a simple percentage that decreases linearly. Real batteries do not behave that way; usable capacity and available power depend on discharge rate, temperature, age, state of charge, and voltage sag. A mission planner that assumes the battery is better than it actually is can turn a successful mission into an emergency landing.',
+    challenge: 'Develop an energy-aware autonomous mission planner that connects: Battery Measurement → Energy Model → Mission Planning → Real-Time Monitoring → Replanning → Safe Landing. The objective is to extract the maximum useful mission value from the available energy without compromising the probabilistic safety constraint.',
+    challenge36h: [
+      'Actual battery measurement with at least three discharge-current conditions and temperature logging',
+      'Measured energy/usable-capacity model (physics, empirical, ML, or equivalent-circuit)',
+      'Mission planner maximising defined mission value with ≥20% usable reserve constraint',
+      'Mid-mission replanning demonstrating safe return/abort under degraded conditions',
+      'Endurance prediction-error distribution across a minimum of 10 validated missions',
+      'Interpretation of reserve as a probabilistic safety constraint reflecting model uncertainty'
+    ],
+    evaluationCriteria: [
+      { name: 'Battery Characterisation & Measurement', weight: '15%' },
+      { name: 'Energy Model Accuracy', weight: '20%' },
+      { name: 'Mission Optimisation', weight: '20%' },
+      { name: 'Reserve/Safety Intelligence', weight: '15%' },
+      { name: 'Real-Time Replanning', weight: '10%' },
+      { name: 'Validation Across Missions', weight: '10%' },
+      { name: 'Prototype & Demonstration', weight: '5%' },
+      { name: 'Engineering Insight & Scalability', weight: '5%' }
+    ],
+    horizonPhilosophy: "Don't plan the mission around the battery percentage. Plan it around the energy the battery can actually deliver.",
+    keyTesting: [
+      'Live replanning demonstration during a changed operating condition (e.g., payload/temperature/wind increase)',
+      'Distribution analysis of endurance prediction errors across 10+ missions',
+      'Verification that the planner requires >20% nominal reserve when model uncertainty is high',
+      'Judge challenge: Live response of the system when battery starts at 60% rated capacity'
+    ]
   }
 ];
