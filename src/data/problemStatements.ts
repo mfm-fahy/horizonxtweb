@@ -985,5 +985,40 @@ export const problemStatements: ProblemStatement[] = [
       'Verification that the planner requires >20% nominal reserve when model uncertainty is high',
       'Judge challenge: Live response of the system when battery starts at 60% rated capacity'
     ]
+  }  ,
+  {
+    id: 'ps28',
+    code: 'PS28',
+    title: 'Intelligence on a Very Small Computer',
+    category: 'Robotics & Hardware',
+    tagline: 'Develop a perception or decision-making system that operates inside a strictly constrained computing envelope.',
+    problem: 'A drone cannot carry a data centre. Neither can a pacemaker, soil sensor, wildlife tracker, wearable device or an industrial sensor expected to operate for months or years on limited energy. Yet these systems increasingly need perception, classification, anomaly detection and decision-making capabilities. A model that performs exceptionally well on a GPU may become completely impractical when deployed on a microcontroller with hundreds of kilobytes of RAM and a tiny energy budget.',
+    challenge: 'Develop a useful perception or decision-making system that operates inside a strictly constrained computing envelope (≤512 KB RAM, ≤2 MB footprint, no GPU/NPU, ≤100 ms latency). The critical requirement is to produce and explain a resource–performance trade-off curve with at least five operating points.',
+    challenge36h: [
+      'Execute task on genuinely constrained hardware (or strictly enforced constraints)',
+      'Produce a resource–performance trade-off curve with at least 5 operating points',
+      'Measure and report energy per inference using appropriate instruments',
+      'Report 95th-percentile tail latency alongside mean latency',
+      'Identify the "knee point" where performance/robustness drops sharply',
+      'Adapt to a surprise 40% resource budget cut during the live Demo Day'
+    ],
+    evaluationCriteria: [
+      { name: 'Task Performance / Accuracy', weight: '15%' },
+      { name: 'Resource Efficiency', weight: '20%' },
+      { name: 'Resource–Performance Curve', weight: '15%' },
+      { name: 'Latency & Tail Performance', weight: '10%' },
+      { name: 'Energy Efficiency', weight: '10%' },
+      { name: 'Robustness & Graceful Degradation', weight: '10%' },
+      { name: 'Hardware Demonstration', weight: '5%' },
+      { name: 'Engineering Explanation & Trade-off Analysis', weight: '10%' },
+      { name: 'Commercial / Deployment Potential', weight: '5%' }
+    ],
+    horizonPhilosophy: "Don't build the most powerful AI. Build the most capable intelligence that survives the smallest machine.",
+    keyTesting: [
+      'Verification of resource envelope limits (≤512 KB RAM, ≤2 MB Model + Code, single core, no GPU/NPU)',
+      'Hardware execution over 100+ inferences measuring mean and 95th percentile latency',
+      'Measured energy consumption per inference (mJ/inference)',
+      'Live 45-minute adaptation to a 40% resource cut (memory, latency, or energy) on Demo Day'
+    ]
   }
 ];
