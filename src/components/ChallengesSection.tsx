@@ -16,6 +16,7 @@ import {
   BookOpen,
   Target,
   Compass,
+  ExternalLink,
 } from 'lucide-react';
 import { sounds } from '../utils/sound';
 import {
@@ -271,9 +272,24 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
                   <Target className="w-4 h-4" />
                   <span>THE CHALLENGE</span>
                 </div>
-                <p className="text-sm sm:text-base text-lightgray/90 leading-relaxed font-sans bg-navy-darker/60 p-4 rounded-xl border border-teal/15">
-                  {selectedPs.challenge}
-                </p>
+                <div className="bg-navy-darker/60 p-4 rounded-xl border border-teal/15 space-y-4">
+                  <p className="text-sm sm:text-base text-lightgray/90 leading-relaxed font-sans">
+                    {selectedPs.challenge}
+                  </p>
+                  {selectedPs.referenceLink && (
+                    <div>
+                      <a
+                        href={selectedPs.referenceLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm font-bold text-gold hover:text-teal transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        <span>View Reference Material</span>
+                      </a>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
 

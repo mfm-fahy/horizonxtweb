@@ -21,6 +21,7 @@ export interface ProblemStatement {
   evaluationCriteria: EvaluationCriterion[];
   horizonPhilosophy: string;
   keyTesting: string[];
+  referenceLink?: string;
 }
 
 export const fontCategories = [
@@ -927,6 +928,7 @@ export const problemStatements: ProblemStatement[] = [
     tagline: 'Architectural concept transforming the R Shivakumar Foundation Incubation & Acceleration Centre.',
     problem: 'Innovation hubs often feel like conventional corporate offices or classrooms with static cubicles that hinder serendipitous collaboration, prototyping, and multi-disciplinary interaction.',
     challenge: 'How might we design a physical space that makes people want to come in, stay longer, meet unexpected people, exchange ideas and build something bold? Reimagine the building drawings of the proposed R Shivakumar Foundation Incubation & Acceleration Centre at SRM University.',
+    referenceLink: 'https://drive.google.com/file/d/1DhJVrSQGy4a-nL5AeDQODQSDtmCyPVgE/view?usp=drivesdk',
     challenge36h: [
       'Complete architectural and spatial layout concept for the Incubation Centre',
       'Spatial design honoring 5 core principles: Open, Flexible, Collaborative, Experimental, Bold',
