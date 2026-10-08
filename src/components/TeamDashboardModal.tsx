@@ -83,7 +83,7 @@ export const TeamDashboardModal: React.FC<TeamDashboardProps> = ({
             </h3>
           </div>
           <p className="text-sm font-sans text-lightgray leading-relaxed">
-            Thank you for registering your team for <strong className="text-white font-bold">HorizonXT 2026</strong>! Your abstract has been received and is currently under review by our technical jury. <strong className="text-gold font-bold">You will be notified via your registered Phone Number and Email address</strong> regarding abstract shortlisting results, official communications, and next steps for the 36-hour physical hackathon on October 24–26, 2026 at SRM IST, Tiruchirappalli.
+            Thank you for registering your team for <strong className="text-white font-bold">HorizonXT 2026</strong>! Your abstract has been received and is currently under review by our technical jury. <strong className="text-gold font-bold">You will be notified via your registered Phone Number and Email address</strong> regarding abstract shortlisting results, official communications, and next steps for the 36-hour physical hackathon on October 24–26, 2026.
           </p>
         </div>
 
