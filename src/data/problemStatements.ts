@@ -1020,5 +1020,39 @@ export const problemStatements: ProblemStatement[] = [
       'Measured energy consumption per inference (mJ/inference)',
       'Live 45-minute adaptation to a 40% resource cut (memory, latency, or energy) on Demo Day'
     ]
+  }  ,
+  {
+    id: 'ps29',
+    code: 'PS29',
+    title: 'Flight Where the Air Is Thin',
+    category: 'Robotics & Hardware',
+    tagline: 'Develop a validated propulsion-performance model and use it to design a propulsion configuration that satisfies a specified takeoff requirement at altitude.',
+    problem: 'A propulsion system designed at sea level behaves very differently at altitude. As air density decreases, thrust, required airspeed, propeller operating conditions, motor cooling, and propulsive efficiency all change. A simple altitude correction factor does not capture the actual behaviour of the complete propulsion system.',
+    challenge: 'Measure a physical propulsion system, build a predictive model, validate that model against held-out data it has never seen, and then use it to make a design decision for a mission at altitude (Physical Measurement → Propulsion Model → Validation → Altitude Prediction → Design Decision).',
+    challenge36h: [
+      'Build, calibrate, and document a working thrust stand (Thrust, RPM, Torque/Power)',
+      'Test at least two different propellers with multiple operating points and repeat measurements',
+      'Develop a predictive model capable of predicting performance at untested air densities',
+      'Perform mandatory held-out validation (reserving one propeller or operating regime)',
+      'Apply the model to an organiser-supplied mission specification to recommend a configuration',
+      'Explicitly quantify design trade-offs (e.g., propeller diameter vs mass) and measurement uncertainty'
+    ],
+    evaluationCriteria: [
+      { name: 'Experimental Quality & Calibration', weight: '15%' },
+      { name: 'Propulsion Performance Measurement', weight: '15%' },
+      { name: 'Predictive Model', weight: '15%' },
+      { name: 'Held-Out Validation', weight: '15%' },
+      { name: 'Uncertainty Quantification', weight: '10%' },
+      { name: 'Mission-Level Design Decision', weight: '15%' },
+      { name: 'Trade-Off & Sensitivity Analysis', weight: '10%' },
+      { name: 'Engineering Communication', weight: '5%' }
+    ],
+    horizonPhilosophy: "Don't design for the atmosphere you tested. Design for the atmosphere you will actually fly through.",
+    keyTesting: [
+      'Evidence of thrust stand calibration and measurement error bars',
+      'Held-out validation dataset with reported prediction error',
+      'Propagation of measurement uncertainty through the model to predicted takeoff performance',
+      'Live 45-minute adaptation on Demo Day to a new density altitude, aircraft mass, and runway length'
+    ]
   }
 ];
