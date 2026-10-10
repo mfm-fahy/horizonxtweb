@@ -1058,5 +1058,83 @@ export const problemStatements: ProblemStatement[] = [
       'Propagation of measurement uncertainty through the model to predicted takeoff performance',
       'Live 45-minute adaptation on Demo Day to a new density altitude, aircraft mass, and runway length'
     ]
+  },
+  {
+    id: 'ps30',
+    code: 'PS30',
+    title: 'Integrated Water Flow, Quality & Tank-Level Monitoring System',
+    category: 'CleanTech & Sustainability',
+    tagline: 'Real-time dashboard and alert system for corporation water tanks and flow monitoring.',
+    problem: 'Corporation water tanks often lack integrated, real-time monitoring. This can lead to delayed interventions, water wastage through overflows, and undetected water quality issues.',
+    challenge: 'Development of an integrated dashboard and alert system for real-time monitoring of water flow, detection of impurities/water quality issues, and tracking of water levels in corporation water tanks, enabling timely intervention and efficient water management.',
+    challenge36h: [
+      'Sensor data ingestion for water flow, level, and quality',
+      'Real-time dashboard development',
+      'Automated alert generation for anomalies and quality drops'
+    ],
+    evaluationCriteria: [
+      { name: 'System Integration & Accuracy', weight: '30%' },
+      { name: 'Dashboard Usability', weight: '30%' },
+      { name: 'Alert System Reliability', weight: '20%' },
+      { name: 'Scalability & Deployment Feasibility', weight: '20%' }
+    ],
+    horizonPhilosophy: 'Don\'t just measure water. Build an intelligent system that ensures every drop is tracked and safe.',
+    keyTesting: [
+      'Simulated water flow anomaly detection',
+      'Water quality degradation alert test',
+      'Dashboard real-time update latency'
+    ]
+  },
+  {
+    id: 'ps31',
+    code: 'PS31',
+    title: 'Seemai Karuvelam Tree Mapping, Utilisation & Revenue Generation',
+    category: 'CleanTech & Sustainability',
+    tagline: 'Technology-enabled identification, mapping and sustainable utilisation of invasive Seemai Karuvelam trees.',
+    problem: 'Seemai Karuvelam (Prosopis juliflora) is an invasive species that depletes groundwater and harms local ecosystems. Manual identification and tracking across large areas is difficult and resource-intensive.',
+    challenge: 'Development of a technology-enabled system for identification, mapping and tracking of Seemai Karuvelam trees, along with exploring value-added products and sustainable utilisation models to generate revenue for the Government.',
+    challenge36h: [
+      'Mapping and identification system using imagery data',
+      'Value-added product proposal and feasibility analysis',
+      'Revenue generation and sustainable utilisation model'
+    ],
+    evaluationCriteria: [
+      { name: 'Mapping & Identification Accuracy', weight: '30%' },
+      { name: 'Utilisation Model Viability', weight: '30%' },
+      { name: 'Revenue Potential & Economics', weight: '20%' },
+      { name: 'System/Prototype Implementation', weight: '20%' }
+    ],
+    horizonPhilosophy: 'Don\'t just eradicate an invasive species. Transform an ecological problem into an economic opportunity.',
+    keyTesting: [
+      'Image-based tree identification accuracy',
+      'Business model viability assessment',
+      'Mapping dashboard functionality and UI'
+    ]
+  },
+  {
+    id: 'ps32',
+    code: 'PS32',
+    title: 'Compact Robotic Firefighting Solution for Narrow Streets',
+    category: 'Robotics & Hardware',
+    tagline: 'Small, compact and remotely operable firefighting robot for congested urban areas.',
+    problem: 'Conventional fire-fighting vehicles face significant accessibility challenges in narrow streets and congested urban areas, leading to delayed emergency response and increased danger.',
+    challenge: 'Development of a small, compact and remotely operable firefighting robot capable of navigating narrow streets and congested areas where conventional fire-fighting vehicles face accessibility challenges.',
+    challenge36h: [
+      'Compact chassis design suitable for confined spaces',
+      'Remote operation and telemetry capability',
+      'Firefighting payload/mechanism integration design'
+    ],
+    evaluationCriteria: [
+      { name: 'Mobility & Navigation in Narrow Spaces', weight: '30%' },
+      { name: 'Remote Control Reliability', weight: '30%' },
+      { name: 'Firefighting Payload Integration', weight: '20%' },
+      { name: 'Durability & Operational Safety', weight: '20%' }
+    ],
+    horizonPhilosophy: 'Don\'t build a smaller fire truck. Build a nimble robotic responder for the narrowest alleys.',
+    keyTesting: [
+      'Obstacle navigation in a simulated narrow corridor',
+      'Remote control latency and maximum range',
+      'Payload delivery and mechanism actuation simulation'
+    ]
   }
 ];
