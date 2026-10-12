@@ -320,7 +320,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
           <Logo size="md" showTagline={true} />
           <div className="font-mono text-xs text-emerald-400 font-bold uppercase tracking-widest flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span>REGISTRATION IS NOW OPEN • ABSTRACT DUE OCT 16</span>
+            <span>REGISTRATION IS NOW OPEN • ABSTRACT DUE OCT 15</span>
           </div>
         </div>
 

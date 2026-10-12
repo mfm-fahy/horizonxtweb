@@ -40,11 +40,11 @@ export const HowItWorksSection: React.FC<HowItWorksProps> = ({ onRegisterClick }
     {
       step: 'STEP 03',
       title: 'SUBMIT ABSTRACT (.DOCX)',
-      subtitle: 'Free Submission by Oct 16',
+      subtitle: 'Free Submission by Oct 15',
       description:
-        'Prepare your project abstract in .docx format only, upload it to Google Drive with view access, and submit the link by October 16.',
+        'Prepare your project abstract in .docx format only, upload it to Google Drive with view access, and submit the link by October 15.',
       icon: UploadCloud,
-      details: 'Deadline: Oct 16. Abstract must be in .docx format via Google Drive link.',
+      details: 'Deadline: Oct 15. Abstract must be in .docx format via Google Drive link.',
     },
     {
       step: 'STEP 04',

@@ -143,7 +143,7 @@ export const TimelineSection: React.FC = () => {
             </h2>
 
             <p className="text-sm sm:text-base lg:text-lg text-white/75 font-normal leading-relaxed font-sans max-w-3xl mx-auto text-left sm:text-center mb-10 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_12px_rgba(165,243,252,0.8)] cursor-default">
-              Registration officially opens on <span className="text-gold font-semibold">October 5</span>. Abstract submission window runs until <span className="text-teal font-semibold">October 16</span>, leading into the 3-day on-site hackathon on <span className="text-white font-semibold">October 26–28</span>.
+              Registration officially opens on <span className="text-gold font-semibold">October 5</span>. Abstract submission window runs until <span className="text-teal font-semibold">October 15</span>, leading into the 3-day on-site hackathon on <span className="text-white font-semibold">October 26–28</span>.
             </p>
 
           {/* Day Filter Switcher */}

@@ -71,7 +71,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-navy/80 border border-teal/40 backdrop-blur-md mb-4 shadow-[0_0_15px_rgba(0,167,181,0.2)]">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
               <span className="font-heading font-bold text-[11px] sm:text-xs tracking-[0.24em] text-emerald-400 uppercase">
-                REGISTRATION IS NOW OPEN • ABSTRACT DUE OCT 16
+                REGISTRATION IS NOW OPEN • ABSTRACT DUE OCT 15
               </span>
             </div>
 
@@ -86,7 +86,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 REGISTRATION <span className="text-emerald-400">IS NOW OPEN.</span>
               </div>
               <div className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
-                SUBMIT ABSTRACT BY <span className="text-teal">OCT 16.</span>
+                SUBMIT ABSTRACT BY <span className="text-teal">OCT 15.</span>
               </div>
             </div>
 
@@ -195,7 +195,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     <span className="w-1.5 h-1.5 rounded-full bg-teal" />
                     ABSTRACT DEADLINE
                   </span>
-                  <span className="text-teal-light font-semibold">OCTOBER 16</span>
+                  <span className="text-teal-light font-semibold">OCTOBER 15</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-muted">
                   <span className="flex items-center gap-1.5">
