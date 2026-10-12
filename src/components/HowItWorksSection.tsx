@@ -58,11 +58,11 @@ export const HowItWorksSection: React.FC<HowItWorksProps> = ({ onRegisterClick }
     {
       step: 'STEP 05',
       title: '36-HOUR HACKATHON EVENT',
-      subtitle: '3-Day On-Site Event (Oct 24, 25, 26)',
+      subtitle: '3-Day On-Site Event (Oct 26, 27, 28)',
       description:
-        'Shortlisted squads assemble at the physical venue for 36 continuous hours of building across 3 days (Oct 24, 25, 26).',
+        'Shortlisted squads assemble at the physical venue for 36 continuous hours of building across 3 days (Oct 26, 27, 28).',
       icon: Code,
-      details: '3-day event: October 24, 25, 26. Food & rest pods provided.',
+      details: '3-day event: October 26, 27, 28. Food & rest pods provided.',
     },
     {
       step: 'STEP 06',

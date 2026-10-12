@@ -6,7 +6,7 @@ HorizonXT is a 36-Hour National Level College Hackathon hosted at SRM Institute 
 **Key Dates:**
 - **Registration Opens:** October 5
 - **Abstract Submission Deadline:** October 16
-- **36-Hour Hackathon Event:** October 24–26, 2026
+- **36-Hour Hackathon Event:** October 26–28, 2026
 
 ## Rules & Regulations
 
@@ -34,7 +34,7 @@ HorizonXT is a 36-Hour National Level College Hackathon hosted at SRM Institute 
 
 ### 5. Final Submission & Demo
 - Every squad must submit a public GitHub repository link and working live demonstration before the 36-hour timer expires.
-- Shortlisted squads will present a 5-minute live demonstration + 3-minute technical Q&A on the main stage on October 26.
+- Shortlisted squads will present a 5-minute live demonstration + 3-minute technical Q&A on the main stage on October 28.
 
 ### Helpdesk & Student Coordinators
 - **Mohammed Faheem:** +91 9943949439

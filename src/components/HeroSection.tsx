@@ -19,7 +19,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   });
 
   useEffect(() => {
-    const targetDate = new Date('2026-10-24T09:00:00+05:30').getTime();
+    const targetDate = new Date('2026-10-26T09:00:00+05:30').getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -92,7 +92,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             {/* Concise Supporting Copy */}
             <p className="text-sm sm:text-base text-white leading-relaxed font-sans mb-4 max-w-[500px]">
-              Registration is now live! Abstract submission is <span className="text-gold font-bold">100% Free</span>. <span className="text-emerald-400 font-bold">SRM Students: FREE</span> participation. For other colleges, each member pays <span className="text-gold font-bold">₹500 ONLY after abstract shortlisting</span> via official confirmation email. Teams will work on their chosen problem statement during the 36-hour physical hackathon (Oct 24–26).
+              Registration is now live! Abstract submission is <span className="text-gold font-bold">100% Free</span>. <span className="text-emerald-400 font-bold">SRM Students: FREE</span> participation. For other colleges, each member pays <span className="text-gold font-bold">₹500 ONLY after abstract shortlisting</span> via official confirmation email. Teams will work on their chosen problem statement during the 36-hour physical hackathon (Oct 26–28).
             </p>
 
 
@@ -139,7 +139,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     EVENT COUNTDOWN
                   </span>
                 </div>
-                <span className="font-mono text-[10px] text-teal-light/80 tracking-wider">T-MINUS • OCT 24</span>
+                <span className="font-mono text-[10px] text-teal-light/80 tracking-wider">T-MINUS • OCT 26</span>
               </div>
 
               {/* Countdown Numbers Grid */}
@@ -202,7 +202,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     <span className="w-1.5 h-1.5 rounded-full bg-royal-light" />
                     EVENT DATES
                   </span>
-                  <span className="text-white font-semibold">OCTOBER 24, 25, 26 (3 DAYS)</span>
+                  <span className="text-white font-semibold">OCTOBER 26, 27, 28 (3 DAYS)</span>
                 </div>
                 <div className="flex items-center justify-between text-slate-muted">
                   <span className="flex items-center gap-1.5">

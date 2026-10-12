@@ -34,7 +34,7 @@ export const RulesModal: React.FC<RulesModalProps> = ({ isOpen, onClose }) => {
         'Participation for SRMIST / SRM Students is 100% FREE.',
         'For non-SRM / external college teams, each member pays ₹500 ONLY AFTER their abstract is shortlisted.',
         'Shortlisted teams will receive an official confirmation email containing next steps, event itinerary, and payment link.',
-        'Shortlisted teams will work on the SAME problem statement during the 36-hour physical hackathon (Oct 24–26).',
+        'Shortlisted teams will work on the SAME problem statement during the 36-hour physical hackathon (Oct 26–28).',
       ],
     },
     {
@@ -57,7 +57,7 @@ export const RulesModal: React.FC<RulesModalProps> = ({ isOpen, onClose }) => {
       category: '5. FINAL SUBMISSION & DEMO',
       points: [
         'Every squad must submit a public GitHub repository link and working live demonstration before the 36-hour timer expires.',
-        'Shortlisted squads will present a 5-minute live demonstration + 3-minute technical Q&A on the main stage on October 26.',
+        'Shortlisted squads will present a 5-minute live demonstration + 3-minute technical Q&A on the main stage on October 28.',
       ],
     },
   ];

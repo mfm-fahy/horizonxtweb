@@ -906,7 +906,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
                 <ul className="list-disc pl-4 space-y-0.5 text-slate-muted">
                   <li>The abstract must be formatted strictly as a <strong className="text-white">.docx file</strong>.</li>
                   <li>Upload the .docx document to your Google Drive and set sharing access to <strong className="text-white">&ldquo;Anyone with the link can view&rdquo;</strong>.</li>
-                  <li>Our technical jury will evaluate the abstract to shortlist teams for the physical 36-hour event (Oct 24–26).</li>
+                  <li>Our technical jury will evaluate the abstract to shortlist teams for the physical 36-hour event (Oct 26–28).</li>
                 </ul>
               </div>
 
@@ -963,7 +963,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
             <div className="p-4 rounded-xl bg-navy-surface border border-teal/20 text-xs text-lightgray flex items-start gap-3 font-sans">
               <CheckCircle2 className="w-5 h-5 text-teal shrink-0 mt-0.5" />
               <span>
-                By submitting this abstract, I confirm that all team members' LinkedIn profiles are accurate, the abstract document is in .docx format inside the provided Google Drive link, and our squad is ready for jury evaluation and shortlisting for the 36-hour physical event (Oct 24–26).
+                By submitting this abstract, I confirm that all team members' LinkedIn profiles are accurate, the abstract document is in .docx format inside the provided Google Drive link, and our squad is ready for jury evaluation and shortlisting for the 36-hour physical event (Oct 26–28).
               </span>
             </div>
           </div>

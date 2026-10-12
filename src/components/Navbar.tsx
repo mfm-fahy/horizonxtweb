@@ -157,7 +157,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>REGISTER NOW →</span>
             </button>
             <div className="text-center font-mono text-[10px] text-gold uppercase tracking-widest mt-2">
-              HORIZONXT • REGISTRATION OPENS OCT 5 • EVENT OCT 24–26
+              HORIZONXT • REGISTRATION OPENS OCT 5 • EVENT OCT 26–28
             </div>
           </div>
         </div>

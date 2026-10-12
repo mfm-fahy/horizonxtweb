@@ -45,11 +45,11 @@ export const FaqSection: React.FC = () => {
     },
     {
       q: 'How does judging work on-site?',
-      a: 'Shortlisted teams building during the 36-hour sprint undergo evaluation based on Innovation (25%), Technical Implementation (25%), Real-World Impact (20%), User Experience (15%), and Scalability (15%). Finalists present on the Grand Stage on October 26.',
+      a: 'Shortlisted teams building during the 36-hour sprint undergo evaluation based on Innovation (25%), Technical Implementation (25%), Real-World Impact (20%), User Experience (15%), and Scalability (15%). Finalists present on the Grand Stage on October 28.',
     },
     {
       q: 'What should shortlisted teams bring to the event?',
-      a: 'Bring your laptop, chargers, extension cords, personal hardware components, valid college student ID card, toiletries, and creative energy! Overnight rest pods and secure storage are provided on October 24–26.',
+      a: 'Bring your laptop, chargers, extension cords, personal hardware components, valid college student ID card, toiletries, and creative energy! Overnight rest pods and secure storage are provided on October 26–28.',
     },
     {
       q: 'Will certificates be provided?',

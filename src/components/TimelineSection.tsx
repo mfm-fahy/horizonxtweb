@@ -12,9 +12,9 @@ import {
 import { sounds } from '../utils/sound';
 
 export const TimelineSection: React.FC = () => {
-  const [activeDay, setActiveDay] = useState<'all' | 'oct24' | 'oct25' | 'oct26'>('all');
+  const [activeDay, setActiveDay] = useState<'all' | 'oct26' | 'oct27' | 'oct28'>('all');
 
-  const scheduleOct24 = [
+  const scheduleOct26 = [
     {
       time: '08:30 AM',
       title: 'Squad Check-in & Registration',
@@ -53,7 +53,7 @@ export const TimelineSection: React.FC = () => {
     },
   ];
 
-  const scheduleOct25 = [
+  const scheduleOct27 = [
     {
       time: '09:00 AM',
       title: 'Day 2 Sprint & Mentorship Review',
@@ -83,7 +83,7 @@ export const TimelineSection: React.FC = () => {
     },
   ];
 
-  const scheduleOct26 = [
+  const scheduleOct28 = [
     {
       time: '11:00 AM',
       title: 'Final Project Submission & Stage Prep',
@@ -139,11 +139,11 @@ export const TimelineSection: React.FC = () => {
             </div>
 
             <h2 className="font-heading font-extrabold text-2xl sm:text-4xl lg:text-5xl text-white tracking-tight uppercase leading-tight mb-4 sm:mb-6 transition-all duration-300 hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.6)] cursor-default">
-              OCTOBER 24, 25, 26 • <span className="text-holo">3 DAYS EVENT</span>
+              OCTOBER 26, 27, 28 • <span className="text-holo">3 DAYS EVENT</span>
             </h2>
 
             <p className="text-sm sm:text-base lg:text-lg text-white/75 font-normal leading-relaxed font-sans max-w-3xl mx-auto text-left sm:text-center mb-10 transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_12px_rgba(165,243,252,0.8)] cursor-default">
-              Registration officially opens on <span className="text-gold font-semibold">October 5</span>. Abstract submission window runs until <span className="text-teal font-semibold">October 16</span>, leading into the 3-day on-site hackathon on <span className="text-white font-semibold">October 24–26</span>.
+              Registration officially opens on <span className="text-gold font-semibold">October 5</span>. Abstract submission window runs until <span className="text-teal font-semibold">October 16</span>, leading into the 3-day on-site hackathon on <span className="text-white font-semibold">October 26–28</span>.
             </p>
 
           {/* Day Filter Switcher */}
@@ -159,33 +159,7 @@ export const TimelineSection: React.FC = () => {
                   : 'text-lightgray hover:text-white'
               }`}
             >
-              ALL 3 DAYS (OCT 24–26)
-            </button>
-            <button
-              onClick={() => {
-                sounds.playClick();
-                setActiveDay('oct24');
-              }}
-              className={`px-4 py-2 rounded-xl font-heading text-xs font-bold tracking-wider uppercase transition-all ${
-                activeDay === 'oct24'
-                  ? 'bg-gold text-navy shadow-glow-gold'
-                  : 'text-lightgray hover:text-white'
-              }`}
-            >
-              OCTOBER 24 (DAY 1)
-            </button>
-            <button
-              onClick={() => {
-                sounds.playClick();
-                setActiveDay('oct25');
-              }}
-              className={`px-4 py-2 rounded-xl font-heading text-xs font-bold tracking-wider uppercase transition-all ${
-                activeDay === 'oct25'
-                  ? 'bg-gold text-navy shadow-glow-gold'
-                  : 'text-lightgray hover:text-white'
-              }`}
-            >
-              OCTOBER 25 (DAY 2)
+              ALL 3 DAYS (OCT 26–28)
             </button>
             <button
               onClick={() => {
@@ -198,7 +172,33 @@ export const TimelineSection: React.FC = () => {
                   : 'text-lightgray hover:text-white'
               }`}
             >
-              OCTOBER 26 (DAY 3 & GRAND FINALE)
+              OCTOBER 26 (DAY 1)
+            </button>
+            <button
+              onClick={() => {
+                sounds.playClick();
+                setActiveDay('oct27');
+              }}
+              className={`px-4 py-2 rounded-xl font-heading text-xs font-bold tracking-wider uppercase transition-all ${
+                activeDay === 'oct27'
+                  ? 'bg-gold text-navy shadow-glow-gold'
+                  : 'text-lightgray hover:text-white'
+              }`}
+            >
+              OCTOBER 27 (DAY 2)
+            </button>
+            <button
+              onClick={() => {
+                sounds.playClick();
+                setActiveDay('oct28');
+              }}
+              className={`px-4 py-2 rounded-xl font-heading text-xs font-bold tracking-wider uppercase transition-all ${
+                activeDay === 'oct28'
+                  ? 'bg-gold text-navy shadow-glow-gold'
+                  : 'text-lightgray hover:text-white'
+              }`}
+            >
+              OCTOBER 28 (DAY 3 & GRAND FINALE)
             </button>
           </div>
           </div>
@@ -208,158 +208,158 @@ export const TimelineSection: React.FC = () => {
         <div className="relative">
           <div className="hidden md:block absolute left-1/2 top-4 bottom-4 w-1 -translate-x-1/2 bg-gradient-to-b from-teal via-gold to-teal shadow-glow-teal opacity-75 rounded-full" />
 
-          {/* DAY 1: OCTOBER 24 SECTION */}
-          {(activeDay === 'all' || activeDay === 'oct24') && (
-            <div className="mb-16">
-              <div className="relative z-20 w-full flex items-center justify-center mb-10">
-                <div className="px-6 py-2.5 rounded-full bg-navy-surface border border-teal/40 text-teal-light font-heading font-extrabold text-sm tracking-[0.25em] uppercase shadow-glow-teal flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-teal animate-ping" />
-                  <span>OCTOBER 24 • DAY 1 KICKOFF</span>
-                </div>
-              </div>
-
-              <div className="space-y-8">
-                {scheduleOct24.map((item, idx) => {
-                  const isEven = idx % 2 === 0;
-                  const Icon = item.icon;
-
-                  return (
-                    <div
-                      key={item.title}
-                      onMouseEnter={() => sounds.playHover()}
-                      className={`relative flex flex-col md:flex-row items-center ${
-                        isEven ? 'md:flex-row-reverse' : ''
-                      }`}
-                    >
-                      <div className={`w-full md:w-1/2 p-2 sm:p-4 ${isEven ? 'md:pl-12' : 'md:pr-12'}`}>
-                        <div
-                          className={`p-6 sm:p-7 rounded-2xl glass-panel-elevated border transition-all duration-300 hover:scale-[1.01] ${
-                            item.highlight
-                              ? 'border-gold/60 shadow-glow-gold bg-navy-surface/90'
-                              : 'border-teal/20 hover:border-teal/50'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="font-mono text-xs text-gold font-bold tracking-wider">
-                              {item.time}
-                            </span>
-                            <span className="font-mono text-[10px] text-teal-light uppercase tracking-widest bg-navy-darker px-2 py-0.5 rounded border border-teal/20">
-                              {item.phase}
-                            </span>
-                          </div>
-
-                          <h4 className="font-heading font-extrabold text-xl text-white uppercase tracking-wide mb-2">
-                            {item.title}
-                          </h4>
-
-                          <p className="text-sm text-slate-muted font-sans leading-relaxed">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="relative md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-10 my-4 md:my-0 flex items-center justify-center">
-                        <div
-                          className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
-                            item.highlight
-                              ? 'bg-gold text-navy shadow-glow-gold scale-110'
-                              : 'bg-navy-surface border-2 border-teal text-teal shadow-glow-teal'
-                          }`}
-                        >
-                          <Icon className="w-5 h-5" />
-                        </div>
-                      </div>
-
-                      <div className="hidden md:block w-1/2" />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* DAY 2: OCTOBER 25 SECTION */}
-          {(activeDay === 'all' || activeDay === 'oct25') && (
-            <div className="mb-16">
-              <div className="relative z-20 w-full flex items-center justify-center mb-10">
-                <div className="px-6 py-2.5 rounded-full bg-navy-surface border border-gold/40 text-gold font-heading font-extrabold text-sm tracking-[0.25em] uppercase shadow-glow-gold flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-gold animate-ping" />
-                  <span>OCTOBER 25 • DAY 2 HACKING & MENTORSHIP</span>
-                </div>
-              </div>
-
-              <div className="space-y-8">
-                {scheduleOct25.map((item, idx) => {
-                  const isEven = idx % 2 === 0;
-                  const Icon = item.icon;
-
-                  return (
-                    <div
-                      key={item.title}
-                      onMouseEnter={() => sounds.playHover()}
-                      className={`relative flex flex-col md:flex-row items-center ${
-                        isEven ? 'md:flex-row-reverse' : ''
-                      }`}
-                    >
-                      <div className={`w-full md:w-1/2 p-2 sm:p-4 ${isEven ? 'md:pl-12' : 'md:pr-12'}`}>
-                        <div
-                          className={`p-6 sm:p-7 rounded-2xl glass-panel-elevated border transition-all duration-300 hover:scale-[1.01] ${
-                            item.highlight
-                              ? 'border-gold/60 shadow-glow-gold bg-navy-surface/90'
-                              : 'border-teal/20 hover:border-teal/50'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="font-mono text-xs text-gold font-bold tracking-wider">
-                              {item.time}
-                            </span>
-                            <span className="font-mono text-[10px] text-teal-light uppercase tracking-widest bg-navy-darker px-2 py-0.5 rounded border border-teal/20">
-                              {item.phase}
-                            </span>
-                          </div>
-
-                          <h4 className="font-heading font-extrabold text-xl text-white uppercase tracking-wide mb-2">
-                            {item.title}
-                          </h4>
-
-                          <p className="text-sm text-slate-muted font-sans leading-relaxed">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="relative md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-10 my-4 md:my-0 flex items-center justify-center">
-                        <div
-                          className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
-                            item.highlight
-                              ? 'bg-gold text-navy shadow-glow-gold scale-110'
-                              : 'bg-navy-surface border-2 border-teal text-teal shadow-glow-teal'
-                          }`}
-                        >
-                          <Icon className="w-5 h-5" />
-                        </div>
-                      </div>
-
-                      <div className="hidden md:block w-1/2" />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* DAY 3: OCTOBER 26 SECTION */}
+          {/* DAY 1: OCTOBER 26 SECTION */}
           {(activeDay === 'all' || activeDay === 'oct26') && (
-            <div>
+            <div className="mb-16">
               <div className="relative z-20 w-full flex items-center justify-center mb-10">
                 <div className="px-6 py-2.5 rounded-full bg-navy-surface border border-teal/40 text-teal-light font-heading font-extrabold text-sm tracking-[0.25em] uppercase shadow-glow-teal flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-teal animate-ping" />
-                  <span>OCTOBER 26 • DAY 3 GRAND FINALE & PODIUM</span>
+                  <span>OCTOBER 26 • DAY 1 KICKOFF</span>
                 </div>
               </div>
 
               <div className="space-y-8">
                 {scheduleOct26.map((item, idx) => {
+                  const isEven = idx % 2 === 0;
+                  const Icon = item.icon;
+
+                  return (
+                    <div
+                      key={item.title}
+                      onMouseEnter={() => sounds.playHover()}
+                      className={`relative flex flex-col md:flex-row items-center ${
+                        isEven ? 'md:flex-row-reverse' : ''
+                      }`}
+                    >
+                      <div className={`w-full md:w-1/2 p-2 sm:p-4 ${isEven ? 'md:pl-12' : 'md:pr-12'}`}>
+                        <div
+                          className={`p-6 sm:p-7 rounded-2xl glass-panel-elevated border transition-all duration-300 hover:scale-[1.01] ${
+                            item.highlight
+                              ? 'border-gold/60 shadow-glow-gold bg-navy-surface/90'
+                              : 'border-teal/20 hover:border-teal/50'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="font-mono text-xs text-gold font-bold tracking-wider">
+                              {item.time}
+                            </span>
+                            <span className="font-mono text-[10px] text-teal-light uppercase tracking-widest bg-navy-darker px-2 py-0.5 rounded border border-teal/20">
+                              {item.phase}
+                            </span>
+                          </div>
+
+                          <h4 className="font-heading font-extrabold text-xl text-white uppercase tracking-wide mb-2">
+                            {item.title}
+                          </h4>
+
+                          <p className="text-sm text-slate-muted font-sans leading-relaxed">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="relative md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-10 my-4 md:my-0 flex items-center justify-center">
+                        <div
+                          className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
+                            item.highlight
+                              ? 'bg-gold text-navy shadow-glow-gold scale-110'
+                              : 'bg-navy-surface border-2 border-teal text-teal shadow-glow-teal'
+                          }`}
+                        >
+                          <Icon className="w-5 h-5" />
+                        </div>
+                      </div>
+
+                      <div className="hidden md:block w-1/2" />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* DAY 2: OCTOBER 27 SECTION */}
+          {(activeDay === 'all' || activeDay === 'oct27') && (
+            <div className="mb-16">
+              <div className="relative z-20 w-full flex items-center justify-center mb-10">
+                <div className="px-6 py-2.5 rounded-full bg-navy-surface border border-gold/40 text-gold font-heading font-extrabold text-sm tracking-[0.25em] uppercase shadow-glow-gold flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-gold animate-ping" />
+                  <span>OCTOBER 27 • DAY 2 HACKING & MENTORSHIP</span>
+                </div>
+              </div>
+
+              <div className="space-y-8">
+                {scheduleOct27.map((item, idx) => {
+                  const isEven = idx % 2 === 0;
+                  const Icon = item.icon;
+
+                  return (
+                    <div
+                      key={item.title}
+                      onMouseEnter={() => sounds.playHover()}
+                      className={`relative flex flex-col md:flex-row items-center ${
+                        isEven ? 'md:flex-row-reverse' : ''
+                      }`}
+                    >
+                      <div className={`w-full md:w-1/2 p-2 sm:p-4 ${isEven ? 'md:pl-12' : 'md:pr-12'}`}>
+                        <div
+                          className={`p-6 sm:p-7 rounded-2xl glass-panel-elevated border transition-all duration-300 hover:scale-[1.01] ${
+                            item.highlight
+                              ? 'border-gold/60 shadow-glow-gold bg-navy-surface/90'
+                              : 'border-teal/20 hover:border-teal/50'
+                          }`}
+                        >
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="font-mono text-xs text-gold font-bold tracking-wider">
+                              {item.time}
+                            </span>
+                            <span className="font-mono text-[10px] text-teal-light uppercase tracking-widest bg-navy-darker px-2 py-0.5 rounded border border-teal/20">
+                              {item.phase}
+                            </span>
+                          </div>
+
+                          <h4 className="font-heading font-extrabold text-xl text-white uppercase tracking-wide mb-2">
+                            {item.title}
+                          </h4>
+
+                          <p className="text-sm text-slate-muted font-sans leading-relaxed">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="relative md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-10 my-4 md:my-0 flex items-center justify-center">
+                        <div
+                          className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
+                            item.highlight
+                              ? 'bg-gold text-navy shadow-glow-gold scale-110'
+                              : 'bg-navy-surface border-2 border-teal text-teal shadow-glow-teal'
+                          }`}
+                        >
+                          <Icon className="w-5 h-5" />
+                        </div>
+                      </div>
+
+                      <div className="hidden md:block w-1/2" />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* DAY 3: OCTOBER 28 SECTION */}
+          {(activeDay === 'all' || activeDay === 'oct28') && (
+            <div>
+              <div className="relative z-20 w-full flex items-center justify-center mb-10">
+                <div className="px-6 py-2.5 rounded-full bg-navy-surface border border-teal/40 text-teal-light font-heading font-extrabold text-sm tracking-[0.25em] uppercase shadow-glow-teal flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-teal animate-ping" />
+                  <span>OCTOBER 28 • DAY 3 GRAND FINALE & PODIUM</span>
+                </div>
+              </div>
+
+              <div className="space-y-8">
+                {scheduleOct28.map((item, idx) => {
                   const isEven = idx % 2 === 0;
                   const Icon = item.icon;
 
