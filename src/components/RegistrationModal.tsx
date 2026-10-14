@@ -67,6 +67,14 @@ export interface TeamData {
     submittedAt: string;
   };
   members: TeamMember[];
+  // Leader / institution details
+  leaderName?: string;
+  leaderEmail?: string;
+  leaderPhone?: string;
+  college?: string;
+  department?: string;
+  year?: string;
+  leaderLinkedin?: string;
 }
 
 interface RegistrationModalProps {
@@ -273,6 +281,14 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
       registrationStatus: 'ABSTRACT SUBMITTED • SHORTLISTING PENDING',
       submissionStatus: 'PENDING',
       members: compiledMembers,
+      // Leader / team personal details
+      leaderName: personal.fullName,
+      leaderEmail: personal.email,
+      leaderPhone: personal.phone,
+      college: personal.college,
+      department: personal.department,
+      year: personal.year,
+      leaderLinkedin: personal.linkedinUrl,
     };
 
     // Save to MongoDB Atlas via /api/register serverless endpoint
