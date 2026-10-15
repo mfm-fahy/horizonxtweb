@@ -220,46 +220,48 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
 
       {/* Detail Modal for Selected Problem Statement */}
       {selectedPs && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-navy-darker/50 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
-          <div className="relative w-full max-w-3xl rounded-3xl glass-panel-elevated border border-gold/50 p-6 sm:p-10 my-auto shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-start justify-center p-3 sm:p-6 bg-navy-darker/50 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
+          <div className="relative w-full max-w-3xl rounded-3xl glass-panel-elevated border border-gold/50 p-6 sm:p-10 my-6 shadow-2xl">
             {/* Close Button */}
             <button
               onClick={handleCloseModal}
-              className="absolute top-6 right-6 p-2 rounded-xl bg-navy-surface border border-teal/30 text-slate-muted hover:text-white hover:border-teal transition-colors"
+              className="absolute top-5 right-5 p-2 rounded-xl bg-navy-surface border border-teal/30 text-slate-muted hover:text-white hover:border-teal transition-colors z-10"
             >
               <X className="w-5 h-5" />
             </button>
 
-            {/* Modal Header */}
-            <div className="flex flex-wrap items-center gap-3 mb-6">
-              <span className="font-mono text-base px-4 py-1 rounded-xl bg-gold/20 border border-gold/60 text-gold font-bold tracking-wider shadow-glow-gold">
-                {selectedPs.code}
-              </span>
-              <span className="font-mono text-xs text-teal-light bg-navy-surface px-3 py-1.5 rounded-lg border border-teal/30 font-semibold uppercase">
-                {selectedPs.category}
-              </span>
-            </div>
+            {/* Modal Header — padded right so nothing overlaps close btn */}
+            <div className="pr-12 mb-4">
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                <span className="font-mono text-sm px-4 py-1 rounded-xl bg-gold/20 border border-gold/60 text-gold font-bold tracking-wider shadow-glow-gold">
+                  {selectedPs.code}
+                </span>
+                <span className="font-mono text-[11px] text-teal-light bg-navy-surface px-3 py-1.5 rounded-lg border border-teal/30 font-semibold uppercase leading-tight">
+                  {selectedPs.category}
+                </span>
+              </div>
 
-            <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white uppercase tracking-tight mb-4 leading-tight">
-              {selectedPs.title}
-            </h3>
+              <h3 className="font-heading font-extrabold text-xl sm:text-3xl text-white uppercase tracking-tight leading-tight">
+                {selectedPs.title}
+              </h3>
+            </div>
 
             {/* HorizonXT Philosophy Banner */}
             <div className="p-4 rounded-2xl bg-gradient-to-r from-teal/20 via-navy-surface to-gold/10 border border-gold/40 mb-6">
               <div className="font-heading font-bold text-[11px] text-gold uppercase tracking-[0.2em] mb-1 flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-gold" />
+                <Sparkles className="w-3.5 h-3.5 text-gold shrink-0" />
                 <span>HORIZONXT DESIGN PHILOSOPHY</span>
               </div>
-              <p className="text-sm font-sans italic text-white font-medium">
-                "{selectedPs.horizonPhilosophy}"
+              <p className="text-sm font-sans italic text-white font-medium leading-relaxed">
+                &ldquo;{selectedPs.horizonPhilosophy}&rdquo;
               </p>
             </div>
 
             {/* Problem & Challenge */}
-            <div className="space-y-6 mb-8">
+            <div className="space-y-5 mb-8">
               <div>
                 <div className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-teal mb-2 flex items-center gap-2">
-                  <BookOpen className="w-4 h-4" />
+                  <BookOpen className="w-4 h-4 shrink-0" />
                   <span>THE PROBLEM</span>
                 </div>
                 <p className="text-sm sm:text-base text-lightgray/90 leading-relaxed font-sans bg-navy-darker/60 p-4 rounded-xl border border-teal/15">
@@ -269,7 +271,7 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
 
               <div>
                 <div className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-teal mb-2 flex items-center gap-2">
-                  <Target className="w-4 h-4" />
+                  <Target className="w-4 h-4 shrink-0" />
                   <span>THE CHALLENGE</span>
                 </div>
                 <div className="bg-navy-darker/60 p-4 rounded-xl border border-teal/15 space-y-4">
@@ -277,14 +279,14 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
                     {selectedPs.challenge}
                   </p>
                   {selectedPs.referenceLink && (
-                    <div className="flex flex-col gap-1.5 pt-2">
+                    <div className="flex flex-col gap-1.5 pt-2 border-t border-teal/15">
                       <a
                         href={selectedPs.referenceLink}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-sm font-bold text-gold hover:text-teal transition-colors w-fit"
                       >
-                        <ExternalLink className="w-4 h-4" />
+                        <ExternalLink className="w-4 h-4 shrink-0" />
                         <span>View Reference Material</span>
                       </a>
                       {selectedPs.referenceNote && (
@@ -301,7 +303,7 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
             {/* 36-Hour Challenge Proof-of-Concept Requirements */}
             <div className="mb-8">
               <div className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-gold mb-3 flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-gold" />
+                <CheckCircle className="w-4 h-4 text-gold shrink-0" />
                 <span>36-HOUR PROOF-OF-CONCEPT REQUIREMENTS</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -320,16 +322,16 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
             {/* Evaluation Framework Table */}
             <div className="mb-8">
               <div className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-teal mb-3 flex items-center gap-2">
-                <Award className="w-4 h-4 text-teal" />
+                <Award className="w-4 h-4 text-teal shrink-0" />
                 <span>EVALUATION FRAMEWORK</span>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {selectedPs.evaluationCriteria.map((crit) => (
                   <div
                     key={crit.name}
-                    className="p-3 rounded-xl bg-navy-darker border border-teal/25 flex flex-col justify-between"
+                    className="p-3 rounded-xl bg-navy-darker border border-teal/25 flex flex-col gap-1"
                   >
-                    <span className="font-sans text-xs text-lightgray leading-tight mb-1">
+                    <span className="font-sans text-xs text-lightgray leading-snug">
                       {crit.name}
                     </span>
                     <span className="font-mono text-sm font-extrabold text-gold">
@@ -343,17 +345,17 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
             {/* Key Testing Metrics */}
             <div className="mb-8">
               <div className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-teal mb-3 flex items-center gap-2">
-                <Layers className="w-4 h-4" />
-                <span>HOW IT WILL BE TESTED & EVALUATED</span>
+                <Layers className="w-4 h-4 shrink-0" />
+                <span>HOW IT WILL BE TESTED &amp; EVALUATED</span>
               </div>
               <div className="space-y-2">
                 {selectedPs.keyTesting.map((t, idx) => (
                   <div
                     key={idx}
-                    className="p-3 rounded-xl bg-navy-surface/60 border border-teal/15 text-xs font-mono text-teal-light flex items-center gap-2"
+                    className="p-3 rounded-xl bg-navy-surface/60 border border-teal/15 text-xs font-mono text-teal-light flex items-start gap-2"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal shrink-0" />
-                    <span>{t}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal shrink-0 mt-1.5" />
+                    <span className="leading-relaxed">{t}</span>
                   </div>
                 ))}
               </div>
@@ -370,13 +372,13 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
                 }}
                 className="flex-1 py-4 rounded-xl font-heading text-xs font-bold tracking-[0.2em] uppercase bg-gold hover:bg-gold-light text-navy shadow-glow-gold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
               >
-                <CheckCircle className="w-4 h-4" />
+                <CheckCircle className="w-4 h-4 shrink-0" />
                 <span>SELECT {selectedPs.code} FOR REGISTRATION</span>
               </button>
 
               <button
                 onClick={handleCloseModal}
-                className="px-6 py-4 rounded-xl font-heading text-xs font-semibold tracking-wider uppercase bg-navy-surface border border-teal/30 text-slate-muted hover:text-white"
+                className="px-6 py-4 rounded-xl font-heading text-xs font-semibold tracking-wider uppercase bg-navy-surface border border-teal/30 text-slate-muted hover:text-white hover:border-teal transition-colors"
               >
                 CLOSE
               </button>
@@ -387,3 +389,4 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
     </section>
   );
 };
+
