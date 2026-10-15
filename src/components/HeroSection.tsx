@@ -71,7 +71,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-navy/80 border border-teal/40 backdrop-blur-md mb-4 shadow-[0_0_15px_rgba(0,167,181,0.2)]">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
               <span className="font-heading font-bold text-[11px] sm:text-xs tracking-[0.24em] text-emerald-400 uppercase">
-                REGISTRATION IS NOW OPEN • ABSTRACT DUE OCT 15
+                REGISTRATION IS NOW OPEN • ABSTRACT DUE OCT 17
               </span>
             </div>
 
