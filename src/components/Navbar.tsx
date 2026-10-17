@@ -4,14 +4,12 @@ import { Menu, X, ArrowRight } from 'lucide-react';
 import { sounds } from '../utils/sound';
 
 interface NavbarProps {
-  onRegisterClick: () => void;
   onDashboardClick: () => void;
   onRulesClick: () => void;
   hasActiveTeam: boolean;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
-  onRegisterClick,
   onRulesClick,
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -86,18 +84,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Right Action Buttons */}
           <div className="hidden sm:flex items-center gap-3">
-            {/* Glowing Primary CTA: REGISTER NOW */}
-            <button
-              onClick={() => {
-                sounds.playClick();
-                onRegisterClick();
-              }}
-              onMouseEnter={() => sounds.playHover()}
-              className="group relative px-5 py-2.5 rounded-xl font-heading text-xs font-bold tracking-[0.18em] uppercase bg-gold hover:bg-gold-light text-navy shadow-glow-gold transition-all duration-250 hover:scale-[1.03] active:scale-[0.98] flex items-center gap-2 cursor-pointer"
-            >
-              <span>REGISTER NOW</span>
-              <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-1" />
-            </button>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -146,18 +132,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           <div className="flex flex-col gap-3 mt-6">
-            <button
-              onClick={() => {
-                sounds.playClick();
-                setMobileMenuOpen(false);
-                onRegisterClick();
-              }}
-              className="w-full py-3.5 rounded-xl font-heading text-sm font-bold tracking-[0.2em] uppercase bg-gold text-navy shadow-glow-gold flex items-center justify-center gap-2"
-            >
-              <span>REGISTER NOW →</span>
-            </button>
             <div className="text-center font-mono text-[10px] text-gold uppercase tracking-widest mt-2">
-              HORIZONXT • REGISTRATION OPENS OCT 5 • EVENT OCT 26–28
+              HORIZONXT • REGISTRATION CLOSED • SHORTLISTED TEAM RESULT ANNOUNCED SOON
             </div>
           </div>
         </div>

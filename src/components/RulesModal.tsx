@@ -30,7 +30,7 @@ export const RulesModal: React.FC<RulesModalProps> = ({ isOpen, onClose }) => {
     {
       category: '3. REGISTRATION, SHORTLISTING & PARTICIPATION FEES',
       points: [
-        'Registration is NOW OPEN! Abstract submission is 100% FREE for all teams (Deadline: Oct 17).',
+        'Registration is CLOSED. Abstract submission was 100% FREE for all teams.',
         'Participation for SRMIST / SRM Students is 100% FREE.',
         'For non-SRM / external college teams, each member pays ₹500 ONLY AFTER their abstract is shortlisted.',
         'Shortlisted teams will receive an official confirmation email containing next steps, event itinerary, and payment link.',

@@ -126,7 +126,7 @@ export const AboutSection: React.FC = () => {
           </div>
 
           <div className="font-mono text-xs text-slate-muted text-right md:max-w-xs">
-            Open to all enrolled undergraduate & graduate students worldwide. Zero registration fee.
+            Open to all enrolled undergraduate & graduate students worldwide. Registration is now closed.
           </div>
         </div>
       </div>

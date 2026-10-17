@@ -13,7 +13,6 @@ import { InstitutionalSupport } from './components/InstitutionalSupport';
 import { FaqSection } from './components/FaqSection';
 import { FinalCtaSection } from './components/FinalCtaSection';
 import { Footer } from './components/Footer';
-import { RegistrationModal } from './components/RegistrationModal';
 import type { TeamData } from './components/RegistrationModal';
 import { TeamDashboardModal } from './components/TeamDashboardModal';
 import { RulesModal } from './components/RulesModal';
@@ -21,10 +20,8 @@ import { Toast } from './components/Toast';
 
 export function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
   const [isRulesOpen, setIsRulesOpen] = useState(false);
-  const [selectedTrackForReg, setSelectedTrackForReg] = useState<string | undefined>();
   const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   // Default demo team data (matching specification: Team Nova)
@@ -35,7 +32,7 @@ export function App() {
     selectedChallenge: 'AI & MACHINE LEARNING',
     projectTitle: 'Autonomous Neural Diagnostic Synthesis',
     abstractUrl: 'https://drive.google.com/file/d/1a2b3c4d5e_horizonxt_abstract.docx/view',
-    registrationStatus: 'ABSTRACT SUBMITTED • SHORTLISTING PENDING',
+    registrationStatus: 'REGISTRATION CLOSED • SHORTLISTED TEAM RESULT WILL BE ANNOUNCED SOON',
     submissionStatus: 'PENDING',
     members: [
       {
@@ -105,14 +102,6 @@ export function App() {
     }, 3500);
   };
 
-  const handleRegistrationComplete = (newTeam: TeamData) => {
-    setActiveTeam(newTeam);
-    localStorage.setItem('horizonxt_team', JSON.stringify(newTeam));
-    setIsRegisterOpen(false);
-    setIsDashboardOpen(true);
-    showToast(`Team "${newTeam.teamName}" successfully initialized!`);
-  };
-
   const handleUpdateTeam = (updated: TeamData) => {
     setActiveTeam(updated);
     localStorage.setItem('horizonxt_team', JSON.stringify(updated));
@@ -135,10 +124,6 @@ export function App() {
 
       {/* 3. Floating Futuristic Navbar */}
       <Navbar
-        onRegisterClick={() => {
-          setSelectedTrackForReg(undefined);
-          setIsRegisterOpen(true);
-        }}
         onDashboardClick={() => setIsDashboardOpen(true)}
         onRulesClick={() => setIsRulesOpen(true)}
         hasActiveTeam={Boolean(activeTeam)}
@@ -148,10 +133,6 @@ export function App() {
       <main className="relative z-10 flex flex-col">
         {/* Hero Section */}
         <HeroSection
-          onRegisterClick={() => {
-            setSelectedTrackForReg(undefined);
-            setIsRegisterOpen(true);
-          }}
           onExploreClick={handleExploreScroll}
         />
 
@@ -159,23 +140,13 @@ export function App() {
         <AboutSection />
 
         {/* Official Problem Statements Section (PS1 - PS26) */}
-        <ChallengesSection
-          onSelectTrackForRegistration={(psCode) => {
-            setSelectedTrackForReg(psCode);
-            setIsRegisterOpen(true);
-          }}
-        />
+        <ChallengesSection />
 
         {/* Event Highlights Dashboard */}
         <EventHighlights />
 
         {/* How It Works (Orbital Journey) */}
-        <HowItWorksSection
-          onRegisterClick={() => {
-            setSelectedTrackForReg(undefined);
-            setIsRegisterOpen(true);
-          }}
-        />
+        <HowItWorksSection />
 
         {/* Judging Criteria */}
         <JudgingSection />
@@ -190,34 +161,17 @@ export function App() {
         <FaqSection />
 
         {/* Final CTA */}
-        <FinalCtaSection
-          onRegisterClick={() => {
-            setSelectedTrackForReg(undefined);
-            setIsRegisterOpen(true);
-          }}
-        />
+        <FinalCtaSection />
       </main>
 
       {/* 4. Footer */}
       <Footer
-        onRegisterClick={() => {
-          setSelectedTrackForReg(undefined);
-          setIsRegisterOpen(true);
-        }}
         onRulesClick={() => setIsRulesOpen(true)}
         onDashboardClick={() => setIsDashboardOpen(true)}
         hasActiveTeam={Boolean(activeTeam)}
       />
 
-      {/* 5. Team Registration Modal */}
-      <RegistrationModal
-        isOpen={isRegisterOpen}
-        onClose={() => setIsRegisterOpen(false)}
-        initialTrackId={selectedTrackForReg}
-        onRegistrationComplete={handleRegistrationComplete}
-      />
-
-      {/* 6. Team Dashboard Modal */}
+      {/* 5. Team Dashboard Modal */}
       {activeTeam && (
         <TeamDashboardModal
           isOpen={isDashboardOpen}

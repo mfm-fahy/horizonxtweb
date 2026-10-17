@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
-import { ArrowRight, Compass } from 'lucide-react';
+import { Compass } from 'lucide-react';
 import { sounds } from '../utils/sound';
 
 interface HeroSectionProps {
-  onRegisterClick: () => void;
   onExploreClick: () => void;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
-  onRegisterClick,
   onExploreClick,
 }) => {
   const [timeLeft, setTimeLeft] = useState({
@@ -71,7 +69,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-navy/80 border border-teal/40 backdrop-blur-md mb-4 shadow-[0_0_15px_rgba(0,167,181,0.2)]">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
               <span className="font-heading font-bold text-[11px] sm:text-xs tracking-[0.24em] text-emerald-400 uppercase">
-                REGISTRATION IS NOW OPEN • ABSTRACT DUE OCT 17
+                REGISTRATION CLOSED • SHORTLISTED TEAM RESULT ANNOUNCED SOON
               </span>
             </div>
 
@@ -83,33 +81,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Statement Hierarchy */}
             <div className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold leading-[1.18] mb-4 tracking-tight">
               <div className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
-                REGISTRATION <span className="text-emerald-400">IS NOW OPEN.</span>
+                REGISTRATION <span className="text-emerald-400">IS CLOSED.</span>
               </div>
               <div className="text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
-                SUBMIT ABSTRACT BY <span className="text-teal">OCT 17.</span>
+                SHORTLISTED TEAM RESULT <span className="text-teal">ANNOUNCED SOON.</span>
               </div>
             </div>
 
             {/* Concise Supporting Copy */}
             <p className="text-sm sm:text-base text-white leading-relaxed font-sans mb-4 max-w-[500px]">
-              Registration is now live! Abstract submission is <span className="text-gold font-bold">100% Free</span>. <span className="text-emerald-400 font-bold">SRM Students: FREE</span> participation. For other colleges, each member pays <span className="text-gold font-bold">₹500 ONLY after abstract shortlisting</span> via official confirmation email. Teams will work on their chosen problem statement during the 36-hour physical hackathon (Oct 26–28).
+              Registration is now closed. Shortlisted teams will be notified via official confirmation email. Shortlisted team results will be announced soon. The 36-hour physical hackathon takes place Oct 26–28.
             </p>
 
 
             {/* CTA Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 sm:gap-5">
-              <button
-                onClick={() => {
-                  sounds.playClick();
-                  onRegisterClick();
-                }}
-                onMouseEnter={() => sounds.playHover()}
-                className="h-[52px] px-8 rounded-[12px] font-heading text-sm font-bold tracking-[0.16em] uppercase bg-gradient-to-r from-gold via-[#ffbe42] to-gold hover:from-[#ffbe42] hover:to-gold text-navy shadow-[0_10px_35px_rgba(245,166,35,0.28)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] flex items-center gap-3 cursor-pointer"
-              >
-                <span>REGISTER NOW</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-              </button>
-
               <button
                 onClick={() => {
                   sounds.playClick();

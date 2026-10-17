@@ -24,11 +24,8 @@ import {
   type ProblemStatement,
 } from '../data/problemStatements';
 
-interface ChallengesSectionProps {
-  onSelectTrackForRegistration: (psCode: string) => void;
-}
-
-const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
+export const ChallengesSection: React.FC = () => {
+  const categoryIcons: Record<string, React.ComponentType<{ className?: string }>> = {
   'Mobility & EV': Zap,
   'Industry 4.0': Cpu,
   'AI & Healthcare': HeartPulse,
@@ -37,9 +34,6 @@ const categoryIcons: Record<string, React.ComponentType<{ className?: string }>>
   'Architecture & Design': Compass,
 };
 
-export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
-  onSelectTrackForRegistration,
-}) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All Tracks');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [selectedPs, setSelectedPs] = useState<ProblemStatement | null>(null);
@@ -94,7 +88,7 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
             </h2>
 
             <p className="text-sm sm:text-base lg:text-lg text-white/75 font-normal leading-relaxed font-sans max-w-3xl mx-auto text-left sm:text-center transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_12px_rgba(165,243,252,0.8)] cursor-default">
-              Explore our 32 official research problem statements spanning Electric Vehicles, Industry 4.0, Autonomous Logistics, Healthcare AI, CleanTech, and Architecture. Select a challenge to view detailed 36-hour specifications and register your team!
+              Explore our 32 official research problem statements spanning Electric Vehicles, Industry 4.0, Autonomous Logistics, Healthcare AI, CleanTech, and Architecture. Select a challenge to view detailed 36-hour specifications.
             </p>
           </div>
         </div>
@@ -218,170 +212,173 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
         )}
       </div>
 
-      {/* Detail Modal for Selected Problem Statement */}
+      {/* Detail Modal */}
       {selectedPs && (
-        <div className="fixed inset-0 z-50 flex items-start justify-center p-3 sm:p-6 bg-navy-darker/50 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto">
-          <div className="relative w-full max-w-3xl rounded-3xl glass-panel-elevated border border-gold/50 p-6 sm:p-10 my-6 shadow-2xl">
-            {/* Close Button */}
-            <button
-              onClick={handleCloseModal}
-              className="absolute top-5 right-5 p-2 rounded-xl bg-navy-surface border border-teal/30 text-slate-muted hover:text-white hover:border-teal transition-colors z-10"
+        <div
+          className="fixed inset-0 z-50 overflow-y-auto bg-navy-darker/60 backdrop-blur-md"
+          onClick={handleCloseModal}
+        >
+          <div className="min-h-full flex items-start justify-center p-4 sm:p-8">
+            <div
+              className="relative w-full max-w-3xl rounded-3xl glass-panel-elevated border border-gold/50 shadow-2xl my-4 overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X className="w-5 h-5" />
-            </button>
-
-            {/* Modal Header — padded right so nothing overlaps close btn */}
-            <div className="pr-12 mb-4">
-              <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="font-mono text-sm px-4 py-1 rounded-xl bg-gold/20 border border-gold/60 text-gold font-bold tracking-wider shadow-glow-gold">
-                  {selectedPs.code}
-                </span>
-                <span className="font-mono text-[11px] text-teal-light bg-navy-surface px-3 py-1.5 rounded-lg border border-teal/30 font-semibold uppercase leading-tight">
-                  {selectedPs.category}
-                </span>
-              </div>
-
-              <h3 className="font-heading font-extrabold text-xl sm:text-3xl text-white uppercase tracking-tight leading-tight">
-                {selectedPs.title}
-              </h3>
-            </div>
-
-            {/* HorizonXT Philosophy Banner */}
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-teal/20 via-navy-surface to-gold/10 border border-gold/40 mb-6">
-              <div className="font-heading font-bold text-[11px] text-gold uppercase tracking-[0.2em] mb-1 flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-gold shrink-0" />
-                <span>HORIZONXT DESIGN PHILOSOPHY</span>
-              </div>
-              <p className="text-sm font-sans italic text-white font-medium leading-relaxed">
-                &ldquo;{selectedPs.horizonPhilosophy}&rdquo;
-              </p>
-            </div>
-
-            {/* Problem & Challenge */}
-            <div className="space-y-5 mb-8">
-              <div>
-                <div className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-teal mb-2 flex items-center gap-2">
-                  <BookOpen className="w-4 h-4 shrink-0" />
-                  <span>THE PROBLEM</span>
-                </div>
-                <p className="text-sm sm:text-base text-lightgray/90 leading-relaxed font-sans bg-navy-darker/60 p-4 rounded-xl border border-teal/15">
-                  {selectedPs.problem}
-                </p>
-              </div>
-
-              <div>
-                <div className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-teal mb-2 flex items-center gap-2">
-                  <Target className="w-4 h-4 shrink-0" />
-                  <span>THE CHALLENGE</span>
-                </div>
-                <div className="bg-navy-darker/60 p-4 rounded-xl border border-teal/15 space-y-4">
-                  <p className="text-sm sm:text-base text-lightgray/90 leading-relaxed font-sans">
-                    {selectedPs.challenge}
-                  </p>
-                  {selectedPs.referenceLink && (
-                    <div className="flex flex-col gap-1.5 pt-2 border-t border-teal/15">
-                      <a
-                        href={selectedPs.referenceLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-sm font-bold text-gold hover:text-teal transition-colors w-fit"
-                      >
-                        <ExternalLink className="w-4 h-4 shrink-0" />
-                        <span>View Reference Material</span>
-                      </a>
-                      {selectedPs.referenceNote && (
-                        <p className="text-xs text-slate-muted italic">
-                          * {selectedPs.referenceNote}
-                        </p>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* 36-Hour Challenge Proof-of-Concept Requirements */}
-            <div className="mb-8">
-              <div className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-gold mb-3 flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-gold shrink-0" />
-                <span>36-HOUR PROOF-OF-CONCEPT REQUIREMENTS</span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {selectedPs.challenge36h.map((req, idx) => (
-                  <div
-                    key={idx}
-                    className="p-3 rounded-xl bg-navy-surface/80 border border-teal/20 text-xs text-lightgray flex items-start gap-2.5"
-                  >
-                    <Check className="w-4 h-4 text-gold shrink-0 mt-0.5" />
-                    <span className="font-sans leading-snug">{req}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Evaluation Framework Table */}
-            <div className="mb-8">
-              <div className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-teal mb-3 flex items-center gap-2">
-                <Award className="w-4 h-4 text-teal shrink-0" />
-                <span>EVALUATION FRAMEWORK</span>
-              </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                {selectedPs.evaluationCriteria.map((crit) => (
-                  <div
-                    key={crit.name}
-                    className="p-3 rounded-xl bg-navy-darker border border-teal/25 flex flex-col gap-1"
-                  >
-                    <span className="font-sans text-xs text-lightgray leading-snug">
-                      {crit.name}
-                    </span>
-                    <span className="font-mono text-sm font-extrabold text-gold">
-                      {crit.weight}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Key Testing Metrics */}
-            <div className="mb-8">
-              <div className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-teal mb-3 flex items-center gap-2">
-                <Layers className="w-4 h-4 shrink-0" />
-                <span>HOW IT WILL BE TESTED &amp; EVALUATED</span>
-              </div>
-              <div className="space-y-2">
-                {selectedPs.keyTesting.map((t, idx) => (
-                  <div
-                    key={idx}
-                    className="p-3 rounded-xl bg-navy-surface/60 border border-teal/15 text-xs font-mono text-teal-light flex items-start gap-2"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal shrink-0 mt-1.5" />
-                    <span className="leading-relaxed">{t}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Actions */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-teal/20">
-              <button
-                onClick={() => {
-                  sounds.playClick();
-                  const psCode = selectedPs.code;
-                  handleCloseModal();
-                  onSelectTrackForRegistration(psCode);
-                }}
-                className="flex-1 py-4 rounded-xl font-heading text-xs font-bold tracking-[0.2em] uppercase bg-gold hover:bg-gold-light text-navy shadow-glow-gold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <CheckCircle className="w-4 h-4 shrink-0" />
-                <span>SELECT {selectedPs.code} FOR REGISTRATION</span>
-              </button>
-
+              {/* Close */}
               <button
                 onClick={handleCloseModal}
-                className="px-6 py-4 rounded-xl font-heading text-xs font-semibold tracking-wider uppercase bg-navy-surface border border-teal/30 text-slate-muted hover:text-white hover:border-teal transition-colors"
+                aria-label="Close"
+                className="absolute top-4 right-4 z-20 p-2 rounded-xl bg-navy-surface border border-teal/30 text-slate-muted hover:text-white hover:border-teal transition-colors"
               >
-                CLOSE
+                <X className="w-5 h-5" />
               </button>
+
+              <div className="p-6 sm:p-10">
+                {/* Header */}
+                <div className="pr-12 mb-6">
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    <span className="font-mono text-sm px-3 py-1 rounded-lg bg-gold/20 border border-gold/50 text-gold font-bold tracking-wider">
+                      {selectedPs.code}
+                    </span>
+                    <span className="font-mono text-[11px] text-teal-light bg-navy-surface px-3 py-1 rounded-lg border border-teal/30 font-semibold uppercase">
+                      {selectedPs.category}
+                    </span>
+                  </div>
+                  <h3 className="font-heading font-extrabold text-xl sm:text-2xl lg:text-3xl text-white uppercase tracking-tight leading-tight">
+                    {selectedPs.title}
+                  </h3>
+                </div>
+
+                {/* Philosophy */}
+                <div className="flex gap-3 p-4 rounded-2xl bg-gradient-to-r from-teal/20 via-navy-surface to-gold/10 border border-gold/40 mb-6">
+                  <Sparkles className="w-4 h-4 text-gold shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-heading font-bold text-[10px] text-gold uppercase tracking-[0.2em] mb-1">
+                      HorizonXT Design Philosophy
+                    </p>
+                    <p className="text-sm font-sans italic text-white/90 leading-relaxed">
+                      &ldquo;{selectedPs.horizonPhilosophy}&rdquo;
+                    </p>
+                  </div>
+                </div>
+
+                {/* The Problem */}
+                <div className="mb-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <BookOpen className="w-4 h-4 text-teal shrink-0" />
+                    <span className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-teal">
+                      The Problem
+                    </span>
+                  </div>
+                  <p className="text-sm text-lightgray/90 leading-relaxed font-sans bg-navy-darker/60 p-4 rounded-xl border border-teal/15">
+                    {selectedPs.problem}
+                  </p>
+                </div>
+
+                {/* The Challenge */}
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Target className="w-4 h-4 text-teal shrink-0" />
+                    <span className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-teal">
+                      The Challenge
+                    </span>
+                  </div>
+                  <div className="bg-navy-darker/60 p-4 rounded-xl border border-teal/15">
+                    <p className="text-sm text-lightgray/90 leading-relaxed font-sans">
+                      {selectedPs.challenge}
+                    </p>
+                    {selectedPs.referenceLink && (
+                      <div className="mt-3 pt-3 border-t border-teal/15 flex flex-col gap-1">
+                        <a
+                          href={selectedPs.referenceLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm font-bold text-gold hover:text-teal transition-colors w-fit"
+                        >
+                          <ExternalLink className="w-4 h-4 shrink-0" />
+                          <span>View Reference Material</span>
+                        </a>
+                        {selectedPs.referenceNote && (
+                          <p className="text-xs text-slate-muted italic">* {selectedPs.referenceNote}</p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* 36-Hour Requirements */}
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <CheckCircle className="w-4 h-4 text-gold shrink-0" />
+                    <span className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-gold">
+                      36-Hour Proof-of-Concept Requirements
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {selectedPs.challenge36h.map((req, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-navy-surface/80 border border-teal/20">
+                        <Check className="w-3.5 h-3.5 text-gold shrink-0 mt-0.5" />
+                        <span className="text-xs text-lightgray font-sans leading-snug">{req}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Evaluation Framework */}
+                <div className="mb-6">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Award className="w-4 h-4 text-teal shrink-0" />
+                    <span className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-teal">
+                      Evaluation Framework
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    {selectedPs.evaluationCriteria.map((crit) => (
+                      <div key={crit.name} className="flex flex-col justify-between gap-2 p-3 rounded-xl bg-navy-darker border border-teal/25 min-h-[60px]">
+                        <span className="text-xs text-lightgray font-sans leading-snug">{crit.name}</span>
+                        <span className="font-mono text-base font-extrabold text-gold">{crit.weight}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* How Tested */}
+                <div className="mb-8">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Layers className="w-4 h-4 text-teal shrink-0" />
+                    <span className="font-heading font-bold text-xs uppercase tracking-[0.2em] text-teal">
+                      How It Will Be Tested &amp; Evaluated
+                    </span>
+                  </div>
+                  <div className="space-y-2">
+                    {selectedPs.keyTesting.map((t, idx) => (
+                      <div key={idx} className="flex items-start gap-2.5 p-3 rounded-xl bg-navy-surface/60 border border-teal/15">
+                        <span className="w-1.5 h-1.5 rounded-full bg-teal shrink-0 mt-[5px]" />
+                        <span className="text-xs font-mono text-teal-light leading-relaxed">{t}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Actions */}
+                <div className="flex flex-col sm:flex-row gap-3 pt-4 border-t border-teal/20">
+                  <button
+                    onClick={() => {
+                      sounds.playClick();
+                      handleCloseModal();
+                    }}
+                    className="flex-1 py-3.5 rounded-xl font-heading text-xs font-bold tracking-[0.18em] uppercase bg-gold hover:bg-gold-light text-navy shadow-glow-gold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <CheckCircle className="w-4 h-4 shrink-0" />
+                    <span>View Details</span>
+                  </button>
+                  <button
+                    onClick={handleCloseModal}
+                    className="sm:w-28 py-3.5 rounded-xl font-heading text-xs font-semibold tracking-wider uppercase bg-navy-surface border border-teal/30 text-slate-muted hover:text-white hover:border-teal transition-colors"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -389,4 +386,3 @@ export const ChallengesSection: React.FC<ChallengesSectionProps> = ({
     </section>
   );
 };
-

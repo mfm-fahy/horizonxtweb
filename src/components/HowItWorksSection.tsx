@@ -11,22 +11,18 @@ import {
 } from 'lucide-react';
 import { sounds } from '../utils/sound';
 
-interface HowItWorksProps {
-  onRegisterClick: () => void;
-}
-
-export const HowItWorksSection: React.FC<HowItWorksProps> = ({ onRegisterClick }) => {
+export const HowItWorksSection: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
 
   const steps = [
     {
       step: 'STEP 01',
       title: 'REGISTER & SQUAD ASSEMBLY',
-      subtitle: 'REGISTRATION IS NOW OPEN • Up to 4 Members',
+      subtitle: 'REGISTRATION CLOSED • Up to 4 Members',
       description:
-        'Registration is now live! Form your squad of up to 4 members. Provide college credentials and LinkedIn profile links for every team member. Abstract submission is 100% FREE.',
+        'Registration is now closed. Shortlisted teams will be notified via official confirmation email. Shortlisted team results will be announced soon.',
       icon: UserCheck,
-      details: 'Registration IS NOW OPEN. Maximum 4 members per team. 100% Free abstract submission.',
+      details: 'Registration is CLOSED. Maximum 4 members per team.',
     },
     {
       step: 'STEP 02',
@@ -190,12 +186,10 @@ export const HowItWorksSection: React.FC<HowItWorksProps> = ({ onRegisterClick }
                   <button
                     onClick={() => {
                       sounds.playClick();
-                      onRegisterClick();
                     }}
                     className="px-6 py-2.5 rounded-xl font-heading text-xs font-bold tracking-wider uppercase bg-gold hover:bg-gold-light text-navy shadow-glow-gold transition-colors flex items-center gap-2 cursor-pointer"
                   >
-                    <span>BEGIN REGISTRATION NOW</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>VIEW RESULTS SOON</span>
                   </button>
                 )}
               </div>

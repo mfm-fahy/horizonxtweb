@@ -9,11 +9,11 @@ export const FaqSection: React.FC = () => {
   const faqs = [
     {
       q: 'Is registration free? What is the participation fee?',
-      a: 'Abstract submission is 100% FREE for all teams! For SRMIST / SRM students, participation in the physical event is 100% FREE. For teams from other colleges, each team member pays ₹500 ONLY AFTER their abstract is shortlisted by the technical jury. No upfront payment is required when registering.',
+      a: 'Registration is now closed. Abstract submission was 100% FREE for all teams! For SRMIST / SRM students, participation in the physical event is 100% FREE. For teams from other colleges, each team member pays ₹500 ONLY AFTER their abstract is shortlisted by the technical jury.',
     },
     {
       q: 'How will shortlisted teams be notified?',
-      a: 'All shortlisted teams will receive an official confirmation email containing detailed event instructions, schedule, and payment link (for non-SRM teams).',
+      a: 'Registration is now closed. All shortlisted teams will receive an official confirmation email containing detailed event instructions, schedule, and payment link (for non-SRM teams). Shortlisted team results will be announced soon.',
     },
     {
       q: 'Do teams work on the same problem statement at the hackathon?',

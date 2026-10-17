@@ -278,7 +278,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({
       selectedChallenge: selectedChallenge,
       projectTitle: projectTitle.trim() || 'HorizonXT Abstract Solution',
       abstractUrl: abstractUrl.trim(),
-      registrationStatus: 'ABSTRACT SUBMITTED • SHORTLISTING PENDING',
+      registrationStatus: 'REGISTRATION CLOSED • SHORTLISTED TEAM RESULT WILL BE ANNOUNCED SOON',
       submissionStatus: 'PENDING',
       members: compiledMembers,
       // Leader / team personal details

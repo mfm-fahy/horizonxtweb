@@ -4,14 +4,12 @@ import { ArrowUp } from 'lucide-react';
 import { sounds } from '../utils/sound';
 
 interface FooterProps {
-  onRegisterClick: () => void;
   onRulesClick: () => void;
   onDashboardClick?: () => void;
   hasActiveTeam?: boolean;
 }
 
 export const Footer: React.FC<FooterProps> = ({
-  onRegisterClick,
   onRulesClick,
 }) => {
   const scrollToTop = () => {
@@ -25,7 +23,6 @@ export const Footer: React.FC<FooterProps> = ({
     { label: 'Challenges', href: '#challenges' },
     { label: 'Rules', onClick: onRulesClick },
     { label: 'FAQ', href: '#faq' },
-    { label: 'Register', onClick: onRegisterClick },
   ];
 
   return (
@@ -38,7 +35,7 @@ export const Footer: React.FC<FooterProps> = ({
             <Logo size="lg" showTagline={true} animated={false} />
 
             <p className="text-sm text-slate-muted font-sans leading-relaxed max-w-sm pt-2">
-              HorizonXT is a 36-hour national hackathon. Registration is now open! Submit project abstracts (.docx format via Google Drive) by October 15. Shortlisted squads (up to 4 members) are invited to the physical 36-hour event on October 26–28.
+              HorizonXT is a 36-hour national hackathon. Registration is now closed. Shortlisted teams will be notified via official confirmation email. Shortlisted squads (up to 4 members) are invited to the physical 36-hour event on October 26–28.
             </p>
 
             <div className="font-heading font-semibold text-xs tracking-[0.2em] text-gold uppercase pt-1">
