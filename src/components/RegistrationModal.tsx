@@ -58,7 +58,7 @@ export interface TeamData {
   selectedChallenge: string;
   projectTitle: string;
   abstractUrl: string;
-  registrationStatus: 'ABSTRACT SUBMITTED • SHORTLISTING PENDING' | 'VERIFIED • SHORTLISTED FOR EVENT';
+  registrationStatus: 'ABSTRACT SUBMITTED • SHORTLISTING PENDING' | 'VERIFIED • SHORTLISTED FOR EVENT' | 'REGISTRATION CLOSED • SHORTLISTED TEAM RESULT WILL BE ANNOUNCED SOON';
   submissionStatus: 'PENDING' | 'SUBMITTED';
   submissionDetails?: {
     repoUrl: string;
